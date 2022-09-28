@@ -1,10 +1,7 @@
-from turtle import back
 from .db import db
 
-
-
-class Buisness(db.Model):
-    __tablename___ ='businesses'
+class Business(db.Model):
+    __tablename__ = 'businesstable'
 
     id = db.Column(db.Integer, primary_key=True)
     name =db.Column(db.String(50))
@@ -16,12 +13,12 @@ class Buisness(db.Model):
     state = db.Column(db.String(50), nullable=False)
     zipcode = db.Column(db.String(7), nullable=False)
     country = db.Column(db.String(75), nullable=False)
-    ownerId = db.Column(db.Integer,db.ForeignKey('users.id'), nullable=False)
+    owner_id = db.Column(db.Integer,db.ForeignKey('users.id'), nullable=False)
 
 
     #relationships
-    reviews = db.relationship('Review', back_populates='business', cascade='all, delete-orphan')
-    owners = db. relationship('User', back_populates='owners_business')
+    owners = db.relationship('User', back_populates='owners_business')
+    review = db.relationship('Review', back_populates='business', cascade='all, delete-orphan')
 
     def to_dict(self):
         return {
@@ -35,5 +32,5 @@ class Buisness(db.Model):
             "state":self.state,
             'zipcode': self.zipcode,
             'country': self.country,
-            "ownerId": self.ownerId
+            "ownerId": self.owner_id
         }

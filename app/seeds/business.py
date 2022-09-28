@@ -1,9 +1,8 @@
-import imp
-from app.models import db, Buisness
+from ..models import db, Business
 
 
 def seed_businesses():
-    business1 = Buisness(
+    business1 = Business(
         owner_id=1,
         name= "Bottega Louie",
         email='bottega.louie@gmail.com',
@@ -15,7 +14,7 @@ def seed_businesses():
         zipcode = "90017",
         country = "United States",
     )
-    business2= Buisness(
+    business2= Business(
         owner_id=2,
         name= "Hopdoddy Burger Bar",
         email= "HopdoddyBurger@gmail.com",
@@ -27,7 +26,7 @@ def seed_businesses():
         zipcode ='90094',
         country = "United States",
     )
-    business3= Buisness(
+    business3= Business(
         owner_id=3,
         name= "Wurstküche",
         email= "Wurstküche@gmail.com",
@@ -39,7 +38,7 @@ def seed_businesses():
         zipcode = "90013",
         country = "United States",
     )
-    business4= Buisness(
+    business4= Business(
         owner_id=1,
         name= "Slurpin' Ramen Bar ",
         email= "SlurpinRamenBar@gmail.com ",
@@ -51,7 +50,7 @@ def seed_businesses():
         zipcode = "90005",
         country = "United States",
     )
-    business5= Buisness(
+    business5= Business(
         owner_id=2,
         name= "Prince of Venice Restaurant",
         email= "PrinceofVenice@gmail.com",

@@ -1,4 +1,4 @@
 from .db import db
 from .user import User
-from .buisnesses import Buisness
+from .business import Business
 from .reviews import Review

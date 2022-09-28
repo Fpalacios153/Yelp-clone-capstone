@@ -9,11 +9,11 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
-    # phone = db.Column(db.String(10))
     profile_pic =db.Column(db.String)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     username = db.Column(db.String(40), nullable=False, unique=True)
+    # phone = db.Column(db.String(10))
 
     #relationship
     owners_business =db.relationship('Business', back_populates='owners')
