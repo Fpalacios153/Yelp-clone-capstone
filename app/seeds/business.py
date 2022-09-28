@@ -1,3 +1,4 @@
+from email.mime import image
 from ..models import db, Business
 
 
@@ -13,6 +14,7 @@ def seed_businesses():
         state = 'CA',
         zipcode = "90017",
         country = "United States",
+        image = ''
     )
     business2= Business(
         owner_id=2,
@@ -25,6 +27,8 @@ def seed_businesses():
         state = "CA",
         zipcode ='90094',
         country = "United States",
+        image = ''
+
     )
     business3= Business(
         owner_id=3,
@@ -37,6 +41,7 @@ def seed_businesses():
         state = "CA",
         zipcode = "90013",
         country = "United States",
+        image = ''
     )
     business4= Business(
         owner_id=1,
@@ -49,6 +54,8 @@ def seed_businesses():
         state = "CA",
         zipcode = "90005",
         country = "United States",
+        image = ''
+
     )
     business5= Business(
         owner_id=2,
@@ -61,6 +68,8 @@ def seed_businesses():
         state = "CA" ,
         zipcode ='90024',
         country = "United States",
+        image = ''
+
     )
 
     db.session.add(business1)
