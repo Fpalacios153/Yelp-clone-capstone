@@ -18,6 +18,7 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 # hello
+# apples
 @auth_routes.route('/')
 def authenticate():
     """
