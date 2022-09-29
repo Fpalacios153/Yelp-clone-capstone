@@ -22,7 +22,7 @@ export default function CreateNewBusiness() {
     const [errors, setErrors] = useState([])
 
     const currentUser = useSelector(state => state.session.user)
-    console.log(currentUser)
+    // console.log(currentUser)
 
 
     const handleSubmit = async (e) => {
@@ -43,7 +43,8 @@ export default function CreateNewBusiness() {
         }
         let data = await dispatch(createABusiness(newBusiness));
 
-        if (data) {
+        console.log(data)
+        if (Array.isArray(data)) {
             setErrors(data)
         } else {
             await history.push(`/businesses/${data.id}`)
