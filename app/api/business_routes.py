@@ -1,7 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models import db, Business
-# from app.models.reviews import Review
 from app.forms.business_form import BusinessForm
 from app.api.auth_routes import validation_errors_to_error_messages
 
@@ -14,6 +13,7 @@ def get_all_businesses():
     all_businesses = [business.to_dict() for business in Business.query.all()]
     # all_businesses = {business.id :business.to_dict() for business in Business.query.all()}
     return {"business": all_businesses}
+
 # GET DETAILS OF A BUSINESS
 @business_routes.route("/<int:id>")
 def get_details_of_one_business(id):
@@ -33,16 +33,17 @@ def get_details_of_one_business(id):
 @business_routes.route('', methods=['POST'])
 def create_a_business():
     form = BusinessForm()
-    # user_id=current_user.id
-    # print('----------------', current_user, user_id)
+
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+
         new_business = Business()
+
         form.populate_obj(new_business)
-        # new_business.ownerId = current_user.id
 
         db.session.add(new_business)
         db.session.commit()
+
         return new_business.to_dict()
 
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
@@ -91,3 +92,5 @@ def delete_a_business(id):
             "message": "Successfully deleted",
              "statusCode": 200
         }
+
+# Current Users Businesses
