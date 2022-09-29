@@ -24,10 +24,12 @@ def get_details_of_one_business(id):
             "message": "Business not found"
         }
     review = [review.to_dict() for review in one_business.review]
-    return {
-        "business" :one_business.to_dict(),
-        "reviews": review
-        }
+    return one_business.to_dict()
+        # "reviews": review
+        #  return {
+        # "business" :one_business.to_dict(),
+        # "reviews": review
+        # }
 
 #CREATE A BUSINESS
 @business_routes.route('', methods=['POST'])
