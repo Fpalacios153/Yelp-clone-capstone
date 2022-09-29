@@ -9,6 +9,8 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import Businesses from './components/Business/ViewAllBusinesses';
+import BusinessDetails from './components/Business/BusinessDetails';
+import CreateNewBusiness from './components/Business/CreateBusiness';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -46,6 +48,10 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/businesses' exact={true} >
           <Businesses />
+          <CreateNewBusiness />
+        </ProtectedRoute>
+        <ProtectedRoute path='/businesses/:businessId' exact={true} >
+          <BusinessDetails />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
