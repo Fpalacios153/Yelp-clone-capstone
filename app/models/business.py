@@ -14,7 +14,7 @@ class Business(db.Model):
     zipcode = db.Column(db.String(7), nullable=False)
     country = db.Column(db.String(75), nullable=False)
     image = db.Column(db.String(), nullable=False)
-    owner_id = db.Column(db.Integer,db.ForeignKey('users.id'), nullable=False)
+    ownerId = db.Column(db.Integer,db.ForeignKey('users.id'), nullable=False)
 
 
     #relationships
@@ -34,5 +34,5 @@ class Business(db.Model):
             'zipcode': self.zipcode,
             'country': self.country,
             'image': self.image,
-            "ownerId": self.owner_id
+            "ownerId": self.ownerId
         }

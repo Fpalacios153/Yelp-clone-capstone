@@ -4,7 +4,7 @@ from ..models import db, Business
 
 def seed_businesses():
     business1 = Business(
-        owner_id=1,
+        ownerId=1,
         name= "Bottega Louie",
         email='bottega.louie@gmail.com',
         phone='1231231234',
@@ -17,7 +17,7 @@ def seed_businesses():
         image = ''
     )
     business2= Business(
-        owner_id=2,
+        ownerId=2,
         name= "Hopdoddy Burger Bar",
         email= "HopdoddyBurger@gmail.com",
         phone='1231231235',
@@ -31,7 +31,7 @@ def seed_businesses():
 
     )
     business3= Business(
-        owner_id=3,
+        ownerId=3,
         name= "Wurstküche",
         email= "Wurstküche@gmail.com",
         phone='1231231236',
@@ -44,7 +44,7 @@ def seed_businesses():
         image = ''
     )
     business4= Business(
-        owner_id=1,
+        ownerId=1,
         name= "Slurpin' Ramen Bar ",
         email= "SlurpinRamenBar@gmail.com ",
         phone='1231231237',
@@ -58,7 +58,7 @@ def seed_businesses():
 
     )
     business5= Business(
-        owner_id=2,
+        ownerId=2,
         name= "Prince of Venice Restaurant",
         email= "PrinceofVenice@gmail.com",
         phone='1231231238',
