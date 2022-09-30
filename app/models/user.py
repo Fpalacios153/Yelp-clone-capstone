@@ -7,9 +7,9 @@ class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(50), nullable=False)
-    last_name = db.Column(db.String(50), nullable=False)
-    profile_pic =db.Column(db.String)
+    firstName = db.Column(db.String(50), nullable=False)
+    lastName = db.Column(db.String(50), nullable=False)
+    profilePic =db.Column(db.String)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     username = db.Column(db.String(40), nullable=False, unique=True)
@@ -36,8 +36,8 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            "first_name": self.first_name,
-            "last_name" : self.last_name,
+            "firstName": self.firstName,
+            "lastName" : self.lastName,
             # "phone": self.phone,
-            "profile_pic": self.profile_pic
+            "profilePic": self.profilePic
         }
