@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom"
-import { createABusiness, updateABusiness } from "../../store/business";
+import { useHistory } from "react-router-dom"
+import { updateABusiness } from "../../store/business";
 
 export default function UpdateBusiness() {
     const dispatch = useDispatch()
@@ -22,9 +22,8 @@ export default function UpdateBusiness() {
 
     const [hasSubmitted, setHasSubmitted] = useState(false)
     const [errors, setErrors] = useState([])
-    const { businessId } = useParams()
 
-    const currentUser = useSelector(state => state.session.user)
+    // const currentUser = useSelector(state => state.session.user)
     // console.log(currentUser)
 
 
