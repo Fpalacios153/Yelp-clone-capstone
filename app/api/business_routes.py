@@ -1,8 +1,11 @@
+from crypt import methods
 from flask import Blueprint, request
 from flask_login import login_required, current_user
+from app.forms.review_form import ReviewForm
 from app.models import db, Business
 from app.forms.business_form import BusinessForm
 from app.api.auth_routes import validation_errors_to_error_messages
+from app.models.reviews import Review
 
 
 business_routes = Blueprint('business',__name__)
@@ -96,3 +99,26 @@ def delete_a_business(id):
         }
 
 # Current Users Businesses
+# Create a review
+@business_routes.route('/<int:id>/review', methods=["POST"])
+def create_review(id):
+    form = ReviewForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        # new_review = Review()
+        # form.populate_obj(new_review)
+        data = form.data
+        new_review = Review(
+            review= data['review'],
+            rating = data['rating'],
+            userId= data["userId"],
+            businessId= id
+        )
+
+        db.session.add(new_review)
+        db.session.commit()
+
+        return new_review.to_dict()
+
+    return {"errors": validation_errors_to_error_messages(form.errors)}, 401
