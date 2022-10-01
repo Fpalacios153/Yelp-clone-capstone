@@ -2,7 +2,8 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router-dom"
 import { deleteAReview, getAllReviews } from "../../store/review"
-import UpdateReview from "./EditReview"
+import UpdateReviewModal from "../Reviews/EditReviewModal"
+// import UpdateReview from "./EditReview"
 
 export default function ReviewDetails() {
     const dispatch = useDispatch()
@@ -32,7 +33,7 @@ export default function ReviewDetails() {
                 <div>Business: {review.businessId}</div>
             </div>
             <div>
-                <UpdateReview />
+                <UpdateReviewModal />
                 <button onClick={() => toDelete(review.id)}>DELETE</button>
             </div>
         </>

@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { deleteABusiness, getOneBusiness } from "../../store/business";
-import CreateReview from "../Reviews/CreateReview";
+import CreateReviewModal from "../Reviews/CreateReviewModal";
+// import CreateReview from "../Reviews/CreateReview";
 import ReviewsForOneBus from "../Reviews/ReviewsForBus";
-import UpdateBusiness from "./EditBusiness";
+import UpdateBusinessModal from "./EditBusinessModal";
 
 export default function BusinessDetails() {
     const dispatch = useDispatch()
@@ -36,13 +37,13 @@ export default function BusinessDetails() {
                 <div>Phone: {business.phone}</div>
                 <div>Email: {business.email}</div>
                 <div>About Business: {business.description}</div>
+                <CreateReviewModal />
+                <UpdateBusinessModal />
                 <button onClick={toDelete}>Delete Business</button>
             </div>
             <div>
                 <ReviewsForOneBus />
-                <CreateReview />
             </div>
-            <UpdateBusiness />
         </>
     ) : null
 }

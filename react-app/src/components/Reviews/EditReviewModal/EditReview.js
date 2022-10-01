@@ -1,18 +1,23 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router-dom"
-import { createAReview } from "../../store/review"
+import { updateAReview } from "../../../store/review"
 
-export default function CreateReview() {
+export default function UpdateReview({ setShowModal }) {
     const dispatch = useDispatch()
     const history = useHistory()
-    const { businessId } = useParams()
+    const { reviewId } = useParams()
 
-    const [review, setReview] = useState('')
-    const [rating, setRating] = useState('')
-    const [userId, setUserID] = useState('')
-    // const [businessId, setBusinessID] = useState('')
+    const reviews = useSelector(state => state.reviews)
+    const reviewToBe = reviews[reviewId]
+
+    const [review, setReview] = useState(reviewToBe.review)
+    const [rating, setRating] = useState(reviewToBe.rating)
+    const [userId, setUserID] = useState(reviewToBe.userId)
+    const [businessId, setBusinessID] = useState(reviewToBe.businessId)
+
     const currentUser = useSelector(state => state.session.user)
+
 
     const [hasSubmitted, setHasSubmitted] = useState(false)
     const [errors, setErrors] = useState([])
@@ -23,17 +28,19 @@ export default function CreateReview() {
     const onSubmit = async (e) => {
         e.preventDefault()
 
-        const newReview = {
+        const updateReview = {
             review,
             rating,
-            userId: currentUser.id
+            userId,
+            businessId
         }
-        let data = await dispatch(createAReview(businessId, newReview));
+        let data = await dispatch(updateAReview(updateReview, reviewId));
 
-        console.log(data)
+        // console.log(data)
         if (Array.isArray(data)) {
             setErrors(data)
         } else {
+            await setShowModal(false)
             // await history.push(`/businesses/${data.id}`)
             //probably just add close modal
         }
@@ -42,7 +49,7 @@ export default function CreateReview() {
 
     return (
         <>
-            <div> Write Review
+            <div> Edit Review
                 <div>
                     {errors.length > 0 && (
                         <div>
@@ -82,7 +89,7 @@ export default function CreateReview() {
                             onChange={(e) => setRating(e.target.value)}
                         />
                     </label> */}
-                    <button type="submit">Add review</button>
+                    <button type="submit">Update review</button>
                 </form>
             </div>
         </>

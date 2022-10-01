@@ -1,23 +1,18 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router-dom"
-import { createAReview, updateAReview } from "../../store/review"
+import { createAReview } from "../../../store/review"
 
-export default function UpdateReview() {
+export default function CreateReview({ setShowModal }) {
     const dispatch = useDispatch()
     const history = useHistory()
-    const { reviewId } = useParams()
+    const { businessId } = useParams()
 
-    const reviews = useSelector(state => state.reviews)
-    const reviewToBe = reviews[reviewId]
-
-    const [review, setReview] = useState(reviewToBe.review)
-    const [rating, setRating] = useState(reviewToBe.rating)
-    const [userId, setUserID] = useState(reviewToBe.userId)
-    const [businessId, setBusinessID] = useState(reviewToBe.businessId)
-
+    const [review, setReview] = useState('')
+    const [rating, setRating] = useState('')
+    const [userId, setUserID] = useState('')
+    // const [businessId, setBusinessID] = useState('')
     const currentUser = useSelector(state => state.session.user)
-
 
     const [hasSubmitted, setHasSubmitted] = useState(false)
     const [errors, setErrors] = useState([])
@@ -28,13 +23,12 @@ export default function UpdateReview() {
     const onSubmit = async (e) => {
         e.preventDefault()
 
-        const updateReview = {
+        const newReview = {
             review,
             rating,
-            userId,
-            businessId
+            userId: currentUser.id
         }
-        let data = await dispatch(updateAReview(updateReview, reviewId));
+        let data = await dispatch(createAReview(businessId, newReview));
 
         console.log(data)
         if (Array.isArray(data)) {
@@ -42,13 +36,14 @@ export default function UpdateReview() {
         } else {
             // await history.push(`/businesses/${data.id}`)
             //probably just add close modal
+            await setShowModal(false)
         }
 
     }
 
     return (
         <>
-            <div> Edit Review
+            <div> Write Review
                 <div>
                     {errors.length > 0 && (
                         <div>
@@ -63,7 +58,7 @@ export default function UpdateReview() {
                         <label>
                             Rating:
                             <select name="rating" value={rating} onChange={(e) => setRating(e.target.value)}>
-                                <option disabled value={0}>Select Rating </option>
+                                <option hidden  >Select Rating </option>
                                 {ratings.map(rating => (
                                     <option key={rating} value={rating}>{rating}</option>
                                 ))}
@@ -88,7 +83,7 @@ export default function UpdateReview() {
                             onChange={(e) => setRating(e.target.value)}
                         />
                     </label> */}
-                    <button type="submit">Update review</button>
+                    <button type="submit">Add review</button>
                 </form>
             </div>
         </>

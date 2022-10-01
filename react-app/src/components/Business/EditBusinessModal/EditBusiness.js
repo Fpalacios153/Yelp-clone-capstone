@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom"
-import { updateABusiness } from "../../store/business";
+import { updateABusiness } from "../../../store/business";
 
 export default function UpdateBusiness() {
     const dispatch = useDispatch()
