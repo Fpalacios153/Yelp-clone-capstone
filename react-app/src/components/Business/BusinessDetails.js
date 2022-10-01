@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { deleteABusiness, getOneBusiness } from "../../store/business";
+import CreateReview from "../Reviews/CreateReview";
+import ReviewsForOneBus from "../Reviews/ReviewsForBus";
 import UpdateBusiness from "./EditBusiness";
 
 export default function BusinessDetails() {
@@ -11,16 +13,19 @@ export default function BusinessDetails() {
     const { businessId } = useParams()
 
 
-    const business = useSelector(state => state.businesses)
+    const businesses = useSelector(state => state.businesses)
+    const business = businesses[businessId]
     // console.log(business)
 
     useEffect(() => {
         dispatch(getOneBusiness(businessId)).then(() => setIsLoaded(true))
     }, [dispatch, businessId])
+
+
     const toDelete = async (e) => {
         e.preventDefault()
-        await dispatch(deleteABusiness(businessId))
-        await history.push('/')
+        dispatch(deleteABusiness(businessId))
+        history.push('/businesses')
     }
     return isLoaded ? (
         <>
@@ -32,6 +37,10 @@ export default function BusinessDetails() {
                 <div>Email: {business.email}</div>
                 <div>About Business: {business.description}</div>
                 <button onClick={toDelete}>Delete Business</button>
+            </div>
+            <div>
+                <ReviewsForOneBus />
+                <CreateReview />
             </div>
             <UpdateBusiness />
         </>

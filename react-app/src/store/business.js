@@ -110,19 +110,21 @@ export default function businessReducer(state = initialState, action) {
             })
             return { ...allBusinesses }
         case ONE_BUSINESS:
-            // newState = { ...state }
-            // newState[action.business.id] = action.business
-            // return newState
-            newState = { ...state }
-            newState = { ...action.business }
-            return newState
+            let oneBusiness = { ...state }
+            oneBusiness[action.business.id] = action.business
+            return oneBusiness
+        // newState = { ...state }
+        // newState = { ...action.business }
+        // return newState
         case CREATE_BUSINESS:
             newState = { ...state }
             newState[action.business.id] = action.business
             return newState
         case UPDATE_BUSINESS:
             newState = { ...state }
-            newState = { ...action.business }
+            newState[action.business.id] = action.business
+            // newState = { ...state }
+            // newState = { ...action.business }
             return newState
         case DELETE_BUSINESS:
             newState = { ...state }

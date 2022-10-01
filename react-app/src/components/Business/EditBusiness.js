@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom"
+import { useHistory, useParams } from "react-router-dom"
 import { updateABusiness } from "../../store/business";
 
 export default function UpdateBusiness() {
     const dispatch = useDispatch()
     const history = useHistory()
+    const { businessId } = useParams()
 
-    const business = useSelector(state => state.businesses)
+    const business = useSelector(state => state.businesses[businessId])
+
 
     const [name, setName] = useState(business.name)
     const [email, setEmail] = useState(business.email)
