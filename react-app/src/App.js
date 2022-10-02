@@ -35,7 +35,7 @@ function App() {
     if (currentUser) {
       return (
         <>
-          <Redirect to='/businesses' />
+          {/* <Redirect to='/businesses' /> */}
           < MainPage />
         </>
       )

@@ -11,6 +11,7 @@ from app.models.reviews import Review
 business_routes = Blueprint('business',__name__)
 
 # Get ALL BUSINESS
+@login_required
 @business_routes.route('')
 def get_all_businesses():
     all_businesses = [business.to_dict() for business in Business.query.all()]
@@ -89,7 +90,7 @@ def delete_a_business(id):
         return {
             "message":"Business couldn't be found",
             "statusCode":404
-            }
+            },404
 
     db.session.delete(business_needed)
     db.session.commit()
@@ -100,6 +101,7 @@ def delete_a_business(id):
 
 # Current Users Businesses
 # Create a review
+@login_required
 @business_routes.route('/<int:id>/review', methods=["POST"])
 def create_review(id):
     form = ReviewForm()

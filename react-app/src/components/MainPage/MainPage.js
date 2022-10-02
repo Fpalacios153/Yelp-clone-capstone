@@ -1,11 +1,13 @@
 import { Route, Switch } from "react-router-dom";
-// import LogoutButton from "../auth/LogoutButton";
 import BusinessDetails from "../Business/BusinessDetails";
-import CreateNewBusiness from "../Business/CreateBusiness";
+import CreateBuisnessModal from '../Business/CreateBuisnessModal'
 import Businesses from "../Business/ViewAllBusinesses";
 import NavBar from "../NavBar";
 import UsersList from "../UsersList";
 import User from "../User";
+import AllReviews from "../Reviews/AllReviews";
+import ReviewDetails from "../Reviews/ReviewDetails";
+import CreateReview from "../Reviews/CreateReviewModal/CreateReview";
 
 export default function MainPage() {
 
@@ -18,6 +20,7 @@ export default function MainPage() {
                     <div>
                         <NavBar />
                         {/* <LogoutButton /> */}
+                        <CreateBuisnessModal />
                     </div>
                 </div>
                 <div>
@@ -25,18 +28,24 @@ export default function MainPage() {
                 </div>
                 <div>
                     <Switch>
-                        <Route exact path='/businesses/:businessId' >
-                            <BusinessDetails />
-                        </Route>
                         <Route exact path='/businesses' >
                             <Businesses />
-                            <CreateNewBusiness />
+                            {/* <AllReviews /> */}
+                        </Route>
+                        <Route exact path='/businesses/:businessId' >
+                            <BusinessDetails />
                         </Route>
                         <Route path='/users' exact={true} >
                             <UsersList />
                         </Route>
                         <Route path='/users/:userId' exact={true} >
                             <User />
+                        </Route>
+                        <Route path='/reviews/:reviewId'>
+                            <ReviewDetails />
+                        </Route>
+                        <Route path='/businesses/:businessId/review'>
+                            <CreateReview />
                         </Route>
                     </Switch>
                 </div>
