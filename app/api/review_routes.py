@@ -62,27 +62,13 @@ def delete_review(id):
         return{
             "message":"Review couldn't be found",
             "statusCode":404
-        }
+        },404
     db.session.delete(review_to_delete)
     db.session.commit()
     return {
         "message": "Successfully deleted",
         "statusCode": 200
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

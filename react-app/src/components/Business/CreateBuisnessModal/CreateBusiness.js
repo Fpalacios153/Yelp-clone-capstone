@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom"
-import { createABusiness } from "../../store/business";
+import { createABusiness } from "../../../store/business";
 
-export default function CreateNewBusiness() {
+export default function CreateNewBusiness({ setShowModal }) {
     const dispatch = useDispatch()
     const history = useHistory()
 
@@ -179,6 +179,7 @@ export default function CreateNewBusiness() {
                     </label>
                     <div>
                         <button type="submit">Create Buisness</button>
+                        <button onClick={() => setShowModal(false)}> Cancel</button>
                     </div>
                 </form>
             </div>
