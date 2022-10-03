@@ -1,0 +1,98 @@
+.login-form-container {
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+    /* background-color: aqua; */
+    padding-top: 8em;
+    height: 40em;
+    width: 22em;
+}
+
+.login-top-bar {
+    width: 100%;
+    background-color: #d32323;
+    height: 4.2em;
+}
+
+.top-bar-logo {
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+    padding-top: 10px;
+}
+
+.entire-form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.sign-up-login-form {
+    text-decoration: none;
+    color: #0073bb;
+    padding-left: 3px;
+}
+
+.word-top-of-login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px;
+    width: 20em;
+}
+
+.small-text {
+    font-size: 12px;
+    text-align: center;
+    margin: 4px;
+    padding-bottom: 25px;
+}
+
+.login-form-input {
+    width: 22em;
+    height: 2em;
+    /* border-radius: 5px; */
+    margin: 5px;
+    /* border: #d32323; */
+}
+
+.login-form-buttom {
+    width: 19em;
+    height: 2.7em;
+    margin: 5px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #d32323;
+    border: none;
+    border-radius: 5px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.login-form-buttom:hover {
+    background-color: #d32323c1;
+}
+
+
+.error-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    color: #d32323;
+    /* padding: 5px; */
+}
+
+.bottom-switch-page {
+    margin: 7px;
+    font-size: 12px;
+    display: flex;
+    justify-content: flex-end;
+    /* align-items: flex-end; */
+    color: #999999;
+}

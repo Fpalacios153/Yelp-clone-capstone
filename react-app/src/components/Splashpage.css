@@ -1,0 +1,101 @@
+.splash-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-image: url('https://images.pexels.com/photos/1126728/pexels-photo-1126728.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    /* background-size: 100% 40em; */
+    background-size: cover;
+    height: 40em;
+}
+
+.splash-image {
+    width: 100%;
+    height: 30em;
+    z-index: 1;
+}
+
+.right-nav-container {
+    width: 35%;
+    height: 4em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    font-size: 35px;
+    color: whitesmoke;
+    align-items: flex-start;
+    padding-left: 1.5em;
+    padding-top: .9em;
+}
+
+.title-splash {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.left-nav-container {
+    width: 50%;
+    height: 4em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.login-button {
+    color: whitesmoke;
+    padding: 8px 16px 8px 16px;
+    text-decoration: none;
+    border: 2px rgba(200, 201, 202, 1) solid;
+    border-radius: 5px;
+    font-weight: 500;
+
+}
+
+.login-button:hover {
+    background-color: rgba(254, 253, 252, 0.288);
+}
+
+.sign-up-button {
+    color: whitesmoke;
+    padding: 8px 16px 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: rgba(224, 7, 7, 1);
+    border: 2px rgba(224, 7, 7, 1) solid;
+    font-weight: 500;
+}
+
+.sign-up-button:hover {
+    background-color: rgb(250, 2, 2);
+}
+
+.button-container {
+    display: flex;
+    padding-right: 3em;
+    padding-top: 1.7em;
+}
+
+.ls-button-style {
+
+    padding-left: 10px;
+}
+
+.middle-container {
+    width: 100%;
+    height: 10em;
+
+}
+
+.bottom-container {
+    width: 100%;
+    height: 20em;
+    background-color: #ebebeb;
+}

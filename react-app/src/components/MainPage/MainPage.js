@@ -1,31 +1,46 @@
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, NavLink } from "react-router-dom";
 import BusinessDetails from "../Business/BusinessDetails";
 import CreateBuisnessModal from '../Business/CreateBuisnessModal'
 import Businesses from "../Business/ViewAllBusinesses";
 import NavBar from "../NavBar";
 import UsersList from "../UsersList";
 import User from "../User";
-import AllReviews from "../Reviews/AllReviews";
 import ReviewDetails from "../Reviews/ReviewDetails";
 import CreateReview from "../Reviews/CreateReviewModal/CreateReview";
+import './MainPage.css'
+import LogoutButton from "../auth/LogoutButton";
+import { useSelector } from "react-redux";
 
 export default function MainPage() {
+    const currentUser = useSelector(state => state.session.user)
+    console.log(currentUser)
 
     return (
         <>
             <div>
-                <div style={{ display: "flex", justifyContent: "space-between", height: "5em" }}>
-                    <div> future NavBar</div>
-                    <div>THIS IS THE LANDING PAGE</div>
-                    <div>
-                        <NavBar />
-                        {/* <LogoutButton /> */}
-                        <CreateBuisnessModal />
+                <div className="mainpage-navbar">
+                    <div className="left-main-nav-container">
+                        <div className="logo-container">
+                            <NavLink className="title-main-page" to='/businesses'>Help!</NavLink>
+                            <NavLink to='/businesses'>
+                                <img className="burger-splash" src="/static/images/logos/icons8-hamburger-48.png"></img>
+                            </NavLink>
+                        </div>
+                    </div>
+                    <div className="right-main-nav-container">
+                        <div>
+                            <CreateBuisnessModal />
+                        </div>
+                        <div>
+                            <img className='profilePic' src={currentUser.profilePic}></img>
+                            <LogoutButton />
+                        </div>
                     </div>
                 </div>
-                <div>
-                    {/* <NavLink to='/businesses'> See all Business</NavLink> */}
-                </div>
+                {/* <div>
+                    <NavBar />
+                    <NavLink to='/businesses'> See all Business</NavLink>
+                </div> */}
                 <div>
                     <Switch>
                         <Route exact path='/businesses' >
