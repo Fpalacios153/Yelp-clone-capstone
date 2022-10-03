@@ -5,6 +5,7 @@ function Splashpage() {
     return (
         <div className="splash-container">
             <div className="navbar-container">
+                {/* <img className='splash-image' src="/static/images/restpic/pexels-lisa-fotios-1126728.jpg"></img> */}
                 <div className="right-nav-container">
                     <div className="logo-container">
                         <NavLink className="title-splash" to='/'>Help!</NavLink>
