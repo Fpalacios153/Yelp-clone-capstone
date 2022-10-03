@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom"
 import { updateABusiness } from "../../../store/business";
 
-export default function UpdateBusiness() {
+export default function UpdateBusiness({ setShowModal }) {
     const dispatch = useDispatch()
     const history = useHistory()
     const { businessId } = useParams()
@@ -52,6 +52,8 @@ export default function UpdateBusiness() {
             setErrors(data)
         } else {
             await history.push(`/businesses/${data.id}`)
+            await setShowModal(false)
+
         }
 
     }

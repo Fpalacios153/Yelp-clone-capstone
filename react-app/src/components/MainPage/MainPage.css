@@ -1,0 +1,40 @@
+.mainpage-navbar {
+    display: flex;
+    justify-content: space-between;
+    height: 8em;
+    border-bottom: 2px solid gray;
+}
+
+.left-main-nav-container {
+    width: 20%;
+    height: 4em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.right-main-nav-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    font-size: 35px;
+    color: whitesmoke;
+    align-items: flex-start;
+    padding-left: 1.5em;
+    padding-top: .9em;
+}
+
+.title-main-page {
+    text-decoration: none;
+    color: black;
+}
+
+.profilePic {
+    width: 2em;
+    height: 2em;
+    background-color: aqua;
+    border-radius: 50%;
+}
