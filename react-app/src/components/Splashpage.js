@@ -9,7 +9,9 @@ function Splashpage() {
                 <div className="right-nav-container">
                     <div className="logo-container">
                         <NavLink className="title-splash" to='/'>Help!</NavLink>
-                        <img className="burger-splash" src="/static/images/logos/icons8-hamburger-48.png"></img>
+                        <NavLink to='/'>
+                            <img className="burger-splash" src="/static/images/logos/icons8-hamburger-48.png"></img>
+                        </NavLink>
                     </div>
                 </div>
                 <div className="left-nav-container">
@@ -22,10 +24,10 @@ function Splashpage() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
             <div className="middle-container">Middle Part</div>
             <div className="bottom-container">BottomPart</div>
-        </div>
+        </div >
     )
 }
 export default Splashpage

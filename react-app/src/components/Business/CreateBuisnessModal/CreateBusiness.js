@@ -48,6 +48,7 @@ export default function CreateNewBusiness({ setShowModal }) {
             setErrors(data)
         } else {
             await history.push(`/businesses/${data.id}`)
+            await setShowModal(false)
         }
 
     }
