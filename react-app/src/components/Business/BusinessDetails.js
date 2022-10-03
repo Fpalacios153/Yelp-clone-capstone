@@ -6,6 +6,7 @@ import CreateReviewModal from "../Reviews/CreateReviewModal";
 // import CreateReview from "../Reviews/CreateReview";
 import ReviewsForOneBus from "../Reviews/ReviewsForBus";
 import UpdateBusinessModal from "./EditBusinessModal";
+import './BusinessDetails.css'
 
 export default function BusinessDetails() {
     const dispatch = useDispatch()
@@ -32,6 +33,7 @@ export default function BusinessDetails() {
         <>
             <div>
                 Business details:
+                <img className='business-detail-image' src={business.image}></img>
                 <div>{business.name}</div>
                 <div>{business.address} {business.city} {business.state} {business.zipcode}</div>
                 <div>Phone: {business.phone}</div>
