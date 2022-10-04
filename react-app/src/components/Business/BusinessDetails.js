@@ -69,16 +69,14 @@ export default function BusinessDetails() {
                 <div className="business-detail-info-container">
                     <div className="business-detail-left-side">
                         <div className="business-detail-title">Location</div>
-                        <div className="business-detail-info-bottom">{business.address} {business.city} {business.state} {business.zipcode}</div>
+                        <div className="business-detail-info-bottom">{business.address} {business.city} {business.state} {business.zipcode} {business.country}</div>
                         <div className="business-detail-title">About Business</div>
                         <div className="business-detail-info-bottom">{business.description}</div>
                     </div>
                     <div className="business-detail-right-side">
-
                         <div className="business-detail-title">Contact Business</div>
                         <div className="business-detail-info-bottom">Phone {business.phone}</div>
                         <div className="business-detail-info-bottom">Email {business.email}</div>
-
                     </div>
                 </div>
                 <div>

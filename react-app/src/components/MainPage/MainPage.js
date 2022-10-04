@@ -21,7 +21,7 @@ export default function MainPage() {
             <div>
                 <div className="mainpage-navbar">
                     <div className="left-main-nav-container">
-                        <div className="logo-container">
+                        <div className="main-logo-container">
                             <NavLink className="title-main-page" to='/businesses'>Help!</NavLink>
                             <NavLink to='/businesses'>
                                 <img className="burger-splash" src="/static/images/logos/icons8-hamburger-48.png"></img>

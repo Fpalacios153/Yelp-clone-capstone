@@ -98,7 +98,7 @@ def update_a_business(id):
         business_update.phone = data["phone"]
         business_update.description = data["description"]
         business_update.address = data["address"]
-        business_update.nacityme = data["city"]
+        business_update.city = data["city"]
         business_update.state = data["state"]
         business_update.zipcode = data["zipcode"]
         business_update.image = data["image"]

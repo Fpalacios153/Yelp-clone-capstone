@@ -1,7 +1,7 @@
 .mainpage-navbar {
     display: flex;
     justify-content: space-between;
-    height: 8em;
+    height: 6em;
     border-bottom: 2px solid gray;
     width: 100%;
 }
@@ -19,16 +19,17 @@
     align-items: center;
 }
 
-.logo-container {
+.main-logo-container {
     display: flex;
     font-size: 35px;
     color: whitesmoke;
     align-items: flex-start;
     padding-left: 1.5em;
-    padding-top: .9em;
+    padding-top: 1.2em;
 }
 
 .title-main-page {
     text-decoration: none;
-    color: black;
+    color: #2d2e2f;
+    font-weight: 700;
 }
