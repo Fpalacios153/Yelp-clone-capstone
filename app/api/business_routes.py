@@ -86,7 +86,7 @@ def create_a_business():
 def update_a_business(id):
     business_update = Business.query.get(id)
     if business_update is None:
-        return {"message":"Business couldn't be found", "statusCode":404}
+        return {"message":"Business couldn't be found", "statusCode":404},404
 
     form = BusinessForm()
     form['csrf_token'].data = request.cookies['csrf_token']
