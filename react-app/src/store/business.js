@@ -17,7 +17,7 @@ const createBusiness = (business) => ({
     type: CREATE_BUSINESS,
     business
 })
-const updateBuiness = (business) => ({
+const updateBusiness = (business) => ({
     type: UPDATE_BUSINESS,
     business
 })
@@ -61,9 +61,9 @@ export const createABusiness = (business) => async (dispatch) => {
         const data = await response.json();
         if (data.errors) {
             return data.errors;
+        } else {
+            return ['An error occurred. Please try again.']
         }
-    } else {
-        return ['An error occurred. Please try again.']
     }
 }
 export const updateABusiness = (business, id) => async (dispatch) => {
@@ -76,15 +76,15 @@ export const updateABusiness = (business, id) => async (dispatch) => {
     });
     if (response.ok) {
         const data = await response.json()
-        dispatch(updateBuiness(data))
+        dispatch(updateBusiness(data))
         return data
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {
             return data.errors;
+        } else {
+            return ['An error occurred. Please try again.']
         }
-    } else {
-        return ['An error occurred. Please try again.']
     }
 }
 
