@@ -3,6 +3,7 @@
     justify-content: space-between;
     height: 8em;
     border-bottom: 2px solid gray;
+    width: 100%;
 }
 
 .left-main-nav-container {
@@ -30,11 +31,4 @@
 .title-main-page {
     text-decoration: none;
     color: black;
-}
-
-.profilePic {
-    width: 2em;
-    height: 2em;
-    background-color: aqua;
-    border-radius: 50%;
 }

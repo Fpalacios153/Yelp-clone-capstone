@@ -10,6 +10,7 @@ import CreateReview from "../Reviews/CreateReviewModal/CreateReview";
 import './MainPage.css'
 import LogoutButton from "../auth/LogoutButton";
 import { useSelector } from "react-redux";
+import ProfileDropDown from "./ProfileDropDown";
 
 export default function MainPage() {
     const currentUser = useSelector(state => state.session.user)
@@ -32,8 +33,9 @@ export default function MainPage() {
                             <CreateBuisnessModal />
                         </div>
                         <div>
-                            <img className='profilePic' src={currentUser.profilePic}></img>
-                            <LogoutButton />
+                            <ProfileDropDown />
+                            {/* <LogoutButton /> */}
+                            {/* <img className='profilePic' src={currentUser.profilePic}></img> */}
                         </div>
                     </div>
                 </div>
