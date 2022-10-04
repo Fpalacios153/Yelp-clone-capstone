@@ -18,8 +18,7 @@ export default function BusinessDetails() {
     const business = businesses[businessId]
 
     const currentUser = useSelector(state => state.session.user)
-    console.log(currentUser)
-    // console.log(business)
+    //
     // const reviews = useSelector(state => state.reviews)
     // const reviewArr = Object.values(reviews).filter(review => +review.businessId === +businessId)
 
@@ -35,7 +34,6 @@ export default function BusinessDetails() {
         dispatch(getAllBusinesses()).then(() => setIsLoaded(true))
     }, [dispatch, businessId])
 
-    // console.log(business.ownerId)
     const toDelete = async (e) => {
         e.preventDefault()
         dispatch(deleteABusiness(businessId))

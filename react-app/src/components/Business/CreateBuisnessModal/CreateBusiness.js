@@ -22,7 +22,6 @@ export default function CreateNewBusiness({ setShowModal }) {
     const [errors, setErrors] = useState([])
 
     const currentUser = useSelector(state => state.session.user)
-    // console.log(currentUser)
 
 
     const handleSubmit = async (e) => {
