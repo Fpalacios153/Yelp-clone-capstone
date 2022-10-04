@@ -35,7 +35,7 @@ def get_all_from_specifiy_buisness(id):
 def edit_review(id):
     review_to_update = Review.query.get(id)
     if review_to_update is None:
-        return {"message":"Review couldn't be found", "statusCode":404}
+        return {"message":"Review couldn't be found", "statusCode":404},404
 
     form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
