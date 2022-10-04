@@ -44,12 +44,17 @@ export default function Businesses() {
                                     </div>
                                     <div className="business-average">
                                         Average Rating:{' '}
-                                        <span style={{ fontWeight: '500' }}>{bus.reviewAverage}</span>
-                                        {' '}({bus.reviewCount} reviews)
+                                        <span style={{ fontWeight: '500' }}>{bus.reviewAverage > 0 ? bus.reviewAverage : 0}</span>
+                                        {' '}({bus.reviewCount > 0 ? bus.reviewCount : 0} reviews)
                                     </div>
                                     <div className="business-review-container">
                                         <i className="fa-regular fa-comment"></i>
-                                        <span style={{ paddingLeft: '5px', color: '#6E7072' }}>"{bus.reviews[0].review}"</span>
+                                        {bus.reviews ? (
+                                            <span style={{ paddingLeft: '5px', color: '#6E7072' }}>"{bus.reviews[0]?.review}"</span>
+
+                                        ) :
+                                            <span style={{ paddingLeft: '5px', color: '#6E7072' }}>"No Reviews yet"</span>
+                                        }
                                     </div>
                                 </div>
 
