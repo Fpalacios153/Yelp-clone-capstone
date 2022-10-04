@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from '../../../context/Modal';
 import UpdateReview from './EditReview';
 
-function UpdateReviewModal({ }) {
+function UpdateReviewModal({ reviewId }) {
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -12,7 +12,7 @@ function UpdateReviewModal({ }) {
             </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <UpdateReview setShowModal={setShowModal} />
+                    <UpdateReview setShowModal={setShowModal} reviewId={reviewId} />
                 </Modal>
             )}
         </>
