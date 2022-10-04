@@ -45,6 +45,23 @@ def get_details_of_one_business(id):
         # "reviews": review
         # }
 
+# @business_routes.route("/<int:id>")
+# def get_details_of_one_business(id):
+#     one_business = Business.query.get(id)
+#     if one_business is None:
+#          return {
+#             "statusCode": 404,
+#             "message": "Business not found"
+#         }
+#     one_business_with_reviews = []
+#     one_business_to_dict = one_business.to_dict()
+#     if one_business.review:
+#         one_business_to_dict['reviews'] = [review.to_dict() for review in one_business.review]
+#         one_business_to_dict['reviewCount'] = len(one_business.review)
+#         one_business_to_dict['reviewAverage'] = sum([review.rating for review in one_business.review])/ len(one_business.review)
+#     one_business_with_reviews.append(one_business_to_dict)
+
+#     return {"business": one_business_with_reviews}
 #CREATE A BUSINESS
 @business_routes.route('', methods=['POST'])
 def create_a_business():

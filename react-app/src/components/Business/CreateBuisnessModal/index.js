@@ -7,7 +7,7 @@ function CreateBusinessModal({ }) {
 
     return (
         <>
-            <button className='edit-model' onClick={() => setShowModal(true)}>
+            <button onClick={() => setShowModal(true)}>
                 Create New Buisness
             </button>
             {showModal && (

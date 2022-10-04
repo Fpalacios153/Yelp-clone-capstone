@@ -1,4 +1,94 @@
+.business-detail-container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.business-detail-words-in-image {
+    position: absolute;
+    bottom: 2em;
+    left: 2.5em;
+    /* margin: auto; */
+    color: #fff;
+    font-size: 50px;
+    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0.249);
+    border-radius: 5px;
+    word-break: break-word;
+    overflow-wrap: break-word
+}
+
 .business-detail-image {
-    width: 100%;
-    height: 40em;
+    min-width: 100%;
+    height: 26.7em;
+    object-fit: cover;
+    image-rendering: optimizeQuality;
+}
+
+.business-detail-review {
+    font-size: 25px;
+}
+
+.buisness-details-about-business {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    /* background-color: blue; */
+    /* margin: auto; */
+    padding-left: 8em;
+}
+
+.business-detail-review-container {
+    /* background-color: aqua; */
+    height: 3em;
+    border-bottom: #ebebeb solid 1px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.business-detail-UD-button {
+    width: 10em;
+    height: 2.8em;
+    background-color: transparent;
+    border: #ebebeb 1px solid;
+    border-radius: 5px;
+    font-weight: 550;
+    font-size: 17px;
+}
+
+.business-detail-delete-button:hover {
+
+    background-color: #dbd8d8;
+
+}
+
+.business-detail-info-container {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.business-detail-left-side {
+    /* background-color: orange; */
+    width: 45%;
+}
+
+.business-detail-title {
+    font-size: 23px;
+    font-weight: 700;
+    color: #2d2e2f;
+    margin: 10px;
+}
+
+.business-detail-right-side {
+    /* background-color: orange; */
+    width: 45%;
+}
+
+.business-detail-info-bottom {
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 10px;
+    margin: 15px;
+    color: #2d2e2f;
+
 }

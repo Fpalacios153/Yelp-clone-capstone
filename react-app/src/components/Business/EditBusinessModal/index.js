@@ -6,8 +6,8 @@ function UpdateBusinessModal({ }) {
 
     return (
         <>
-            <button className='edit-model' onClick={() => setShowModal(true)}>
-                <i className="fa fa-pencil" aria-hidden="true"></i>{'  '}
+            <button className='business-detail-UD-button' onClick={() => setShowModal(true)}>
+                {/* <i className="fa fa-pencil" aria-hidden="true"></i>{'  '} */}
                 Update Buisness
             </button>
             {showModal && (
