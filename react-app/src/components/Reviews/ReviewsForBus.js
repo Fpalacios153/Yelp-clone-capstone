@@ -27,7 +27,6 @@ export default function ReviewsForOneBus() {
                     <div key={review.id}>
                         <NavLink to={`/reviews/${review.id}`}>{review.rating}  |  {review.review}</NavLink>
                         <div>
-                            {console.log(review.id)}
                             <EditReviewModal reviewId={review.id} />
                             <button onClick={() => toDelete(review.id)}>DELETE</button>
                         </div>

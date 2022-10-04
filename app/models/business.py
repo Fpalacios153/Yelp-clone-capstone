@@ -6,7 +6,7 @@ class Business(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name =db.Column(db.String(50))
     email = db.Column(db.String(255), nullable=False, unique=True)
-    phone = db.Column(db.String(10), nullable=False)
+    phone = db.Column(db.String(), nullable=False)
     description = db.Column(db.String(500), nullable=False)
     address = db.Column(db.String(75), nullable=False)
     city = db.Column(db.String(50), nullable=False)

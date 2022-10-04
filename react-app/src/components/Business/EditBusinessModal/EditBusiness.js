@@ -26,7 +26,6 @@ export default function UpdateBusiness({ setShowModal }) {
     const [errors, setErrors] = useState([])
 
     // const currentUser = useSelector(state => state.session.user)
-    // console.log(currentUser)
 
 
     const handleSubmit = async (e) => {
@@ -52,7 +51,6 @@ export default function UpdateBusiness({ setShowModal }) {
             setErrors(data)
         } else {
             // await history.push(`/businesses/${data.id}`)
-            console.log("----herer")
             await setShowModal(false)
             await dispatch(getAllBusinesses())
 
