@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, NavLink } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import './SignUpForm.css'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -16,6 +17,10 @@ const SignUpForm = () => {
 
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   if (password != repeatPassword) { setErrors(['error: Passwords do not match']) }
+  // }, [password, repeatPassword])
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -59,78 +64,107 @@ const SignUpForm = () => {
           </NavLink>
         </div>
       </div>
-      <form onSubmit={onSignUp}>
+
+
+      <div className='entire-sign-up-from-container'>
         <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
+          <div className='word-top-of-login-form'>
+            <h2 style={{ margin: '5px', color: '#d32323' }}>Sign Up for Help!</h2>
+            <div style={{ margin: '2px', fontWeight: '500', fontSize: '15px' }}>Connect with great local businesses</div>
+            <div className='small-text'>By continuing, you agree to Help's Terms of Service and acknowledge Help!'s' Privacy Policy.</div>
+          </div>
+          <form onSubmit={onSignUp}>
+            <div>
+              {errors.map((error, ind) => (
+                <div className='error-text' key={ind}>{error.split(":")[1]}</div>))}
+            </div>
+            <div>
+
+
+              <div className='sign-up-name-container'>
+                <label></label>
+                <input
+                  className='name-input'
+                  type='text'
+                  name='firstName'
+                  placeholder='First Name'
+                  onChange={(e) => setFirstName(e.target.value)}
+                  value={firstName}
+                ></input>
+                <label></label>
+                <input
+                  className='name-input'
+                  placeholder='Last Name'
+                  type='text'
+                  name='lastName'
+                  onChange={(e) => setLastName(e.target.value)}
+                  value={lastName}
+                ></input>
+              </div>
+
+              <div>
+                <input
+                  placeholder='Username'
+                  className='login-form-input'
+                  type='text'
+                  name='username'
+                  onChange={updateUsername}
+                  value={username}
+                ></input>
+              </div>
+              <div>
+                <input
+                  className='login-form-input'
+                  placeholder='Email'
+
+                  type='text'
+                  name='email'
+                  onChange={updateEmail}
+                  value={email}
+                ></input>
+              </div>
+              <div>
+                <input
+                  placeholder='Profile Picture'
+                  className='login-form-input'
+                  type='text'
+                  name='profilePicture'
+                  onChange={(e) => setProfilePic(e.target.value)}
+                  value={profilePic}
+                ></input>
+              </div>
+              <div>
+                <input
+                  className='login-form-input'
+                  placeholder='Password'
+                  type='password'
+                  name='password'
+                  onChange={updatePassword}
+                  value={password}
+                ></input>
+              </div>
+              <div>
+                <input
+                  className='login-form-input'
+                  placeholder='Confirm Password'
+                  type='password'
+                  name='repeat_password'
+                  onChange={updateRepeatPassword}
+                  value={repeatPassword}
+                  required={true}
+                ></input>
+              </div>
+              <button className='login-form-buttom' type='submit'>Sign Up</button>
+              <div className='bottom-switch-page'>
+                Already on Help!?
+                <NavLink className='sign-up-login-form' to='/login'>Log in</NavLink>
+              </div>
+            </div>
+          </form>
+
+
         </div>
-        <div>
-          <label>First Name</label>
-          <input
-            type='text'
-            name='firstName'
-            onChange={(e) => setFirstName(e.target.value)}
-            value={firstName}
-          ></input>
-        </div>
-        <div>
-          <label>Last Name</label>
-          <input
-            type='text'
-            name='lastName'
-            onChange={(e) => setLastName(e.target.value)}
-            value={lastName}
-          ></input>
-        </div>
-        <div>
-          <label>User Name</label>
-          <input
-            type='text'
-            name='username'
-            onChange={updateUsername}
-            value={username}
-          ></input>
-        </div>
-        <div>
-          <label>Email</label>
-          <input
-            type='text'
-            name='email'
-            onChange={updateEmail}
-            value={email}
-          ></input>
-        </div>
-        <div>
-          <label>Profile Picture</label>
-          <input
-            type='text'
-            name='profilePicture'
-            onChange={(e) => setProfilePic(e.target.value)}
-            value={profilePic}
-          ></input>
-        </div>
-        <div>
-          <label>Password</label>
-          <input
-            type='password'
-            name='password'
-            onChange={updatePassword}
-            value={password}
-          ></input>
-        </div>
-        <div>
-          <label>Repeat Password</label>
-          <input
-            type='password'
-            name='repeat_password'
-            onChange={updateRepeatPassword}
-            value={repeatPassword}
-            required={true}
-          ></input>
-        </div>
-        <button type='submit'>Sign Up</button>
-      </form>
+      </div>
     </>
   );
 };
