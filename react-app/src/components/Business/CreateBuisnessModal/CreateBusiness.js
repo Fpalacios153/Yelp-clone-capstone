@@ -27,7 +27,7 @@ export default function CreateNewBusiness({ setShowModal }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        setHasSubmitted(true)
+        // setHasSubmitted(true)
         const newBusiness = {
             name,
             email,
@@ -57,7 +57,7 @@ export default function CreateNewBusiness({ setShowModal }) {
         <>
             <div> Create New Business
                 <div>
-                    {hasSubmitted && errors.length > 0 && (
+                    {errors.length > 0 && (
                         <div>
                             {errors.map((error, id) => (
                                 <div key={id}>{error.split(":")[1]}</div>
