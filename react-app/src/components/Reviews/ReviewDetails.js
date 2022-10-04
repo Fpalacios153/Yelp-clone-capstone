@@ -21,6 +21,7 @@ export default function ReviewDetails() {
     const toDelete = async (id) => {
         dispatch(deleteAReview(id))
         history.push('/businesses')
+
     }
     return isLoaded ? (
         <>

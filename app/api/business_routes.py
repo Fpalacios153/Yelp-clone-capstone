@@ -1,4 +1,3 @@
-from crypt import methods
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.forms.review_form import ReviewForm
@@ -14,9 +13,20 @@ business_routes = Blueprint('business',__name__)
 @login_required
 @business_routes.route('')
 def get_all_businesses():
-    all_businesses = [business.to_dict() for business in Business.query.all()]
+    business_with_review_stats =[]
+    businesses = Business.query.all()
+    for business in businesses:
+        business_dict = business.to_dict()
+        if business.review:
+            business_dict['reviews'] = [review.to_dict() for review in business.review]
+            business_dict['reviewCount'] = len(business.review)
+            business_dict['reviewAverage'] = sum([review.rating for review in business.review])/ len(business.review)
+        business_with_review_stats.append(business_dict)
+
+    # all_businesses = [business.to_dict() for business in Business.query.all()]
     # all_businesses = {business.id :business.to_dict() for business in Business.query.all()}
-    return {"business": all_businesses}
+
+    return {"business": [busi for busi in business_with_review_stats]}
 
 # GET DETAILS OF A BUSINESS
 @business_routes.route("/<int:id>")
@@ -35,6 +45,23 @@ def get_details_of_one_business(id):
         # "reviews": review
         # }
 
+# @business_routes.route("/<int:id>")
+# def get_details_of_one_business(id):
+#     one_business = Business.query.get(id)
+#     if one_business is None:
+#          return {
+#             "statusCode": 404,
+#             "message": "Business not found"
+#         }
+#     one_business_with_reviews = []
+#     one_business_to_dict = one_business.to_dict()
+#     if one_business.review:
+#         one_business_to_dict['reviews'] = [review.to_dict() for review in one_business.review]
+#         one_business_to_dict['reviewCount'] = len(one_business.review)
+#         one_business_to_dict['reviewAverage'] = sum([review.rating for review in one_business.review])/ len(one_business.review)
+#     one_business_with_reviews.append(one_business_to_dict)
+
+#     return {"business": one_business_with_reviews}
 #CREATE A BUSINESS
 @business_routes.route('', methods=['POST'])
 def create_a_business():

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useParams } from 'react-router-dom'
+import { getAllBusinesses } from '../../store/business'
 import { deleteAReview, getAllReviews } from '../../store/review'
 
 export default function ReviewsForOneBus() {
@@ -15,6 +16,8 @@ export default function ReviewsForOneBus() {
     }, [])
     const toDelete = async (id) => {
         await dispatch(deleteAReview(id))
+        await dispatch(getAllBusinesses())
+
     }
     return loaded ? (
         <>

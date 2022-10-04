@@ -14,7 +14,7 @@ def seed_businesses():
         state = 'CA',
         zipcode = "90017",
         country = "United States",
-        image = ''
+        image = '/static/images/restpic/rest1.jpg'
     )
     business2= Business(
         ownerId=2,
@@ -27,7 +27,7 @@ def seed_businesses():
         state = "CA",
         zipcode ='90094',
         country = "United States",
-        image = ''
+        image = '/static/images/restpic/rest2.jpg'
 
     )
     business3= Business(
@@ -41,7 +41,7 @@ def seed_businesses():
         state = "CA",
         zipcode = "90013",
         country = "United States",
-        image = ''
+        image = '/static/images/restpic/rest3.jpg'
     )
     business4= Business(
         ownerId=1,
@@ -54,7 +54,7 @@ def seed_businesses():
         state = "CA",
         zipcode = "90005",
         country = "United States",
-        image = ''
+        image = '/static/images/restpic/rest4.jpg'
 
     )
     business5= Business(
@@ -68,7 +68,7 @@ def seed_businesses():
         state = "CA" ,
         zipcode ='90024',
         country = "United States",
-        image = ''
+        image = '/static/images/restpic/rest5.jpg'
 
     )
 
