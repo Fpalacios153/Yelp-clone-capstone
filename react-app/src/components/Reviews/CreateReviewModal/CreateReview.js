@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router-dom"
+import { getAllBusinesses } from "../../../store/business"
 import { createAReview } from "../../../store/review"
 
 export default function CreateReview({ setShowModal }) {
@@ -36,6 +37,7 @@ export default function CreateReview({ setShowModal }) {
         } else {
             // await history.push(`/businesses/${data.id}`)
             //probably just add close modal
+            await dispatch(getAllBusinesses())
             await setShowModal(false)
         }
 

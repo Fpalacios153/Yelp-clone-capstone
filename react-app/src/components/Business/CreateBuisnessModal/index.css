@@ -1,0 +1,14 @@
+.create-business-button {
+    background-color: transparent;
+    border: 0;
+    font-weight: 550;
+    font-size: 15px;
+    color: #2d2e2f;
+    width: 12em;
+    height: 2.5em;
+    border-radius: 5px;
+}
+
+.create-business-button:hover {
+    background-color: #dbd8d8;
+}

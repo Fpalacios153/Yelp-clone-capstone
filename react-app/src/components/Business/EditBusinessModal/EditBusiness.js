@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom"
-import { updateABusiness } from "../../../store/business";
+import { getAllBusinesses, updateABusiness } from "../../../store/business";
 
 export default function UpdateBusiness({ setShowModal }) {
     const dispatch = useDispatch()
@@ -48,11 +48,13 @@ export default function UpdateBusiness({ setShowModal }) {
         }
         let data = await dispatch(updateABusiness(newBusiness, business.id));
 
-        if (data) {
+        if (Array.isArray(data)) {
             setErrors(data)
         } else {
-            await history.push(`/businesses/${data.id}`)
+            // await history.push(`/businesses/${data.id}`)
+            console.log("----herer")
             await setShowModal(false)
+            await dispatch(getAllBusinesses())
 
         }
 
