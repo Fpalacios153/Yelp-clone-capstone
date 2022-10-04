@@ -82,7 +82,7 @@ def create_a_business():
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
 
 #UPDATE A BUSINESS
-@business_routes.route('/<int:id>', methods=['PUT'])
+@business_routes.route('/<int:id>', methods=["PUT"])
 def update_a_business(id):
     business_update = Business.query.get(id)
     if business_update is None:
