@@ -14,7 +14,6 @@ import ProfileDropDown from "./ProfileDropDown";
 
 export default function MainPage() {
     const currentUser = useSelector(state => state.session.user)
-    console.log(currentUser)
 
     return (
         <>

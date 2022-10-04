@@ -11,7 +11,6 @@ export default function UpdateReview({ setShowModal, reviewId }) {
 
     const reviews = useSelector(state => state.reviews)
     const reviewToBe = reviews[reviewId]
-    console.log(reviewId)
 
     const [review, setReview] = useState(reviewToBe?.review)
     const [rating, setRating] = useState(reviewToBe?.rating)
@@ -38,7 +37,6 @@ export default function UpdateReview({ setShowModal, reviewId }) {
         }
         let data = await dispatch(updateAReview(updateReview, reviewId));
 
-        // console.log(data)
         if (Array.isArray(data)) {
             setErrors(data)
         } else {
