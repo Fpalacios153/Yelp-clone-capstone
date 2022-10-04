@@ -101,6 +101,7 @@ def update_a_business(id):
         business_update.city = data["city"]
         business_update.state = data["state"]
         business_update.zipcode = data["zipcode"]
+        business_update.country = data["country"]
         business_update.image = data["image"]
         business_update.ownerId = data["ownerId"]
 

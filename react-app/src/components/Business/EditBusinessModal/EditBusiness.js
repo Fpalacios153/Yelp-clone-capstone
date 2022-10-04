@@ -18,7 +18,7 @@ export default function UpdateBusiness({ setShowModal }) {
     const [state, setState] = useState(business.state)
     const [city, setCity] = useState(business.city)
     const [zipcode, setZipcode] = useState(business.zipcode)
-    const [country, setCountry] = useState(business.city)
+    const [country, setCountry] = useState(business.country)
     const [description, setDescription] = useState(business.description)
     const [image, setImage] = useState(business.image)
 
