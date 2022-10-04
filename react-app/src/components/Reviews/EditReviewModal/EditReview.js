@@ -4,18 +4,19 @@ import { useHistory, useParams } from "react-router-dom"
 import { getAllBusinesses } from "../../../store/business"
 import { updateAReview } from "../../../store/review"
 
-export default function UpdateReview({ setShowModal }) {
+export default function UpdateReview({ setShowModal, reviewId }) {
     const dispatch = useDispatch()
     const history = useHistory()
-    const { reviewId } = useParams()
+    // const { reviewId } = useParams()
 
     const reviews = useSelector(state => state.reviews)
     const reviewToBe = reviews[reviewId]
+    console.log(reviewId)
 
-    const [review, setReview] = useState(reviewToBe.review)
-    const [rating, setRating] = useState(reviewToBe.rating)
-    const [userId, setUserID] = useState(reviewToBe.userId)
-    const [businessId, setBusinessID] = useState(reviewToBe.businessId)
+    const [review, setReview] = useState(reviewToBe?.review)
+    const [rating, setRating] = useState(reviewToBe?.rating)
+    const [userId, setUserID] = useState(reviewToBe?.userId)
+    const [businessId, setBusinessID] = useState(reviewToBe?.businessId)
 
     const currentUser = useSelector(state => state.session.user)
 

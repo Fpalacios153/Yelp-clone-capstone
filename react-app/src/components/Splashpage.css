@@ -33,12 +33,13 @@
     color: whitesmoke;
     align-items: flex-start;
     padding-left: 1.5em;
-    padding-top: .9em;
+    padding-top: 1em;
 }
 
 .title-splash {
     text-decoration: none;
     color: whitesmoke;
+    font-weight: 700
 }
 
 .left-nav-container {
