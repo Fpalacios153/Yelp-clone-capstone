@@ -48,7 +48,7 @@ export default function BusinessDetails() {
                     <div>{business.name}</div>
                     <div className="business-detail-review">
                         {/* Average Rating: {reviewAverage} {numReview} reviews */}
-                        Average Rating: {business.reviewAverage} - {business.reviewCount} reviews
+                        Average Rating: {business.reviewAverage.toFixed(1)} - {business.reviewCount} reviews
                     </div>
 
                 </div>
