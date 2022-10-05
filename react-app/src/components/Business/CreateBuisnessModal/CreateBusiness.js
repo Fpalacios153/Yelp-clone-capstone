@@ -168,7 +168,7 @@ export default function CreateNewBusiness({ setShowModal }) {
                                 maxLength='501'
                                 spellCheck={true}
                                 name="description"
-                                placeholder="Desciption of business"
+                                placeholder="Description of business"
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
                             />

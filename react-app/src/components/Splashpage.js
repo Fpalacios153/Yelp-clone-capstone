@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import Footer from "./Footer";
 import './Splashpage.css'
 function Splashpage() {
 
@@ -26,7 +27,7 @@ function Splashpage() {
                 </div>
             </div >
             <div className="middle-container">Middle Part</div>
-            <div className="bottom-container">BottomPart</div>
+            <Footer />
         </div >
     )
 }
