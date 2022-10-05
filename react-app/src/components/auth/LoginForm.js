@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import DemoUser from '../DemoUser';
 import './LoginForm.css'
 
 const LoginForm = () => {
@@ -88,6 +89,9 @@ const LoginForm = () => {
               />
               <div>
                 <button className='login-form-buttom' type='submit'>Log In</button>
+              </div>
+              <div>
+                <DemoUser />
               </div>
               <div className='bottom-switch-page'>
                 New to Help!?

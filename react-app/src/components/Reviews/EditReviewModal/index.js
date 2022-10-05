@@ -7,8 +7,9 @@ function UpdateReviewModal({ reviewId }) {
 
     return (
         <>
-            <button onClick={() => setShowModal(true)}>
-                Edit
+            <button className='review-button' onClick={() => setShowModal(true)}>
+                <i className="fa fa-pencil-square-o" aria-hidden="true"></i>
+
             </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>

@@ -1,0 +1,39 @@
+.review-form-container {
+    width: 40em;
+    height: 30em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.review-form-label-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-form-text-area {
+    resize: none;
+    height: 25em;
+    width: 35em;
+    border: #dadada 1px solid;
+    border-radius: 5px;
+
+}
+
+.review-form-submit-button {
+    color: whitesmoke;
+    padding: 8px 25px 8px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: rgba(224, 7, 7, 1);
+    border: 2px rgba(224, 7, 7, 1) solid;
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 20px;
+
+
+}
+
+.review-form-submit-button:hover {
+    background-color: rgb(250, 2, 2);
+}

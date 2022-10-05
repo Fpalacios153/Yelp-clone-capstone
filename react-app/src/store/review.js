@@ -14,13 +14,15 @@ const getReview = (review) => ({
     type: GET_ONE_REVIEWS,
     review
 })
-const createReview = (review) => ({
+const createReview = (review, currentUser) => ({
     type: CREATE_REVIEW,
-    review
+    review,
+    currentUser
 })
-const updateReview = (review) => ({
+const updateReview = (review, currentUser) => ({
     type: UPDATE_REVIEW,
-    review
+    review,
+    currentUser
 })
 const deleteReview = (id) => ({
     type: DELETE_REVIEW,
@@ -47,7 +49,7 @@ export const getOneReview = (review) => async (dispatch) => {
     return response
 }
 
-export const createAReview = (id, review) => async (dispatch) => {
+export const createAReview = (id, review, currentUser) => async (dispatch) => {
     const response = await fetch(`/api/businesses/${id}/review`, {
         method: "POST",
         headers: {
@@ -57,7 +59,7 @@ export const createAReview = (id, review) => async (dispatch) => {
     });
     if (response.ok) {
         const data = await response.json()
-        dispatch(createReview(data))
+        dispatch(createReview(data, currentUser))
         return data
     } else if (response.status < 500) {
         const data = await response.json()
@@ -69,7 +71,7 @@ export const createAReview = (id, review) => async (dispatch) => {
         }
     }
 }
-export const updateAReview = (review, id) => async (dispatch) => {
+export const updateAReview = (review, id, currentUser) => async (dispatch) => {
     const response = await fetch(`/api/reviews/${id}`, {
         method: "PUT",
         headers: {
@@ -79,7 +81,7 @@ export const updateAReview = (review, id) => async (dispatch) => {
     });
     if (response.ok) {
         const data = await response.json()
-        dispatch(updateReview(data))
+        dispatch(updateReview(data, currentUser))
         return data
     } else if (response.status < 500) {
         const data = await response.json()
@@ -109,17 +111,18 @@ export default function reviewReducer(state = initialState, action) {
     switch (action.type) {
         case GET_REVIEWS:
             let allReviews = {}
+            console.log(action.reviews, 'reducerrrr')
             action.reviews.reviews.forEach(review => {
                 allReviews[review.id] = review
             })
             return { ...allReviews }
         case CREATE_REVIEW:
             newState = { ...state }
-            newState[action.review.id] = action.review
+            newState[action.review.id] = { ...action.review, user: { ...action.currentUser } }
             return newState
         case UPDATE_REVIEW:
             newState = { ...state }
-            newState[action.review.id] = action.review
+            newState[action.review.id] = { ...action.review, user: { ...action.currentUser } }
             return newState
         case DELETE_REVIEW:
             newState = { ...state }

@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom"
 import { getAllBusinesses } from "../../store/business"
 import { deleteABusiness } from "../../store/business"
 import { getAllReviews } from "../../store/review"
+import Footer from "../Footer"
 import './ViewAll.css'
 // import { useHistory } from "react-router-dom"
 
@@ -67,6 +68,7 @@ export default function Businesses() {
                 ))
                 }
             </div >
+            <Footer />
         </>
     ) : null
 }

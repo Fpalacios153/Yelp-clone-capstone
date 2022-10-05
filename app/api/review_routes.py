@@ -2,7 +2,7 @@ from crypt import methods
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.forms.review_form import ReviewForm
-from app.models import db, Review, Business, reviews
+from app.models import db, Review, Business
 # from app.forms. import
 from app.api.auth_routes import validation_errors_to_error_messages
 
@@ -12,9 +12,16 @@ review_routes = Blueprint('review',__name__)
 #GET ALL REVIEWS
 @review_routes.route('')
 def get_all_reviews():
-    reviews = [review.to_dict() for review in Review.query.all()]
-    # reviews = {review.id: review.to_dict() for review in Review.query.all()}
-    return {"reviews": reviews}
+    review_with_users = []
+    review_list = Review.query.all()
+
+    for review in review_list:
+        review_dict = review.to_dict()
+        review_dict['user']= review.user.to_dict()
+        review_with_users.append(review_dict)
+        print(review_with_users,'???????????')
+
+    return {"reviews": [review for review in review_with_users]}
 
 #Get DETAILS OF ON REVIEW
 @review_routes.route('/<int:id>')
