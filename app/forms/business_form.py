@@ -9,7 +9,7 @@ class BusinessForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(message="Name is required"),Length(max=50, message="Name must be less than 50 characters")])
     email = StringField("Email", validators=[DataRequired(message='Email is required')])
     phone = StringField("Email", validators=[DataRequired(message='Phone is required')])
-    description = StringField("Description", validators=[DataRequired(),Length(max=500, message=("Name must be less than 500 characters"))])
+    description = StringField("Description", validators=[DataRequired(message='Description is required'),Length(max=500, message=("Name must be less than 500 characters"))])
     address = StringField("Address", validators=[DataRequired(message='Address is required')])
     city = StringField("City", validators=[DataRequired(message='City is required')])
     state = StringField("State", validators=[DataRequired(message='State is required')])
