@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useParams } from 'react-router-dom'
 import { getAllBusinesses } from '../../store/business'
 import { deleteAReview, getAllReviews } from '../../store/review'
+import { getAllUsers } from '../../store/user'
 import EditReviewModal from './EditReviewModal'
+import './ReviewofUsers.css'
 
 export default function ReviewsForOneBus() {
     const dispatch = useDispatch()
@@ -11,30 +13,55 @@ export default function ReviewsForOneBus() {
     const [loaded, setLoaded] = useState(false)
     const reviews = useSelector(state => state.reviews)
     const reviewArr = Object.values(reviews).filter(review => +review.businessId === +businessId)
+    const currentUser = useSelector(state => state.session.user)
+    console.log(currentUser)
+    // const users = useSelector(state => state.user)
+    // console.log(users[1])
+
 
     useEffect(() => {
-        dispatch(getAllReviews()).then(() => setLoaded(true))
+        dispatch(getAllReviews())
+            // .then(() => dispatch(getAllUsers()))
+            .then(() => setLoaded(true))
     }, [])
     const toDelete = async (id) => {
         await dispatch(deleteAReview(id))
         await dispatch(getAllBusinesses())
 
+
     }
     return loaded ? (
         <>
             <div>
+                <div className='business-detail-title'>Reviews</div>
                 {reviewArr.map(review => (
-                    <div key={review.id}>
-                        <NavLink to={`/reviews/${review.id}`}>{review.rating}  |  {review.review}</NavLink>
-                        <div>
-                            <EditReviewModal reviewId={review.id} />
-                            <button onClick={() => toDelete(review.id)}>DELETE</button>
-                        </div>
-                    </div>
+                    <div key={review.id} className="review-container">
+                        <div className='review-top-container'>
+                            <div className='review-pic-name-container'>
+                                <img className='review-profile-pic' src={review.user.profilePic}></img>
+                                <h3>
+                                    {review.user.firstName} {review.user.lastName[0]}.
+                                </h3>
+                            </div>
+                            {currentUser.id === review.user.id ? (
 
-                ))}
+                                <div className='review-button-container'>
+                                    <EditReviewModal reviewId={review.id} />
+                                    <button className='review-button' onClick={() => toDelete(review.id)}>
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            ) : null
+                            }
+                        </div>
+                        <div className='review-rating-review'>
+                            <div>Rating: {review.rating}</div>
+                            <div>{review.review}</div>
+                        </div>
+                    </div>))}
 
             </div>
         </>
-    ) : null
+    ) : <h1>LOADING....</h1>
 }
+{/* <NavLink to={`/reviews/${review.id}`}>{review.rating}  |  {review.review}</NavLink> */ }

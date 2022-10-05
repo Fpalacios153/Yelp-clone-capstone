@@ -7,6 +7,7 @@ import CreateReviewModal from "../Reviews/CreateReviewModal";
 import ReviewsForOneBus from "../Reviews/ReviewsForBus";
 import UpdateBusinessModal from "./EditBusinessModal";
 import './BusinessDetails.css'
+import Footer from "../Footer";
 
 export default function BusinessDetails() {
     const dispatch = useDispatch()
@@ -47,7 +48,7 @@ export default function BusinessDetails() {
                     <div>{business.name}</div>
                     <div className="business-detail-review">
                         {/* Average Rating: {reviewAverage} {numReview} reviews */}
-                        Average Rating: {business.reviewAverage} {business.reviewCount} reviews
+                        Average Rating: {business.reviewAverage} - {business.reviewCount} reviews
                     </div>
 
                 </div>
@@ -81,6 +82,7 @@ export default function BusinessDetails() {
                     <ReviewsForOneBus />
                 </div>
             </div>
+            <Footer />
 
         </>
     ) : null

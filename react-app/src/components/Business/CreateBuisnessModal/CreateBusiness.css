@@ -1,0 +1,46 @@
+.business-form-container {
+    /* max-width: 30em; */
+    width: 40em;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+
+}
+
+.buisness-form-title {
+    color: #d32323;
+
+}
+
+.form-holder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.textarea-business {
+    resize: none;
+    height: 9em;
+}
+
+.business-form-cancel {
+    width: 19em;
+    height: 2em;
+    margin: 5px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #d32323;
+    border: none;
+    border-radius: 5px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.business-form-cancel:hover {
+    background-color: #d32323c1;
+
+}

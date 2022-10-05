@@ -35,7 +35,7 @@ export default function UpdateReview({ setShowModal, reviewId }) {
             userId,
             businessId
         }
-        let data = await dispatch(updateAReview(updateReview, reviewId));
+        let data = await dispatch(updateAReview(updateReview, reviewId, currentUser));
 
         if (Array.isArray(data)) {
             setErrors(data)
@@ -52,7 +52,10 @@ export default function UpdateReview({ setShowModal, reviewId }) {
 
     return (
         <>
-            <div> Edit Review
+            <div className="review-form-container">
+                <div>
+                    Edit Review
+                </div>
                 <div>
                     {errors.length > 0 && (
                         <div>
@@ -63,36 +66,31 @@ export default function UpdateReview({ setShowModal, reviewId }) {
                     )}
                 </div>
                 <form onSubmit={onSubmit}>
-                    <label>
+                    <div className="review-form-label-container">
                         <label>
                             Rating:
                             <select name="rating" value={rating} onChange={(e) => setRating(e.target.value)}>
-                                <option disabled value={0}>Select Rating </option>
+                                <option hidden  >Select Rating </option>
                                 {ratings.map(rating => (
                                     <option key={rating} value={rating}>{rating}</option>
                                 ))}
                             </select>
                         </label>
-                        Review:
-                        <input
+                        <textarea
+                            className="review-form-text-area"
                             type="text"
+                            maxLength={1000}
                             name="review"
+                            wrap="hard"
+
                             placeholder="Review"
                             value={review}
                             onChange={(e) => setReview(e.target.value)}
                         />
-                    </label>
-                    {/* <label>
-                        Rating:
-                        <input
-                            type="text"
-                            name="rating"
-                            placeholder="1-5"
-                            value={rating}
-                            onChange={(e) => setRating(e.target.value)}
-                        />
-                    </label> */}
-                    <button type="submit">Update review</button>
+                        <div>
+                            <button className="review-form-submit-button" type="submit">Post Review</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </>

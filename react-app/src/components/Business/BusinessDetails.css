@@ -36,6 +36,7 @@
     /* background-color: blue; */
     /* margin: auto; */
     padding-left: 8em;
+    /* padding-right: 8em; */
 }
 
 .business-detail-review-container {
@@ -44,6 +45,7 @@
     border-bottom: #ebebeb solid 1px;
     padding-bottom: 10px;
     padding-top: 10px;
+    width: 89%;
 }
 
 .business-detail-UD-button {
@@ -57,7 +59,7 @@
     cursor: pointer;
 }
 
-.business-detail-delete-button:hover {
+.business-detail-UD-button:hover {
 
     background-color: #dbd8d8;
 
@@ -66,12 +68,14 @@
 .business-detail-info-container {
     display: flex;
     justify-content: space-between;
+    padding-right: 8em;
+
 
 }
 
 .business-detail-left-side {
     /* background-color: orange; */
-    width: 45%;
+    width: 58%;
 }
 
 .business-detail-title {
@@ -91,5 +95,7 @@
     padding-bottom: 10px;
     margin: 15px;
     color: #2d2e2f;
+    /* word-break: break-all; */
+    white-space: normal;
 
 }

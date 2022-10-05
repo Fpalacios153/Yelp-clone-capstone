@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router-dom"
 import { getAllBusinesses } from "../../../store/business"
 import { createAReview } from "../../../store/review"
+import './CreateReview.css'
 
 export default function CreateReview({ setShowModal }) {
     const dispatch = useDispatch()
@@ -29,13 +30,14 @@ export default function CreateReview({ setShowModal }) {
             rating,
             userId: currentUser.id
         }
-        let data = await dispatch(createAReview(businessId, newReview));
+        let data = await dispatch(createAReview(businessId, newReview, currentUser));
 
         if (Array.isArray(data)) {
             setErrors(data)
         } else {
             // await history.push(`/businesses/${data.id}`)
             //probably just add close modal
+            // await dispatch(getAllReviews())
             await dispatch(getAllBusinesses())
             await setShowModal(false)
         }
@@ -44,7 +46,10 @@ export default function CreateReview({ setShowModal }) {
 
     return (
         <>
-            <div> Write Review
+            <div className="review-form-container">
+                <div>
+                    Write Review
+                </div>
                 <div>
                     {errors.length > 0 && (
                         <div>
@@ -55,7 +60,7 @@ export default function CreateReview({ setShowModal }) {
                     )}
                 </div>
                 <form onSubmit={onSubmit}>
-                    <label>
+                    <div className="review-form-label-container">
                         <label>
                             Rating:
                             <select name="rating" value={rating} onChange={(e) => setRating(e.target.value)}>
@@ -65,26 +70,21 @@ export default function CreateReview({ setShowModal }) {
                                 ))}
                             </select>
                         </label>
-                        Review:
-                        <input
+                        <textarea
+                            className="review-form-text-area"
                             type="text"
+                            maxLength={1000}
                             name="review"
+                            wrap="hard"
+
                             placeholder="Review"
                             value={review}
                             onChange={(e) => setReview(e.target.value)}
                         />
-                    </label>
-                    {/* <label>
-                        Rating:
-                        <input
-                            type="text"
-                            name="rating"
-                            placeholder="1-5"
-                            value={rating}
-                            onChange={(e) => setRating(e.target.value)}
-                        />
-                    </label> */}
-                    <button type="submit">Add review</button>
+                        <div>
+                            <button className="review-form-submit-button" type="submit">Post Review</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </>
