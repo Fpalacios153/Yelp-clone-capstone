@@ -1,0 +1,31 @@
+.star-rating-container {
+    display: flex;
+    align-items: center;
+}
+
+#rating-button {
+    margin: 2px;
+    /* padding: 10px; */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 2.5em;
+    height: 2.5em;
+}
+
+/* .star-container {
+    padding-left: 10px;
+} */
+
+.selected {
+    color: white;
+    background-color: red;
+}
+
+.notSeleted {
+    color: white;
+}
+
+.start-side-saying {
+    padding-left: 10px;
+}
