@@ -45,7 +45,7 @@ export default function Businesses() {
                                     </div>
                                     <div className="business-average">
                                         Average Rating:{' '}
-                                        <span style={{ fontWeight: '500' }}>{bus.reviewAverage > 0 ? bus.reviewAverage : 0}</span>
+                                        <span style={{ fontWeight: '500' }}>{bus.reviewAverage > 0 ? bus.reviewAverage.toFixed(1) : 0}</span>
                                         {' '}({bus.reviewCount > 0 ? bus.reviewCount : 0} reviews)
                                     </div>
                                     <div className="business-review-container">

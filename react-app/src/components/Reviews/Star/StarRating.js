@@ -34,7 +34,9 @@ export default function StarRating({ rating, setRating, setHover, hover }) {
                             // when you go over a star it highlights
                             onMouseEnter={() => setHover(star)}
                             // when it leaves it stays on the rating selected if selected
-                            onMouseLeave={() => setHover(rating)}>
+                            onMouseLeave={() => setHover(rating)}
+                            type="button">
+
                             <div className='star-container'>
                                 <i class="fa fa-star fa-xl" aria-hidden="true"></i>
                             </div>
