@@ -14,16 +14,26 @@ const SignUpForm = () => {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [profilePic, setProfilePic] = useState('')
+  const [hasSumbitted, setHasSubmitted] = useState(false)
 
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   if (password != repeatPassword) { setErrors(['error: Passwords do not match']) }
-  // }, [password, repeatPassword])
+  useEffect(() => {
+    let error = []
+    if (password !== repeatPassword) { error.push('error: Passwords do not match') }
+    // if (password < 6 || password > 20) { error.push('error:Password must bet between 6-20 characters') }
+    if (username.length > 40) { error.push('error: Username must be less than 40 characters') }
+    if (firstName.length > 25) { error.push('error: First Name must be less than 25 characters') }
+    if (lastName.length > 25) { error.push('error: Last Name must be less than 25 characters') }
+    if (email.length > 30) { error.push('error: Email must be less than 30 characters') }
+    // setHasSubmitted(true)
+    setErrors(error)
+  }, [password, repeatPassword, username, email, firstName, lastName])
 
   const onSignUp = async (e) => {
     e.preventDefault();
+    setHasSubmitted(true)
     if (password === repeatPassword) {
       const data = await dispatch(signUp(firstName, lastName, profilePic, username, email, password));
       if (data) {
@@ -49,7 +59,7 @@ const SignUpForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/businesses' />;
   }
 
   return (
@@ -85,6 +95,8 @@ const SignUpForm = () => {
                 <label></label>
                 <input
                   className='name-input'
+                  maxLength={26}
+                  required
                   type='text'
                   name='firstName'
                   placeholder='First Name'
@@ -93,7 +105,9 @@ const SignUpForm = () => {
                 ></input>
                 <label></label>
                 <input
+                  maxLength={26}
                   className='name-input'
+                  required
                   placeholder='Last Name'
                   type='text'
                   name='lastName'
@@ -106,6 +120,8 @@ const SignUpForm = () => {
                 <input
                   placeholder='Username'
                   className='login-form-input'
+                  maxLength={41}
+                  required
                   type='text'
                   name='username'
                   onChange={updateUsername}
@@ -116,8 +132,9 @@ const SignUpForm = () => {
                 <input
                   className='login-form-input'
                   placeholder='Email'
-
-                  type='text'
+                  maxLength={31}
+                  required
+                  type='email'
                   name='email'
                   onChange={updateEmail}
                   value={email}
@@ -127,6 +144,7 @@ const SignUpForm = () => {
                 <input
                   placeholder='Profile Picture'
                   className='login-form-input'
+
                   type='text'
                   name='profilePicture'
                   onChange={(e) => setProfilePic(e.target.value)}
@@ -137,6 +155,9 @@ const SignUpForm = () => {
                 <input
                   className='login-form-input'
                   placeholder='Password'
+                  maxLength={21}
+                  // minLength={6}
+                  required
                   type='password'
                   name='password'
                   onChange={updatePassword}
@@ -147,6 +168,7 @@ const SignUpForm = () => {
                 <input
                   className='login-form-input'
                   placeholder='Confirm Password'
+                  maxLength={21}
                   type='password'
                   name='repeat_password'
                   onChange={updateRepeatPassword}
@@ -161,8 +183,6 @@ const SignUpForm = () => {
               </div>
             </div>
           </form>
-
-
         </div>
       </div>
     </>

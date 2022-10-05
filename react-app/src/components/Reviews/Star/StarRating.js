@@ -26,7 +26,8 @@ export default function StarRating({ rating, setRating, setHover, hover }) {
             <div className='star-rating-container'>
                 {ratings.map(star => (
                     <div>
-                        <button id='rating-button'
+                        <button
+                            id='rating-button'
                             key={star}
                             className={star <= ((rating && hover) || hover) ? 'selected' : 'notSeleted'}
                             // sets rating to stars
@@ -43,7 +44,7 @@ export default function StarRating({ rating, setRating, setHover, hover }) {
                         </button>
                     </div>
                 ))}
-                <p className='start-side-saying'>
+                <div className='start-side-saying'>
                     {(() => {
                         switch (hover) {
                             case "5": return "Great";
@@ -54,7 +55,7 @@ export default function StarRating({ rating, setRating, setHover, hover }) {
                             default: return "Select Your Rating";
                         }
                     })()}
-                </p>
+                </div>
 
 
             </div>

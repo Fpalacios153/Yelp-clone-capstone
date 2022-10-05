@@ -1,11 +1,12 @@
 .business-form-container {
     /* max-width: 30em; */
-    width: 40em;
+    width: 41em;
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 5px;
+    margin: 10px;
 
 }
 
@@ -24,12 +25,12 @@
 
 .textarea-business {
     resize: none;
-    height: 9em;
+    height: 8em;
 }
 
 .business-form-cancel {
     width: 19em;
-    height: 2em;
+    height: 2.7em;
     margin: 5px;
     font-size: 16px;
     color: #fff;
@@ -43,4 +44,39 @@
 .business-form-cancel:hover {
     background-color: #d32323c1;
 
+}
+
+.selected-state {
+    width: 22.7em;
+    color: rgb(105, 104, 104);
+}
+
+.form-wide-container {
+    display: flex;
+    /* background-color: #d32323; */
+    flex-direction: row;
+
+}
+
+.form-wide-left-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-wide-right-container {
+    flex-direction: column;
+    display: flex;
+}
+
+.counter-div {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 10px;
+    margin-right: 8px;
+    position: relative;
+    bottom: .8em;
+}
+
+.button-create-container {
+    display: flex;
 }
