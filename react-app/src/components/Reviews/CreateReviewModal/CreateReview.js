@@ -25,7 +25,7 @@ export default function CreateReview({ setShowModal }) {
     useEffect(() => {
         let error = []
 
-        reviewArray.map(review => {
+        reviewArray?.map(review => {
             if (currentUser.id === review.userId) {
                 error.push('error: User can only leave one review per business')
             }
