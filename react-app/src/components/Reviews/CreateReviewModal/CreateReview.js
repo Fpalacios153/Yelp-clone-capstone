@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router-dom"
 import { getAllBusinesses } from "../../../store/business"
@@ -20,7 +20,18 @@ export default function CreateReview({ setShowModal }) {
     const [hasSubmitted, setHasSubmitted] = useState(false)
     const [errors, setErrors] = useState([])
 
+    const reviewCheck = useSelector(state => state.businesses[businessId])
+    const reviewArray = reviewCheck.reviews
+    useEffect(() => {
+        let error = []
 
+        reviewArray.map(review => {
+            if (currentUser.id === review.userId) {
+                error.push('error: User can only leave one review per business')
+            }
+        })
+        setErrors(error)
+    }, [review])
 
     const ratings = ['1', '2', "3", "4", "5"]
     const [hover, setHover] = useState(0)
@@ -34,16 +45,19 @@ export default function CreateReview({ setShowModal }) {
             rating,
             userId: currentUser.id
         }
-        let data = await dispatch(createAReview(businessId, newReview, currentUser));
+        if (!errors.length) {
 
-        if (Array.isArray(data)) {
-            setErrors(data)
-        } else {
-            // await history.push(`/businesses/${data.id}`)
-            //probably just add close modal
-            // await dispatch(getAllReviews())
-            await dispatch(getAllBusinesses())
-            await setShowModal(false)
+            let data = await dispatch(createAReview(businessId, newReview, currentUser));
+
+            if (Array.isArray(data)) {
+                setErrors(data)
+            } else {
+                // await history.push(`/businesses/${data.id}`)
+                //probably just add close modal
+                // await dispatch(getAllReviews())
+                await dispatch(getAllBusinesses())
+                await setShowModal(false)
+            }
         }
 
     }
@@ -87,6 +101,8 @@ export default function CreateReview({ setShowModal }) {
                                 value={review}
                                 onChange={(e) => setReview(e.target.value)}
                             />
+                            <span className="review-text-length">{review.length}/1000</span>
+
                         </div>
                         <div style={{ margin: '10px', display: 'flex', justifyContent: 'space-between' }}>
                             <button className="review-form-submit-button" type="submit">Post Review</button>

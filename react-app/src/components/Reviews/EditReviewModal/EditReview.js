@@ -91,9 +91,11 @@ export default function UpdateReview({ setShowModal, reviewId }) {
                                 value={review}
                                 onChange={(e) => setReview(e.target.value)}
                             />
+                            <span className="review-text-length">{review.length}/1000</span>
+
                         </div>
                         <div style={{ margin: '10px', display: 'flex', justifyContent: 'space-between' }}>
-                            <button className="review-form-submit-button" type="submit">Post Review</button>
+                            <button className="review-form-submit-button" type="submit">Update Review</button>
                             <button className="review-form-submit-button" type="button" onClick={() => setShowModal(false)}>Cancel</button>
                         </div>
                     </div>
