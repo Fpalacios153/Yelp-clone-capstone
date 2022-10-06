@@ -11,7 +11,7 @@
 }
 
 .profile-pic-container {
-    padding-right: 2em;
+    padding-right: 3em;
     padding-left: 1em;
 }
 
@@ -19,9 +19,13 @@
     width: 2.5em;
     height: 2.5em;
     /* padding-right: 10px; */
-    background-color: aqua;
+    /* background-color: aqua; */
     border-radius: 50%;
     cursor: pointer;
+}
+
+.profilePic:hover {
+    background-color: #dbd8d8;
 }
 
 .profile-button:hover {
@@ -29,10 +33,15 @@
     background-color: black;
 }
 
+.li-profile {
+    padding-left: 10px;
+}
+
 .profileLi {
     color: #333;
     width: 100%;
     cursor: pointer;
+    padding-left: 10px;
 }
 
 .profileLi:hover {
@@ -42,9 +51,9 @@
 .profile-dropdown-container {
     width: 16em;
     position: absolute;
-    top: 70px;
+    top: 55px;
     z-index: 1;
-    right: 25px
+    right: 20px
 }
 
 .profile-dropdown {
