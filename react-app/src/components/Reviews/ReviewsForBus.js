@@ -63,7 +63,7 @@ export default function ReviewsForOneBus() {
                             </div>
                         </div>
                         <div className='review-rating-review'>
-                            <div>Rating: {review.rating}</div>
+                            <div style={{ paddingBottom: '7px' }}>Rating: {review.rating}</div>
                             <div>{review.review}</div>
                         </div>
                     </div>))

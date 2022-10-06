@@ -29,7 +29,9 @@ export default function BusinessDetails() {
     //     sumOfratings += review.rating
     // })
     // let reviewAverage = sumOfratings / numReview
-
+    if (!business) {
+        history.push('/businesses')
+    }
 
     useEffect(() => {
         dispatch(getAllBusinesses()).then(() => setIsLoaded(true))
