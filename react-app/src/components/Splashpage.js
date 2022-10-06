@@ -34,8 +34,10 @@ function Splashpage() {
                     </div>
                 </div>
                 <div className="center-nav-container">
-                    <div className="center-nav-text">Welcome to Help!</div>
-                    <p>Where finding your new favorite resturant is as easy as clicking a button</p>
+                    <div className="center-background">
+                        <div className="center-nav-text">Welcome to Help!</div>
+                        <p>Where finding your new favorite resturant is as easy as clicking a button</p>
+                    </div>
                 </div>
                 <div className="left-nav-container">
                     <div className="button-container">
@@ -49,7 +51,6 @@ function Splashpage() {
                     </div>
                 </div>
             </div >
-            {/* <div className="middle-container">Middle Part</div> */}
             < Footer />
         </div >
     )
