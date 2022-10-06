@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom"
 import { getAllBusinesses } from "../../store/business"
 import { deleteABusiness } from "../../store/business"
 import { getAllReviews } from "../../store/review"
+import AverageStarRating from "../AverageStarRating"
 import Footer from "../Footer"
 import './ViewAll.css'
 // import { useHistory } from "react-router-dom"
@@ -15,6 +16,8 @@ export default function Businesses() {
 
     const businessesList = useSelector(state => state.businesses)
     const businesses = Object.values(businessesList)
+
+
 
 
     useEffect(() => {
@@ -50,14 +53,15 @@ export default function Businesses() {
                                         </div>
                                     </div>
                                     <div className="business-average">
-                                        Average Rating:{' '}
-                                        <span style={{ fontWeight: '500' }}>{bus.reviewAverage > 0 ? bus.reviewAverage.toFixed(1) : 0}</span>
+                                        <AverageStarRating reviewAverage={bus.reviewAverage} />
+                                        <span style={{ fontWeight: '500', paddingLeft: '10px', paddingRight: '5px' }}>{bus.reviewAverage > 0 ? bus.reviewAverage.toFixed(1) : 0}</span>
                                         {' '}({bus.reviewCount > 0 ? bus.reviewCount : 0} reviews)
                                     </div>
                                     <div className="business-review-container">
                                         <i className="fa-regular fa-comment"></i>
                                         {bus.reviews ? (
-                                            <span style={{ paddingLeft: '5px', color: '#6E7072' }}>"{bus.reviews[0]?.review}"</span>
+                                            <span style={{ paddingLeft: '5px', color: '#6E7072' }}>"{bus.reviews[0].review.length < 150 ? bus.reviews[0].review :
+                                                `${bus.reviews[0].review.slice(0, 150)}...see more`}</span>
 
                                         ) :
                                             <span style={{ paddingLeft: '5px', color: '#6E7072' }}>"No Reviews yet"</span>

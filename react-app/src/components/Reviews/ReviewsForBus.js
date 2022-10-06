@@ -4,6 +4,7 @@ import { NavLink, useParams } from 'react-router-dom'
 import { getAllBusinesses } from '../../store/business'
 import { deleteAReview, getAllReviews } from '../../store/review'
 import { getAllUsers } from '../../store/user'
+import AverageStarRating from '../AverageStarRating'
 import EditReviewModal from './EditReviewModal'
 import './ReviewofUsers.css'
 
@@ -63,7 +64,10 @@ export default function ReviewsForOneBus() {
                             </div>
                         </div>
                         <div className='review-rating-review'>
-                            <div style={{ paddingBottom: '7px' }}>Rating: {review.rating}</div>
+                            <div style={{ paddingBottom: '7px' }}>
+                                <AverageStarRating reviewAverage={review.rating} />
+                                Rating: {review.rating}
+                            </div>
                             <div>{review.review}</div>
                         </div>
                     </div>))

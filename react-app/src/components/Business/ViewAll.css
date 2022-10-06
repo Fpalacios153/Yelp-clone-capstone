@@ -71,8 +71,10 @@
 }
 
 .business-average {
+    padding-top: 10px;
     color: #6E7072;
     margin: 2px;
+    display: flex;
 
 }
 
@@ -82,7 +84,13 @@
     align-items: center;
     /* padding-top: 5em; */
     /* word-break: break-all; */
-    white-space: normal;
-    height: 75%;
+    height: 10em;
+}
 
+.five-star-container {
+    display: flex;
+}
+
+.average-star-container {
+    color: rgba(224, 7, 7, 1);
 }

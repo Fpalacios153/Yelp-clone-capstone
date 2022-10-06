@@ -26,6 +26,7 @@
 }
 
 .business-detail-review {
+    display: flex;
     font-size: 25px;
 }
 

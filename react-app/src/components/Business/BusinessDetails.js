@@ -8,6 +8,7 @@ import ReviewsForOneBus from "../Reviews/ReviewsForBus";
 import UpdateBusinessModal from "./EditBusinessModal";
 import './BusinessDetails.css'
 import Footer from "../Footer";
+import AverageStarRating from "../AverageStarRating";
 
 export default function BusinessDetails() {
     const dispatch = useDispatch()
@@ -29,12 +30,15 @@ export default function BusinessDetails() {
     //     sumOfratings += review.rating
     // })
     // let reviewAverage = sumOfratings / numReview
+
     if (!business) {
         history.push('/')
     }
 
     useEffect(() => {
         dispatch(getAllBusinesses()).then(() => setIsLoaded(true))
+
+
     }, [dispatch, businessId])
 
     const toDelete = async (e) => {
@@ -52,7 +56,13 @@ export default function BusinessDetails() {
                     <div>{business.name}</div>
                     <div className="business-detail-review">
                         {/* Average Rating: {reviewAverage} {numReview} reviews */}
-                        Average Rating: {business.reviewAverage > 0 ? business.reviewAverage.toFixed(1) : 0} - {business.reviewCount > 0 ? business.reviewCount : 0} reviews
+                        <div style={{ color: 'gold' }}>
+                            <AverageStarRating reviewAverage={business.reviewAverage} />
+
+                        </div>
+                        <div style={{ paddingLeft: '10px' }}>
+                            {business.reviewAverage > 0 ? business.reviewAverage.toFixed(1) : 0} - {business.reviewCount > 0 ? business.reviewCount : 0} reviews
+                        </div>
                     </div>
 
                 </div>
