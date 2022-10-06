@@ -63,6 +63,9 @@ export default function MainPage() {
                         <Route path='/businesses/:businessId/review'>
                             <CreateReview />
                         </Route>
+                        <Route>
+                            <h1>Page not Found 404</h1>
+                        </Route>
                     </Switch>
                 </div>
             </div>
