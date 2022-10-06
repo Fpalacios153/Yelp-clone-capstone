@@ -1,0 +1,14 @@
+.logout-button {
+    font-size: 16px;
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    border-top: 1px solid #ebebeb;
+    font-weight: 500;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    ;
+}
+
+.logout-pic {
+    padding-right: 10px;
+}

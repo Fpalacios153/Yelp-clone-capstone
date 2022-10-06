@@ -8,7 +8,7 @@ function CreateReviewModal({ }) {
 
     return (
         <>
-            <button className='write-a-review-button' onClick={() => setShowModal(true)} style={{ background: 'rgba(224,7,7,1)', color: 'white', padding: '10px', borderRadius: '5px', border: '0' }}>
+            <button className='write-a-review-button' onClick={() => setShowModal(true)}>
                 <i className="fa fa-star-o fa-lg" aria-hidden="true"></i> {"    "}
                 <span style={{ paddingLeft: '10px' }}>
                     Write a review

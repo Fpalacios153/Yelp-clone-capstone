@@ -8,10 +8,15 @@
 }
 
 .business-title {
-    justify-content: flex-start;
+    /* justify-content: ; */
     width: 35.5em;
     font-size: large;
     font-weight: 500;
+    font-size: 30px;
+    padding-left: 12em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+
 }
 
 .business-container {
