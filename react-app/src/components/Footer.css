@@ -1,0 +1,49 @@
+.bottom-container {
+    /* background-color: aqua; */
+    display: flex;
+    /* justify-content: center; */
+    width: 100%;
+    height: 13em;
+    background-color: #cfcece;
+}
+
+.splash-github-link {
+    display: flex;
+    /* flex-direction: column; */
+
+}
+
+.splashProfileIcons {
+    display: flex;
+    /* flex-direction: column; */
+
+}
+
+.github-links {
+    color: rgba(224, 7, 7, 1);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 10px;
+}
+
+.devLinks {
+    color: rgba(224, 7, 7, 1);
+    margin-left: 15px;
+}
+
+.splash-about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    color: black;
+
+}
+
+.splash-discover-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}

@@ -44,8 +44,8 @@ export default function ProfileDropDown() {
             {showMenu && (
                 <div className='profile-dropdown-container'>
                     <ul className="profile-dropdown">
-                        <li className='profileLi'>{user.firstName}</li>
-                        <li className='profileLi'>{user.email}</li>
+                        <li className='li-profile'>{user.firstName} {user.lastName}</li>
+                        <li className='li-profile'>{user.email}</li>
                         <li className='profileLi'><LogoutButton /></li>
                     </ul>
 

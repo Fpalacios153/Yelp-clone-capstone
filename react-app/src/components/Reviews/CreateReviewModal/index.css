@@ -11,3 +11,8 @@
     margin: 0;
     cursor: pointer;
 }
+
+.write-a-review-button:hover {
+    background-color: rgb(250, 2, 2);
+
+}
