@@ -25,19 +25,18 @@ export default function StarRating({ rating, setRating, setHover, hover }) {
         <>
             <div className='star-rating-container'>
                 {ratings.map(star => (
-                    <div>
+                    <div style={{ width: '2.4em' }}
+                        // when you go over a star it highlights
+                        onMouseEnter={() => setHover(star)}
+                        // when it leaves it stays on the rating selected if selected
+                        onMouseLeave={() => setHover(rating)}>
                         <button
-                            id='rating-button'
                             key={star}
-                            className={star <= ((rating && hover) || hover) ? 'selected' : 'notSeleted'}
-                            // sets rating to stars
+                            type="button"
+                            id='rating-button'
                             onClick={() => setRating(star)}
-                            // when you go over a star it highlights
-                            onMouseEnter={() => setHover(star)}
-                            // when it leaves it stays on the rating selected if selected
-                            onMouseLeave={() => setHover(rating)}
-                            type="button">
-
+                            className={star <= ((rating && hover) || hover) ? 'selected' : 'notSeleted'}
+                        >
                             <div className='star-container'>
                                 <i class="fa fa-star fa-xl" aria-hidden="true"></i>
                             </div>

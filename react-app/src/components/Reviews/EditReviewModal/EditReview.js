@@ -52,6 +52,7 @@ export default function UpdateReview({ setShowModal, reviewId }) {
     }
 
     return (
+
         <>
             <div className="review-from-title">
                 Edit Review
@@ -78,19 +79,22 @@ export default function UpdateReview({ setShowModal, reviewId }) {
                                 ))}
                             </select>
                         </label> */}
-                        <textarea
-                            className="review-form-text-area"
-                            type="text"
-                            maxLength={1000}
-                            name="review"
-                            wrap="hard"
+                        <div className="review-text-area-container">
+                            <textarea
+                                className="review-form-text-area"
+                                type="text"
+                                maxLength={1000}
+                                name="review"
+                                wrap="hard"
 
-                            placeholder="Review"
-                            value={review}
-                            onChange={(e) => setReview(e.target.value)}
-                        />
-                        <div>
-                            <button className="review-form-submit-button" type="submit">Update Review</button>
+                                placeholder="Review"
+                                value={review}
+                                onChange={(e) => setReview(e.target.value)}
+                            />
+                        </div>
+                        <div style={{ margin: '10px', display: 'flex', justifyContent: 'space-between' }}>
+                            <button className="review-form-submit-button" type="submit">Post Review</button>
+                            <button className="review-form-submit-button" type="button" onClick={() => setShowModal(false)}>Cancel</button>
                         </div>
                     </div>
                 </form>
