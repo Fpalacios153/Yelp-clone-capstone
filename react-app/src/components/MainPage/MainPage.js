@@ -21,8 +21,8 @@ export default function MainPage() {
                 <div className="mainpage-navbar">
                     <div className="left-main-nav-container">
                         <div className="main-logo-container">
-                            <NavLink className="title-main-page" to='/businesses'>Help!</NavLink>
-                            <NavLink to='/businesses'>
+                            <NavLink className="title-main-page" to='/'>Help!</NavLink>
+                            <NavLink to='/'>
                                 <img className="burger-splash" src="/static/images/logos/icons8-hamburger-48.png"></img>
                             </NavLink>
                         </div>
@@ -44,7 +44,7 @@ export default function MainPage() {
                 </div> */}
                 <div>
                     <Switch>
-                        <Route exact path='/businesses' >
+                        <Route exact path='/' >
                             <Businesses />
                             {/* <AllReviews /> */}
                         </Route>

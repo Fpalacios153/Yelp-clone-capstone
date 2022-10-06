@@ -32,7 +32,7 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/businesses' />;
+    return <Redirect to='/' />;
   }
 
   return (
