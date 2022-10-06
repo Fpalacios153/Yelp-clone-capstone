@@ -22,6 +22,15 @@
 
 .review-text-area-container {
     margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.review-text-length {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 3px;
+    color: #8e8989;
 }
 
 .review-form-text-area {
@@ -30,7 +39,6 @@
     width: 35em;
     border: #dadada 1px solid;
     border-radius: 5px;
-
 }
 
 .review-form-submit-button {
