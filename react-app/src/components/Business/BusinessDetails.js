@@ -30,7 +30,7 @@ export default function BusinessDetails() {
     // })
     // let reviewAverage = sumOfratings / numReview
     if (!business) {
-        history.push('/businesses')
+        history.push('/')
     }
 
     useEffect(() => {
@@ -40,7 +40,7 @@ export default function BusinessDetails() {
     const toDelete = async (e) => {
         e.preventDefault()
         dispatch(deleteABusiness(businessId))
-        history.push('/businesses')
+        history.push('/')
     }
     return isLoaded ? (
         <>
