@@ -35,7 +35,13 @@ export default function Businesses() {
                     <div key={bus.id} className='business-container'>
                         <NavLink className='navlink-business-list' to={`/businesses/${bus.id}`}>
                             <div className="business-list">
-                                <img className="business-image" src={bus.image}></img>
+                                <img
+                                    className="business-image"
+                                    src={bus.image}
+                                    alt={bus.name}
+                                    onError={e => { e.currentTarget.src = '/static/images/restpic/defaultNores.jpeg' }}
+
+                                />
                                 <div className="business-text-container">
                                     <div className="business-name">
                                         {idx + 1}.
