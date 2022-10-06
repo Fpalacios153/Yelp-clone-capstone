@@ -35,7 +35,7 @@ export default function StarRating({ rating, setRating, setHover, hover }) {
                             type="button"
                             id='rating-button'
                             onClick={() => setRating(star)}
-                            className={star <= (rating && hover) ? 'selected' : 'notSeleted'}
+                            className={star <= ((rating && hover) || hover) ? 'selected' : 'notSeleted'}
                         >
                             <div className='star-container'>
                                 <i class="fa fa-star fa-xl" aria-hidden="true"></i>
