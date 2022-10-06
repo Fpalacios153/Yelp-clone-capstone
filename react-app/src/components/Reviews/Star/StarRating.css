@@ -1,11 +1,12 @@
 .star-rating-container {
     display: flex;
     align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 #rating-button {
     margin: 2px;
-    /* padding: 10px; */
     border: none;
     cursor: pointer;
     border-radius: 5px;

@@ -3,6 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 15px;
+
 }
 
 .business-title {
@@ -15,11 +17,13 @@
 .business-container {
     display: flex;
     justify-content: center;
+    /* padding-bottom: 10px; */
 }
 
 .navlink-business-list {
     text-decoration: none;
     color: black;
+    /* margin-bottom: 10px; */
 }
 
 .business-list {

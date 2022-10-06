@@ -30,7 +30,12 @@ export default function ProfileDropDown() {
     return (
         <>
             <div className='profile-pic-container'>
-                <img onClick={openMenu} className='profilePic' src={user.profilePic}></img>
+                <img onClick={openMenu}
+                    className='profilePic'
+                    src={user.profilePic}
+                    alt={user.firstName}
+                    onError={e => { e.currentTarget.src = '/static/images/icons/defaultProfile.png' }}
+                />
             </div>
             {/* <button onClick={openMenu} className="profile-button"> */}
 

@@ -43,12 +43,14 @@ export default function BusinessDetails() {
     return isLoaded ? (
         <>
             <div className="business-detail-container">
-                <img className='business-detail-image' src={business.image}></img>
+                <img className='business-detail-image' src={business.image} alt={business.name}
+                    onError={e => { e.currentTarget.src = '/static/images/restpic/defaultNores.jpeg' }}
+                />
                 <div className="business-detail-words-in-image">
                     <div>{business.name}</div>
                     <div className="business-detail-review">
                         {/* Average Rating: {reviewAverage} {numReview} reviews */}
-                        Average Rating: {business.reviewAverage.toFixed(1)} - {business.reviewCount} reviews
+                        Average Rating: {business.reviewAverage > 0 ? business.reviewAverage.toFixed(1) : 0} - {business.reviewCount > 0 ? business.reviewCount : 0} reviews
                     </div>
 
                 </div>

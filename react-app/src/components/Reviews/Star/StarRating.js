@@ -25,25 +25,25 @@ export default function StarRating({ rating, setRating, setHover, hover }) {
         <>
             <div className='star-rating-container'>
                 {ratings.map(star => (
-                    <div>
-                        <button id='rating-button'
+                    <div style={{ width: '2.4em' }}
+                        // when you go over a star it highlights
+                        onMouseEnter={() => setHover(star)}
+                        // when it leaves it stays on the rating selected if selected
+                        onMouseLeave={() => setHover(rating)}>
+                        <button
                             key={star}
-                            className={star <= ((rating && hover) || hover) ? 'selected' : 'notSeleted'}
-                            // sets rating to stars
+                            type="button"
+                            id='rating-button'
                             onClick={() => setRating(star)}
-                            // when you go over a star it highlights
-                            onMouseEnter={() => setHover(star)}
-                            // when it leaves it stays on the rating selected if selected
-                            onMouseLeave={() => setHover(rating)}
-                            type="button">
-
+                            className={star <= ((rating && hover) || hover) ? 'selected' : 'notSeleted'}
+                        >
                             <div className='star-container'>
                                 <i class="fa fa-star fa-xl" aria-hidden="true"></i>
                             </div>
                         </button>
                     </div>
                 ))}
-                <p className='start-side-saying'>
+                <div className='start-side-saying'>
                     {(() => {
                         switch (hover) {
                             case "5": return "Great";
@@ -54,7 +54,7 @@ export default function StarRating({ rating, setRating, setHover, hover }) {
                             default: return "Select Your Rating";
                         }
                     })()}
-                </p>
+                </div>
 
 
             </div>

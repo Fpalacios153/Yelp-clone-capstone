@@ -34,31 +34,43 @@ export default function ReviewsForOneBus() {
         <>
             <div>
                 <div className='business-detail-title'>Reviews</div>
-                {reviewArr.map(review => (
+
+                {reviewArr.length ? reviewArr.map(review => (
                     <div key={review.id} className="review-container">
                         <div className='review-top-container'>
                             <div className='review-pic-name-container'>
-                                <img className='review-profile-pic' src={review.user.profilePic}></img>
-                                <h3>
+                                <img
+                                    className='review-profile-pic'
+                                    src={review.user.profilePic}
+                                    onError={e => { e.currentTarget.src = '/static/images/icons/defaultProfile.png' }}
+                                />
+                                <h3 style={{ paddingLeft: '.7em', whiteSpace: 'normal', wordBreak: 'break-all' }}>
                                     {review.user.firstName} {review.user.lastName[0]}.
                                 </h3>
                             </div>
-                            {currentUser.id === review.user.id ? (
+                            <div>
 
-                                <div className='review-button-container'>
-                                    <EditReviewModal reviewId={review.id} />
-                                    <button className='review-button' onClick={() => toDelete(review.id)}>
-                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                            ) : null
-                            }
+                                {currentUser.id === review.user.id ? (
+
+                                    <div className='review-button-container'>
+                                        <EditReviewModal reviewId={review.id} />
+                                        <button className='review-button' onClick={() => toDelete(review.id)}>
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                ) : null
+                                }
+                            </div>
                         </div>
                         <div className='review-rating-review'>
                             <div>Rating: {review.rating}</div>
                             <div>{review.review}</div>
                         </div>
-                    </div>))}
+                    </div>))
+                    : (
+                        <div className='no-review-show'>
+                            <h2>No reviews yet!</h2>
+                        </div>)}
 
             </div>
         </>

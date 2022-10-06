@@ -19,11 +19,12 @@
 .review-profile-pic {
     width: 4em;
     height: 4em;
-    border: 50%;
+    border-radius: 50%;
 }
 
 .review-button-container {
     padding: 10px;
+    display: flex;
 }
 
 .review-button {
