@@ -24,14 +24,14 @@ export default function CreateReview({ setShowModal }) {
     const reviewArray = reviewCheck.reviews
     useEffect(() => {
         let error = []
-
+        if (review.length > 1000) error.push('error:Review must be less than 1000 characters')
         reviewArray?.map(review => {
             if (currentUser.id === review.userId) {
                 error.push('error: User can only leave one review per business')
             }
         })
         setErrors(error)
-    }, [review])
+    }, [review, rating])
 
     const ratings = ['1', '2', "3", "4", "5"]
     const [hover, setHover] = useState(0)
@@ -93,7 +93,7 @@ export default function CreateReview({ setShowModal }) {
                             <textarea
                                 className="review-form-text-area"
                                 type="text"
-                                maxLength={1000}
+                                maxLength={1001}
                                 name="review"
                                 wrap="hard"
 

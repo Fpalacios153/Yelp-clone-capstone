@@ -15,7 +15,7 @@ const LogoutButton = () => {
   return (
     <>
       <button className='logout-button' onClick={onLogout}>
-        <i class="fa fa-sign-out logout-pic" aria-hidden="true"></i>
+        <i className="fa fa-sign-out logout-pic" aria-hidden="true"></i>
         Log Out</button>
     </>)
 

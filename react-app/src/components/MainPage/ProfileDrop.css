@@ -41,7 +41,8 @@
     color: #333;
     width: 100%;
     cursor: pointer;
-    padding-left: 10px;
+    padding-left: 0px;
+    border-radius: 5px;
 }
 
 .profileLi:hover {

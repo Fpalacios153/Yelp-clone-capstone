@@ -12,8 +12,13 @@ const LoginForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   useEffect(() => {
+    let error = []
+    if (email.length > 35) { error.push('error: Email must be less than 35 characters') }
+    if (password.length > 20) { error.push('error:Password over 20 character limit') }
 
-  }, [errors])
+    setErrors(error)
+
+  }, [email, password])
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -51,10 +56,10 @@ const LoginForm = () => {
         <div className='login-form-container'>
           <div className='word-top-of-login-form'>
             <h2 style={{ margin: '5px', color: '#d32323' }}>Log in to Help!</h2>
-            <div style={{ margin: '2px', fontWeight: 'bold' }}>New to Help!? {' '}
+            <div style={{ margin: '5px', fontWeight: 'bold' }}>New to Help!? {' '}
               <NavLink className='sign-up-login-form' to='/sign-up'>Sign up</NavLink>
             </div>
-            <div className='small-text'>By logging in, you agree to Help's Terms of Service and Privacy Policy.</div>
+            {/* <div className='small-text'>By logging in, you agree to Help's Terms of Service and Privacy Policy.</div> */}
           </div>
 
           <form onSubmit={onLogin}>
@@ -69,6 +74,7 @@ const LoginForm = () => {
               <input
                 className='login-form-input'
                 required
+                maxLength={36}
                 name='email'
                 type='email'
                 placeholder='Email'
@@ -86,6 +92,7 @@ const LoginForm = () => {
                 name='password'
                 type='password'
                 placeholder='Password'
+                maxLength={21}
                 value={password}
                 onChange={updatePassword}
               />

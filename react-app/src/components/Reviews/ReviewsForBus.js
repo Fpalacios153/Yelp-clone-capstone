@@ -56,7 +56,7 @@ export default function ReviewsForOneBus() {
                                     <div className='review-button-container'>
                                         <EditReviewModal reviewId={review.id} />
                                         <button className='review-button' onClick={() => toDelete(review.id)}>
-                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                            <i className="fa fa-trash-o" aria-hidden="true"></i>
                                         </button>
                                     </div>
                                 ) : null
