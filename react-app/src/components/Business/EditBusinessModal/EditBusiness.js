@@ -31,6 +31,9 @@ export default function UpdateBusiness({ setShowModal }) {
 
     useEffect(() => {
         let error = []
+        if (name.length > 35) error.push('error: Name must be less than 35')
+        if (description.length > 500) error.push('error: Description must be less than 500')
+
         if (address.length > 40) error.push('error:Address must be less than 40 character')
         if (city.length > 25) error.push('error:City must be less than 25 characters')
         if (country.length > 30) error.push('error:Country must be less than 30 characters')
@@ -49,7 +52,7 @@ export default function UpdateBusiness({ setShowModal }) {
             }
         })
         setErrors(error)
-    }, [address, city, zipcode, country, image, name])
+    }, [name, address, city, zipcode, country, image, name, description])
 
 
     const handleSubmit = async (e) => {
@@ -111,6 +114,7 @@ export default function UpdateBusiness({ setShowModal }) {
                                         type="text"
                                         name="name"
                                         required
+                                        maxLength={36}
                                         placeholder="Business's Name"
                                         className='login-form-input'
                                         value={name}
@@ -148,7 +152,7 @@ export default function UpdateBusiness({ setShowModal }) {
                                         type="text"
                                         // required
                                         wrap="hard"
-                                        maxLength='500'
+                                        maxLength='501'
                                         spellCheck={true}
                                         name="description"
                                         placeholder="Description of business"

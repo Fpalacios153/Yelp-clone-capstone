@@ -22,11 +22,11 @@ const SignUpForm = () => {
   useEffect(() => {
     let error = []
     if (password !== repeatPassword) { error.push('error: Passwords do not match') }
-    // if (password < 6 || password > 20) { error.push('error:Password must bet between 6-20 characters') }
+    if (password.length && password.length < 6 || password.length > 20) { error.push('error:Password must be between 6-20 characters') }
     if (username.length > 40) { error.push('error: Username must be less than 40 characters') }
     if (firstName.length > 25) { error.push('error: First Name must be less than 25 characters') }
     if (lastName.length > 25) { error.push('error: Last Name must be less than 25 characters') }
-    if (email.length > 30) { error.push('error: Email must be less than 30 characters') }
+    if (email.length > 35) { error.push('error: Email must be less than 35 characters') }
     // setHasSubmitted(true)
     setErrors(error)
   }, [password, repeatPassword, username, email, firstName, lastName])
@@ -80,8 +80,8 @@ const SignUpForm = () => {
         <div>
           <div className='word-top-of-login-form'>
             <h2 style={{ margin: '5px', color: '#d32323' }}>Sign Up for Help!</h2>
-            <div style={{ margin: '2px', fontWeight: '500', fontSize: '15px' }}>Connect with great local businesses</div>
-            <div className='small-text'>By continuing, you agree to Help's Terms of Service and acknowledge Help!'s' Privacy Policy.</div>
+            <div style={{ margin: '5px', fontWeight: '500', fontSize: '15px' }}>Connect with great local businesses</div>
+            {/* <div className='small-text'>By continuing, you agree to Help's Terms of Service and acknowledge Help!'s' Privacy Policy.</div> */}
           </div>
           <form onSubmit={onSignUp}>
             <div>
@@ -132,7 +132,7 @@ const SignUpForm = () => {
                 <input
                   className='login-form-input'
                   placeholder='Email'
-                  maxLength={31}
+                  maxLength={36}
                   required
                   type='email'
                   name='email'

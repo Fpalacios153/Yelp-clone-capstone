@@ -42,7 +42,7 @@ export default function Businesses() {
                                     className="business-image"
                                     src={bus.image}
                                     alt={bus.name}
-                                    onError={e => { e.currentTarget.src = '/static/images/restpic/defaultNores.jpeg' }}
+                                    onError={e => { e.currentTarget.src = '/static/images/restpic/pexels-aleksandar-pasaric-3342739.jpg' }}
 
                                 />
                                 <div className="business-text-container">
@@ -68,10 +68,6 @@ export default function Businesses() {
                                         }
                                     </div>
                                 </div>
-
-                                {/* <div>
-                                <button onClick={() => toDelete(bus.id)}>DELETE</button>
-                            </div> */}
                             </div>
                         </NavLink>
                     </div>

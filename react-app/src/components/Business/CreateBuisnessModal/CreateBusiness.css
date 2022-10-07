@@ -26,6 +26,8 @@
 .textarea-business {
     resize: none;
     height: 8em;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
 }
 
 .business-form-cancel {

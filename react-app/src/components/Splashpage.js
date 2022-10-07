@@ -27,7 +27,7 @@ function Splashpage() {
                 {/* <img className='splash-image' src="/static/images/restpic/pexels-lisa-fotios-1126728.jpg"></img> */}
                 <div className="right-nav-container">
                     <div className="logo-container">
-                        <NavLink className="title-splash" to='/'>Help!</NavLink>
+                        <NavLink className="title-splash" to='/'>Help<span style={{ color: 'red' }}>!</span></NavLink>
                         <NavLink to='/'>
                             <img className="burger-splash" src="/static/images/logos/icons8-hamburger-48.png"></img>
                         </NavLink>
@@ -35,8 +35,8 @@ function Splashpage() {
                 </div>
                 <div className="center-nav-container">
                     <div className="center-background">
-                        <div className="center-nav-text">Welcome to Help!</div>
-                        <p>Where finding your new favorite resturant is as easy as clicking a button</p>
+                        <div className="center-nav-text">Welcome to Help<span style={{ color: 'red' }}>!</span></div>
+                        <p className="center-nav-long-text">Where finding your new favorite resturant is as easy as clicking a button</p>
                     </div>
                 </div>
                 <div className="left-nav-container">

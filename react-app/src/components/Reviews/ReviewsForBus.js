@@ -15,9 +15,7 @@ export default function ReviewsForOneBus() {
     const reviews = useSelector(state => state.reviews)
     const reviewArr = Object.values(reviews).filter(review => +review.businessId === +businessId)
     const currentUser = useSelector(state => state.session.user)
-    console.log(currentUser)
     // const users = useSelector(state => state.user)
-    // console.log(users[1])
 
 
     useEffect(() => {
@@ -56,7 +54,7 @@ export default function ReviewsForOneBus() {
                                     <div className='review-button-container'>
                                         <EditReviewModal reviewId={review.id} />
                                         <button className='review-button' onClick={() => toDelete(review.id)}>
-                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                            <i className="fa fa-trash-o" aria-hidden="true"></i>
                                         </button>
                                     </div>
                                 ) : null

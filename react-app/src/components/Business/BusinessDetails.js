@@ -17,12 +17,13 @@ export default function BusinessDetails() {
     const { businessId } = useParams()
 
     const businesses = useSelector(state => state.businesses)
+    const busArray = Object.values(businesses)
     const business = businesses[businessId]
 
     const currentUser = useSelector(state => state.session.user)
     //
     // const reviews = useSelector(state => state.reviews)
-    // const reviewArr = Object.values(reviews).filter(review => +review.businessId === +businessId)
+    // const reviewArr = Object.values(reviews)
 
     // let numReview = reviewArr.length
     // let sumOfratings = 0
@@ -30,27 +31,51 @@ export default function BusinessDetails() {
     //     sumOfratings += review.rating
     // })
     // let reviewAverage = sumOfratings / numReview
-
-    if (!business) {
-        history.push('/')
-    }
-
+    //fix this!!!!!!!å
     useEffect(() => {
         dispatch(getAllBusinesses()).then(() => setIsLoaded(true))
 
 
     }, [dispatch, businessId])
 
+
+    function redirect() {
+        setTimeout(() => { history.push(`/`) }, 1000)
+    }
+
+    let exist = false
+    if (isLoaded && !business) {
+
+        busArray.forEach(buz => {
+            if (Number(buz.id) === +businessId) {
+                exist = true
+            }
+        })
+        if (!exist) {
+            return (
+                <>
+                    <div className="not-found-container">
+                        <div className="not-found-redirect">
+                            <div className="not-found-number">404</div>
+                            <h1 className="not-found-word">Business Not Found </h1>
+                            <h2 className="not-found-word">Redirecting...</h2>
+                            {redirect()}
+                        </div>
+                    </div>
+                </>
+            )
+        }
+    }
     const toDelete = async (e) => {
         e.preventDefault()
         dispatch(deleteABusiness(businessId))
         history.push('/')
     }
-    return isLoaded ? (
+    return isLoaded && business ? (
         <>
             <div className="business-detail-container">
                 <img className='business-detail-image' src={business.image} alt={business.name}
-                    onError={e => { e.currentTarget.src = '/static/images/restpic/defaultNores.jpeg' }}
+                    onError={e => { e.currentTarget.src = '/static/images/restpic/pexels-aleksandar-pasaric-3342739.jpg' }}
                 />
                 <div className="business-detail-words-in-image">
                     <div>{business.name}</div>
