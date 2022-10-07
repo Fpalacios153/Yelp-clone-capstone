@@ -10,7 +10,7 @@
     /* background-image: url('https://images.pexels.com/photos/1126728/pexels-photo-1126728.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); */
     /* background-size: 100% 40em; */
     background-size: cover;
-    height: 43em;
+    height: 42em;
     object-fit: cover;
 
 }
@@ -118,4 +118,8 @@
 .center-background {
     background-color: rgba(0, 0, 0, 0.31);
     border-radius: 5px;
+}
+
+.center-nav-long-text {
+    padding: 12px;
 }

@@ -66,7 +66,8 @@
     font-size: 20px;
     font-weight: 700;
     color: #2D2E2F;
-
+    word-break: break-all;
+    white-space: normal;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -80,11 +81,11 @@
 
 .business-review-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     /* padding-top: 5em; */
     /* word-break: break-all; */
-    height: 10em;
+    height: 12em;
 }
 
 .five-star-container {

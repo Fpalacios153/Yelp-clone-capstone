@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router-dom"
 import { getAllBusinesses } from "../../../store/business"
@@ -17,15 +17,18 @@ export default function UpdateReview({ setShowModal, reviewId }) {
     const [rating, setRating] = useState(reviewToBe.rating)
     const [userId, setUserID] = useState(reviewToBe.userId)
     const [businessId, setBusinessID] = useState(reviewToBe?.businessId)
+    const [errors, setErrors] = useState([])
+    const [hover, setHover] = useState(0)
+
+    const [hasSubmitted, setHasSubmitted] = useState(false)
 
     const currentUser = useSelector(state => state.session.user)
 
-
-    const [hasSubmitted, setHasSubmitted] = useState(false)
-    const [errors, setErrors] = useState([])
-
-    const [hover, setHover] = useState(0)
-
+    useEffect(() => {
+        let error = []
+        if (review.length > 1000) error.push('error:Review must be less than 1000 characters')
+        setErrors(error)
+    }, [review])
 
     const onSubmit = async (e) => {
         e.preventDefault()
@@ -44,9 +47,6 @@ export default function UpdateReview({ setShowModal, reviewId }) {
             //come back to this
             await dispatch(getAllBusinesses())
             await setShowModal(false)
-
-            // await history.push(`/businesses/${data.id}`)
-            //probably just add close modal
         }
 
     }
@@ -83,7 +83,7 @@ export default function UpdateReview({ setShowModal, reviewId }) {
                             <textarea
                                 className="review-form-text-area"
                                 type="text"
-                                maxLength={1000}
+                                maxLength={1001}
                                 name="review"
                                 wrap="hard"
 

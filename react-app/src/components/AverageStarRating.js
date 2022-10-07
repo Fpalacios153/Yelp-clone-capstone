@@ -1,7 +1,7 @@
 export default function AverageStarRating({ reviewAverage }) {
-    const emptyStar = <i class="fa fa-star-o" aria-hidden="true"></i>
-    const halfStar = <i class="fa fa-star-half-o" aria-hidden="true"></i>
-    const fullStar = <i class="fa fa-star" aria-hidden="true"></i>
+    const emptyStar = <i className="fa fa-star-o" aria-hidden="true"></i>
+    const halfStar = <i className="fa fa-star-half-o" aria-hidden="true"></i>
+    const fullStar = <i className="fa fa-star" aria-hidden="true"></i>
 
     return (
         <>

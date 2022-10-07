@@ -3,6 +3,7 @@ import './StarRating.css'
 
 export default function StarRating({ rating, setRating, setHover, hover }) {
     const ratings = ['1', '2', "3", "4", "5"]
+    const [edit, setEdit] = useState(0)
 
     // const diffSayings = () => {
     //     if (hover === 5) {
@@ -35,10 +36,10 @@ export default function StarRating({ rating, setRating, setHover, hover }) {
                             type="button"
                             id='rating-button'
                             onClick={() => setRating(star)}
-                            className={star <= ((rating && hover) || hover) ? 'selected' : 'notSeleted'}
+                            className={star <= ((rating && hover) || hover || rating) ? 'selected' : 'notSeleted'}
                         >
                             <div className='star-container'>
-                                <i class="fa fa-star fa-xl" aria-hidden="true"></i>
+                                <i className="fa fa-star fa-xl" aria-hidden="true"></i>
                             </div>
                         </button>
                     </div>

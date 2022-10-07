@@ -50,5 +50,6 @@
     padding-bottom: 2em;
     margin-bottom: 1em;
     padding-left: 5px;
-
+    word-break: break-all;
+    white-space: normal;
 }

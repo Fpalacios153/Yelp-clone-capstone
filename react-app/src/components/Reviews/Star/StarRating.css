@@ -14,10 +14,6 @@
     height: 2.5em;
 }
 
-/* .star-container {
-    padding-left: 10px;
-} */
-
 .selected {
     color: white;
     background-color: red;
@@ -25,6 +21,7 @@
 
 .notSeleted {
     color: white;
+    background-color: #c5c5c5;
 }
 
 .start-side-saying {

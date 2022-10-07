@@ -111,7 +111,6 @@ export default function reviewReducer(state = initialState, action) {
     switch (action.type) {
         case GET_REVIEWS:
             let allReviews = {}
-            console.log(action.reviews, 'reducerrrr')
             action.reviews.reviews.forEach(review => {
                 allReviews[review.id] = review
             })

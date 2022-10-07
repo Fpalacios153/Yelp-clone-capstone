@@ -25,11 +25,12 @@ export default function CreateNewBusiness({ setShowModal }) {
     const currentUser = useSelector(state => state.session.user)
     const buisness = useSelector(state => state.businesses)
     const businessArr = Object.values(buisness)
-    console.log(buisness)
     const statesAbrivation = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']
 
     useEffect(() => {
         let error = []
+        if (name.length > 35) error.push('error: Name must be less than 35')
+        if (description.length > 500) error.push('error: Description must be less than 500')
         if (address.length > 40) error.push('error:Address must be less than 40 character')
         if (city.length > 25) error.push('error:City must be less than 25 characters')
         if (country.length > 30) error.push('error:Country must be less than 30 characters')
@@ -46,7 +47,7 @@ export default function CreateNewBusiness({ setShowModal }) {
             }
         })
         setErrors(error)
-    }, [address, city, zipcode, country, image, name, email])
+    }, [name, address, city, zipcode, country, image, name, email, description])
 
 
 
@@ -105,6 +106,8 @@ export default function CreateNewBusiness({ setShowModal }) {
                                     <input
                                         type="text"
                                         name="name"
+                                        maxLength={36}
+
                                         required
                                         placeholder="Business's Name"
                                         className='login-form-input'
@@ -143,7 +146,7 @@ export default function CreateNewBusiness({ setShowModal }) {
                                         type="text"
                                         // required
                                         wrap="hard"
-                                        maxLength='500'
+                                        maxLength='501'
                                         spellCheck={true}
                                         name="description"
                                         placeholder="Description of business"

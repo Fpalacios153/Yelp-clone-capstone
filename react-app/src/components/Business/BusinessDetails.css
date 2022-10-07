@@ -12,8 +12,9 @@
     color: #fff;
     font-size: 50px;
     font-weight: 700;
-    background-color: rgba(0, 0, 0, 0.249);
+    background-color: rgba(0, 0, 0, 0.285);
     border-radius: 5px;
+    padding: 12px;
     word-break: break-word;
     overflow-wrap: break-word
 }
@@ -108,4 +109,35 @@
     width: 50%;
     margin: 15px;
     color: rgb(224, 7, 7);
+}
+
+.not-found-container {
+    width: 100%;
+    height: 20em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-found-redirect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: red;
+    border: gray 1px solid;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.not-found-number {
+    font-size: 50px;
+    font-weight: 550;
+    margin: 5px;
+}
+
+.not-found-word {
+    font-size: 40px;
+    font-weight: 500;
+    margin: 5px;
 }
