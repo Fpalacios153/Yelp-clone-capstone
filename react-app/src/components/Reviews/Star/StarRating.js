@@ -29,7 +29,6 @@ export default function StarRating({ rating, setRating, setHover, hover }) {
                     <div style={{ width: '2.4em' }}
                         // when you go over a star it highlights
                         onMouseEnter={() => setHover(star)}
-                        // onChange={() => setHover(star)}
                         // when it leaves it stays on the rating selected if selected
                         onMouseLeave={() => setHover(rating)}>
                         <button

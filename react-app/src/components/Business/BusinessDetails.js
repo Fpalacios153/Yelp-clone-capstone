@@ -47,10 +47,8 @@ export default function BusinessDetails() {
     if (isLoaded && !business) {
 
         busArray.forEach(buz => {
-            console.log(buz.id, +businessId)
             if (Number(buz.id) === +businessId) {
                 exist = true
-                console.log(exist)
             }
         })
         if (!exist) {

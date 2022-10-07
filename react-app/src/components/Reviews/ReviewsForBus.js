@@ -15,9 +15,7 @@ export default function ReviewsForOneBus() {
     const reviews = useSelector(state => state.reviews)
     const reviewArr = Object.values(reviews).filter(review => +review.businessId === +businessId)
     const currentUser = useSelector(state => state.session.user)
-    console.log(currentUser)
     // const users = useSelector(state => state.user)
-    // console.log(users[1])
 
 
     useEffect(() => {

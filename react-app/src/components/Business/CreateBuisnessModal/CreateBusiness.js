@@ -25,7 +25,6 @@ export default function CreateNewBusiness({ setShowModal }) {
     const currentUser = useSelector(state => state.session.user)
     const buisness = useSelector(state => state.businesses)
     const businessArr = Object.values(buisness)
-    console.log(buisness)
     const statesAbrivation = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']
 
     useEffect(() => {
