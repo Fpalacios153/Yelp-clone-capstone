@@ -127,14 +127,11 @@ git@github.com:Fpalacios153/Yelp-clone-capstone.git
    ```
 -  Create a .env file in the root of the project with the following variables: 
    ```shell
-  SECRET_KEY=<<SECRET_KEY>>
-DATABASE_URL=sqlite:///dev.db
+   SECRET_KEY=<<SECRET_KEY>>
+   DATABASE_URL=sqlite:///dev.db
    ```
--Create another .env file in the root of the react-app directory with the following variables:
-   ```shell
-REACT_APP_BASE_URL=http://localhost:5000
-   ```
--  Get into your pipenv, migrate your database, seed your database, and run your Flask app
+- Get into your pipenv, migrate your database, seed your database, and run your Flask app
+
    ```shell
    pipenv shell
    ```
