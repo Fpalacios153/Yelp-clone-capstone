@@ -110,6 +110,51 @@
 - I aslo plan to add a search feature to search througth the businesses by name. This feature will also let you write a review by searching for the business. 
 - I also plan to add a maps feature that will show where the businesses are on a map displayed on the side of the main logged in page. 
 
+## Local Installation
+
+To run this application locally, you will need Python and NPM. This root folder contains a backend (app) and frontend (react-app) directory. 
+
+### Step 1: Download
+Clone the project repository 
+```shell
+git@github.com:Fpalacios153/Yelp-clone-capstone.git
+```
+
+### Step 2: Backend Setup
+-  Inside of the root directory, run the following command in the terminal to set up the necessary Python dependencies for running the backend server and database. 
+   ```shell
+   pipenv install -r requirements.txt
+   ```
+-  Create a .env file in the root of the project with the following variables: 
+   ```shell
+  SECRET_KEY=<<SECRET_KEY>>
+DATABASE_URL=sqlite:///dev.db
+   ```
+-Create another .env file in the root of the react-app directory with the following variables:
+   ```shell
+REACT_APP_BASE_URL=http://localhost:5000
+   ```
+-  Get into your pipenv, migrate your database, seed your database, and run your Flask app
+   ```shell
+   pipenv shell
+   ```
+   ```shell
+   flask db upgrade
+   ```
+   ```shell
+   flask seed all
+   ```
+   ```shell
+   flask run
+   ```
+
+### Step 3: Frontend Setup
+- Open another terminal 
+- Navigate to the /react-app directory, run the following command to set up the necessary Node.js dependencies and then start the server.
+```shell
+npm install
+npm start
+```
 
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
