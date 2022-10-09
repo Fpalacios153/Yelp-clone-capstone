@@ -9,7 +9,7 @@ function CreateBusinessModal({ }) {
     return (
         <>
             <button className='create-business-button' onClick={() => setShowModal(true)}>
-                Create New Buisness
+                Create New Business
             </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
