@@ -8,7 +8,7 @@ function UpdateBusinessModal({ }) {
         <>
             <button className='business-detail-UD-button' onClick={() => setShowModal(true)}>
                 {/* <i className="fa fa-pencil" aria-hidden="true"></i>{'  '} */}
-                Update Buisness
+                Update Business
             </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
