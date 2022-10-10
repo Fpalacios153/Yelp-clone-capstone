@@ -12,6 +12,7 @@ import LogoutButton from "../auth/LogoutButton";
 import { useSelector } from "react-redux";
 import ProfileDropDown from "./ProfileDropDown";
 
+
 export default function MainPage() {
     const currentUser = useSelector(state => state.session.user)
 
@@ -64,7 +65,13 @@ export default function MainPage() {
                             <CreateReview />
                         </Route>
                         <Route>
-                            <h1>Page not Found 404</h1>
+                            <div className="not-found-container">
+                                <div className="not-found-redirect">
+                                    <div className="not-found-number">404</div>
+                                    <h1 className="not-found-word">Page Not Found </h1>
+                                    {/* <h2 className="not-found-word">Redirecting...</h2> */}
+                                </div>
+                            </div>
                         </Route>
                     </Switch>
                 </div>
