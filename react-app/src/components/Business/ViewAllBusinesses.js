@@ -32,7 +32,7 @@ export default function Businesses() {
         <>
             <div className="entire-business-container">
                 <div className="business-title">
-                    All Businesses
+                    Businesses
                 </div>
                 {businesses.map((bus, idx) => (
                     <div key={bus.id} className='business-container'>
