@@ -27,9 +27,11 @@ const SignUpForm = () => {
     if (firstName.length > 25) { error.push('error: First Name must be less than 25 characters') }
     if (lastName.length > 25) { error.push('error: Last Name must be less than 25 characters') }
     if (email.length > 35) { error.push('error: Email must be less than 35 characters') }
+    if (profilePic.length && !profilePic.includes('.png') && !profilePic.includes('.jpeg') && !profilePic.includes('.jpg')) error.push('error: Profile picture must be in jpeg, jpg or png format')
+
     // setHasSubmitted(true)
     setErrors(error)
-  }, [password, repeatPassword, username, email, firstName, lastName])
+  }, [password, repeatPassword, username, email, firstName, lastName, profilePic])
 
   const onSignUp = async (e) => {
     e.preventDefault();
