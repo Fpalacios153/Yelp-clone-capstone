@@ -4,15 +4,21 @@ from app.models import db, User
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', email='demo@aa.io', password='password', firstName='DemoName', lastName='User1', profilePic='/static/images/icons/userIcon1.png')
+        username='Demo', email='demo@aa.io', password='password', firstName='Demo', lastName='User1', profilePic='/static/images/icons/userIcon1.png')
     marnie = User(
-        username='marnie', email='marnie@aa.io', password='password', firstName='MarnieName', lastName='User2',profilePic='/static/images/icons/userIcon2.png')
+        username='marnie', email='marnie@aa.io', password='password', firstName='Marnie', lastName='User2',profilePic='/static/images/icons/userIcon2.png')
     bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password',firstName='bobbieName', lastName='User3',profilePic='/static/images/icons/userIcon3.png')
+        username='bobbie', email='bobbie@aa.io', password='password',firstName='Bobbie', lastName='User3',profilePic='/static/images/icons/userIcon3.png')
+    mario = User(
+        username='Mario123', email='Mario123@aa.io', password='password',firstName='Mario', lastName='User4',profilePic='/static/images/icons/userIcon1.png')
+    john = User(
+        username='Johnny123', email='Johnnyy123@aa.io', password='password',firstName='John', lastName='User5',profilePic='/static/images/icons/userIcon2.png')
 
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
+    db.session.add(mario)
+    db.session.add(john)
 
     db.session.commit()
 

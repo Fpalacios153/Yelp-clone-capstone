@@ -39,7 +39,8 @@
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #2D2E2F;
     padding-left: 5px;
-
+    word-break: break-all;
+    white-space: normal;
 }
 
 .profileLi {
