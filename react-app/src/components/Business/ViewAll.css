@@ -84,7 +84,7 @@
     justify-content: flex-start;
     align-items: center;
     /* padding-top: 5em; */
-    /* word-break: break-all; */
+    word-break: break-all;
     height: 12em;
 }
 
