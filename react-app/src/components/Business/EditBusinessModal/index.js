@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../../context/Modal';
 import UpdateBusiness from './EditBusiness';
-function UpdateBusinessModal({ }) {
+function UpdateBusinessModal() {
     const [showModal, setShowModal] = useState(false);
 
     return (

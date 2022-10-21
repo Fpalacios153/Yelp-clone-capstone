@@ -19,7 +19,7 @@ export default function CreateNewBusiness({ setShowModal }) {
     const [description, setDescription] = useState('')
     const [image, setImage] = useState('')
 
-    const [hasSubmitted, setHasSubmitted] = useState(false)
+    // const [hasSubmitted, setHasSubmitted] = useState(false)
     const [errors, setErrors] = useState([])
 
     const currentUser = useSelector(state => state.session.user)
@@ -36,18 +36,18 @@ export default function CreateNewBusiness({ setShowModal }) {
         if (country.length > 30) error.push('error:Country must be less than 30 characters')
         if (isNaN(zipcode) || zipcode.length > 5) error.push('error:Zipcode must be a 5 digit number')
         if (image.length && !image.includes('.png') && !image.includes('.jpeg') && !image.includes('.jpg')) error.push('error: Image must be in jpeg, jpg or png format')
-        businessArr.map(business => {
+        businessArr.forEach(business => {
             if (business.name.toLowerCase() === name.toLowerCase()) {
                 error.push('error: Business with that name already exists')
             }
         })
-        businessArr.map(business => {
+        businessArr.forEach(business => {
             if (business.email.toLowerCase() === email.toLowerCase()) {
                 error.push('error: Business with that email already exists')
             }
         })
         setErrors(error)
-    }, [name, address, city, zipcode, country, image, name, email, description])
+    }, [name, address, city, zipcode, country, image, email, description])
 
 
 
@@ -249,45 +249,3 @@ export default function CreateNewBusiness({ setShowModal }) {
         </>
     )
 }
-// //FUNCTIONS TO MASK PHONE NUMBER INPUTS:
-// export const changeToDigits = (phoneNumber) => {
-//     return phoneNumber.replace(/[^0-9,.]/g, ‘’)
-//   }
-// export const phoneNumberFormatter = (phone) => {
-//     if(!phone){
-//       return
-//     }
-//     const frame = ‘(___) ___-____’
-//     const digits = changeToDigits(phone)
-//     let i = 0
-//     let lastIndex = 0
-//     let formatted = frame.replace(/_/g, (_, j) => {
-//       if (i >= digits.length) return ‘_’
-//       lastIndex = j;
-//       return digits[i++]
-//     })
-//     return formatted.substring(0, lastIndex + 1)
-//   }
-
-
-
-
-
-// 1:23
-// useEffect(() => {
-//     const formattedPhone = phoneNumberFormatter(phone)
-//     setPhone(formattedPhone)
-//   }, [phone])
-{/* <label>
-
-<input
-className='login-form-input'
-type="text"
-// required
-                                name="state"
-                                maxLength={2}
-                                placeholder="State Ex:CA"
-                                value={state}
-                                onChange={(e) => setState(e.target.value)}
-                            />
-                        </label> */}

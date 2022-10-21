@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useHistory, useParams } from "react-router-dom"
+// import { useHistory, useParams } from "react-router-dom"
 import { getAllBusinesses } from "../../../store/business"
 import { updateAReview } from "../../../store/review"
 import StarRating from "../Star/StarRating"
 
 export default function UpdateReview({ setShowModal, reviewId }) {
     const dispatch = useDispatch()
-    const history = useHistory()
+    // const history = useHistory()
     // const { reviewId } = useParams()
 
     const reviews = useSelector(state => state.reviews)
@@ -15,12 +15,12 @@ export default function UpdateReview({ setShowModal, reviewId }) {
 
     const [review, setReview] = useState(reviewToBe.review)
     const [rating, setRating] = useState(reviewToBe.rating)
-    const [userId, setUserID] = useState(reviewToBe.userId)
-    const [businessId, setBusinessID] = useState(reviewToBe?.businessId)
+    const [userId,] = useState(reviewToBe.userId)
+    const [businessId,] = useState(reviewToBe?.businessId)
     const [errors, setErrors] = useState([])
     const [hover, setHover] = useState(0)
 
-    const [hasSubmitted, setHasSubmitted] = useState(false)
+    // const [hasSubmitted, setHasSubmitted] = useState(false)
 
     const currentUser = useSelector(state => state.session.user)
 

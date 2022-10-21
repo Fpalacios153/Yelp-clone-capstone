@@ -2,8 +2,8 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import { getAllBusinesses } from "../../store/business"
-import { deleteABusiness } from "../../store/business"
-import { getAllReviews } from "../../store/review"
+// import { deleteABusiness } from "../../store/business"
+// import { getAllReviews } from "../../store/review"
 import AverageStarRating from "../AverageStarRating"
 import Footer from "../Footer"
 import './ViewAll.css'
@@ -23,11 +23,11 @@ export default function Businesses() {
     useEffect(() => {
         dispatch(getAllBusinesses()).then(() => setIsLoaded(true))
     }, [dispatch])
-    const toDelete = async (id) => {
-        // e.preventDefault()
-        await dispatch(deleteABusiness(id))
-        // await history.push('/')
-    }
+    // const toDelete = async (id) => {
+    //     // e.preventDefault()
+    //     await dispatch(deleteABusiness(id))
+    //     // await history.push('/')
+    // }
     return isLoaded ? (
         <>
             <div className="entire-business-container">

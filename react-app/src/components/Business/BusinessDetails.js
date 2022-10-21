@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { deleteABusiness, getAllBusinesses, getOneBusiness } from "../../store/business";
+import { deleteABusiness, getAllBusinesses } from "../../store/business";
 import CreateReviewModal from "../Reviews/CreateReviewModal";
 // import CreateReview from "../Reviews/CreateReview";
 import ReviewsForOneBus from "../Reviews/ReviewsForBus";

@@ -3,7 +3,7 @@ import { Modal } from '../../../context/Modal';
 import CreateNewBusiness from './CreateBusiness';
 import './index.css'
 
-function CreateBusinessModal({ }) {
+function CreateBusinessModal() {
     const [showModal, setShowModal] = useState(false);
 
     return (

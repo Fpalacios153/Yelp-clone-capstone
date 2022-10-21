@@ -2,19 +2,20 @@ import { Route, Switch, NavLink } from "react-router-dom";
 import BusinessDetails from "../Business/BusinessDetails";
 import CreateBuisnessModal from '../Business/CreateBuisnessModal'
 import Businesses from "../Business/ViewAllBusinesses";
-import NavBar from "../NavBar";
+// import NavBar from "../NavBar";
 import UsersList from "../UsersList";
 import User from "../User";
 import ReviewDetails from "../Reviews/ReviewDetails";
 import CreateReview from "../Reviews/CreateReviewModal/CreateReview";
 import './MainPage.css'
-import LogoutButton from "../auth/LogoutButton";
-import { useSelector } from "react-redux";
+// import LogoutButton from "../auth/LogoutButton";
+// import { useSelector } from "react-redux";
 import ProfileDropDown from "./ProfileDropDown";
+import ProfileView from "../UserProfileP/UserProfilePage";
 
 
 export default function MainPage() {
-    const currentUser = useSelector(state => state.session.user)
+    // const currentUser = useSelector(state => state.session.user)
 
     return (
         <>
@@ -24,7 +25,7 @@ export default function MainPage() {
                         <div className="main-logo-container">
                             <NavLink className="title-main-page" to='/'>Help!</NavLink>
                             <NavLink to='/'>
-                                <img className="burger-splash" src="/static/images/logos/icons8-hamburger-48.png"></img>
+                                <img className="burger-splash" src="/static/images/logos/icons8-hamburger-48.png" alt="burger-logo"></img>
                             </NavLink>
                         </div>
                     </div>
@@ -63,6 +64,9 @@ export default function MainPage() {
                         </Route>
                         <Route path='/businesses/:businessId/review'>
                             <CreateReview />
+                        </Route>
+                        <Route path='/profilepage'>
+                            <ProfileView />
                         </Route>
                         <Route>
                             <div className="not-found-container">

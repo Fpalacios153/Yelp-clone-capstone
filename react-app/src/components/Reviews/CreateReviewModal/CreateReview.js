@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useHistory, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { getAllBusinesses } from "../../../store/business"
 import { createAReview } from "../../../store/review"
 import StarRating from "../Star/StarRating"
@@ -8,16 +8,16 @@ import './CreateReview.css'
 
 export default function CreateReview({ setShowModal }) {
     const dispatch = useDispatch()
-    const history = useHistory()
+    // const history = useHistory()
     const { businessId } = useParams()
 
     const [review, setReview] = useState('')
     const [rating, setRating] = useState('')
-    const [userId, setUserID] = useState('')
+    // const [userId, setUserID] = useState('')
     // const [businessId, setBusinessID] = useState('')
     const currentUser = useSelector(state => state.session.user)
 
-    const [hasSubmitted, setHasSubmitted] = useState(false)
+    // const [hasSubmitted, setHasSubmitted] = useState(false)
     const [errors, setErrors] = useState([])
 
     const reviewCheck = useSelector(state => state.businesses[businessId])
@@ -25,15 +25,15 @@ export default function CreateReview({ setShowModal }) {
     useEffect(() => {
         let error = []
         if (review.length > 1000) error.push('error:Review must be less than 1000 characters')
-        reviewArray?.map(review => {
+        reviewArray?.forEach(review => {
             if (currentUser.id === review.userId) {
                 error.push('error: User can only leave one review per business')
             }
         })
         setErrors(error)
-    }, [review, rating])
+    }, [review, rating, reviewArray, currentUser.id])
 
-    const ratings = ['1', '2', "3", "4", "5"]
+    // const ratings = ['1', '2', "3", "4", "5"]
     const [hover, setHover] = useState(0)
 
 

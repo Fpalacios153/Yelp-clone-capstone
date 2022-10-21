@@ -48,7 +48,7 @@ const LoginForm = () => {
             Help!
           </NavLink>
           <NavLink className="title-splash" to='/'>
-            <img className="burger-splash" src="/static/images/logos/icons8-hamburger-48.png"></img>
+            <img className="burger-splash" src="/static/images/logos/icons8-hamburger-48.png" alt='burger-logo'></img>
           </NavLink>
         </div>
       </div>
