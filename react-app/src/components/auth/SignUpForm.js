@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, NavLink } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import DemoUser from '../DemoUser';
 import './SignUpForm.css'
 
 const SignUpForm = () => {
@@ -183,6 +184,12 @@ const SignUpForm = () => {
                 Already on Help!?
                 <NavLink className='sign-up-login-form' to='/login'>Log in</NavLink>
               </div>
+              <div className='OR-container'>
+                <fieldset className='OR-separator'>
+                  <legend className='OR'>OR</legend>
+                </fieldset>
+              </div>
+              <DemoUser />
             </div>
           </form>
         </div>

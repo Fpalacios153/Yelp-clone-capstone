@@ -99,12 +99,18 @@ const LoginForm = () => {
               <div>
                 <button className='login-form-buttom' type='submit'>Log In</button>
               </div>
-              <div>
-                <DemoUser />
-              </div>
               <div className='bottom-switch-page'>
                 New to Help!?
                 <NavLink className='sign-up-login-form' to='/sign-up'>Sign up</NavLink>
+              </div>
+
+              <div className='OR-container'>
+                <fieldset className='OR-separator'>
+                  <legend className='OR'>OR</legend>
+                </fieldset>
+              </div>
+              <div>
+                <DemoUser />
               </div>
             </div>
           </form>
