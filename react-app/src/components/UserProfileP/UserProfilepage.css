@@ -14,6 +14,8 @@
 }
 
 .side-nav-bar-container {
+    display: flex;
+    flex-direction: column;
     background-color: orange;
     width: 20%;
 }
@@ -21,4 +23,5 @@
 .center-profile-container {
     width: 70%;
     background-color: aqua;
+    height: 75vh;
 }

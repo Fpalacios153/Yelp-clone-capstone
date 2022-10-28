@@ -68,6 +68,15 @@ export default function MainPage() {
                         <Route path='/profilepage'>
                             <ProfileView />
                         </Route>
+                        <Route exact path='/user/businesses'>
+                            <ProfileView />
+                        </Route>
+                        <Route exact path='/user/reviews'>
+                            <ProfileView />
+                        </Route>
+                        <Route exact path='/user/favorites'>
+                            <ProfileView />
+                        </Route>
                         <Route>
                             <div className="not-found-container">
                                 <div className="not-found-redirect">
