@@ -1,27 +1,55 @@
 .profile-pic-top-container {
-    width: 100%;
-    height: 25vh;
-    background-color: lightgray;
+    height: 12.2em;
+    background-color: #f5f5f5;
     border-bottom: 2px solid #ebebeb;
+    display: flex;
+    align-items: flex-start;
+}
 
+
+
+.image-profile-pic {
+    /* vertical-align: middle; */
+    border-radius: 5px;
+    width: 225px;
+    height: 13.5em;
+    background-color: blue;
+    position: absolute;
+    /* top: -170px */
+    top: 120px;
 }
 
 .profile-middle-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-
+    margin: auto;
+    /* justify-content: center; */
+    padding-left: 20px;
+    width: 80em;
 }
 
 .side-nav-bar-container {
     display: flex;
     flex-direction: column;
     background-color: orange;
-    width: 20%;
+    width: 14em;
 }
 
 .center-profile-container {
-    width: 70%;
+    width: 60em;
     background-color: aqua;
     height: 75vh;
+}
+
+.side-bar-word-container {
+    /* padding-left: 20px; */
+}
+
+.profile-page-list {
+    padding: 0;
+    list-style: none;
+}
+
+.profile-page-list-item {
+    text-decoration-line: none;
 }

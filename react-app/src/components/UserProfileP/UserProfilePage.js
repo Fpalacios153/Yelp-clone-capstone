@@ -10,8 +10,9 @@ export default function ProfileView() {
     const dispatch = useDispatch()
     const currentUser = useSelector(state => state.session.user)
     const allBusinesses = useSelector(state => state.businesses)
-    const businessArray = Object.values(allBusinesses)
     const allReviews = useSelector(state => state.reviews)
+
+    const businessArray = Object.values(allBusinesses)
     const reviewArr = Object.values(allReviews)
 
     let usersBusinesses = businessArray.filter(bus =>
@@ -64,18 +65,21 @@ export default function ProfileView() {
         <>
             <div>
                 <div className="profile-pic-top-container">
+
                 </div>
                 <div className="profile-middle-container">
                     <div className="side-nav-bar-container">
-                        <img alt="profile-pic" src={currentUser.profilePic}></img>
-                        <div>{currentUser.firstName}'s Profile</div>
-                        <div>
-                            <ul>
-                                <li><NavLink to='/user/businesses'>Businesses</NavLink></li>
-                                <li><NavLink to='/user/reviews'>Reviews</NavLink></li>
-                                <li><NavLink to='/user/favorites'>Favorites</NavLink></li>
+                        <img className="image-profile-pic" alt="profile-pic" src={currentUser.profilePic}></img>
+
+                        <div className="side-bar-word-container">
+                            <div>{currentUser.firstName}'s Profile</div>
+                            <ul className="profile-page-list">
+                                <li className="profile-page-list-item"><NavLink className="profile-page-list-item" to='/user/businesses'>Businesses</NavLink></li>
+                                <li className="profile-page-list-item"><NavLink className="profile-page-list-item" to='/user/reviews'>Reviews</NavLink></li>
+                                <li className="profile-page-list-item"><NavLink className="profile-page-list-item" to='/user/favorites'>Favorites</NavLink></li>
                             </ul>
                         </div>
+
                     </div>
                     <div className="center-profile-container">
                         <h1>Hello</h1>
