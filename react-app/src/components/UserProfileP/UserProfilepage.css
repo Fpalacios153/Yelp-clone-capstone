@@ -9,40 +9,47 @@
 
 
 .image-profile-pic {
-    /* vertical-align: middle; */
     border-radius: 5px;
     width: 225px;
     height: 13.5em;
     background-color: blue;
     position: absolute;
-    /* top: -170px */
     top: 120px;
+    /* position: relative; */
+    /* top: 10px; */
 }
 
 .profile-middle-container {
     display: flex;
     flex-direction: row;
     margin: auto;
-    /* justify-content: center; */
+    justify-content: center;
     padding-left: 20px;
-    width: 80em;
+    /* width: 75em; */
 }
 
 .side-nav-bar-container {
     display: flex;
     flex-direction: column;
     background-color: orange;
-    width: 14em;
+    width: 225px;
 }
 
+/* add media screen to that this part shrinks */
 .center-profile-container {
-    width: 60em;
+    width: 78%;
     background-color: aqua;
     height: 75vh;
 }
 
 .side-bar-word-container {
+    padding-top: 40px;
     /* padding-left: 20px; */
+}
+
+.profile-page-name {
+    font-weight: bold;
+    font-size: 16px;
 }
 
 .profile-page-list {

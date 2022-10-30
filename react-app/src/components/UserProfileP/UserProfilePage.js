@@ -70,15 +70,15 @@ export default function ProfileView() {
                 <div className="profile-middle-container">
                     <div className="side-nav-bar-container">
                         <img className="image-profile-pic" alt="profile-pic" src={currentUser.profilePic}></img>
-
                         <div className="side-bar-word-container">
-                            <div>{currentUser.firstName}'s Profile</div>
+                            <h3 className="profile-page-name">{currentUser.firstName}'s Profile</h3>
                             <ul className="profile-page-list">
-                                <li className="profile-page-list-item"><NavLink className="profile-page-list-item" to='/user/businesses'>Businesses</NavLink></li>
-                                <li className="profile-page-list-item"><NavLink className="profile-page-list-item" to='/user/reviews'>Reviews</NavLink></li>
-                                <li className="profile-page-list-item"><NavLink className="profile-page-list-item" to='/user/favorites'>Favorites</NavLink></li>
+                                <li className="profile-page-list-item"><NavLink className="profile-page-list-item" to='/user/businesses'><i className="fa-solid fa-shop"></i>Businesses</NavLink></li>
+                                <li className="profile-page-list-item"><NavLink className="profile-page-list-item" to='/user/reviews'> <i class="fa-regular fa-star"></i>Reviews</NavLink></li>
+                                <li className="profile-page-list-item"><NavLink className="profile-page-list-item" to='/user/favorites'><i class="fa-regular fa-heart"></i>Favorites</NavLink></li>
                             </ul>
                         </div>
+                        {/* <i class="fa fa-user-circle-o"></i> */}
 
                     </div>
                     <div className="center-profile-container">
