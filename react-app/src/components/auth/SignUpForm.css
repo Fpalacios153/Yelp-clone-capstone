@@ -20,3 +20,27 @@
     width: 10.4em;
 
 }
+
+.OR-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0px;
+}
+
+.OR-separator {
+    text-align: center;
+    width: 17.2em;
+    border-top: #ccc 2px solid;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    font-size: 16px;
+    color: #666;
+    font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.OR {
+    padding-left: 9px;
+    padding-right: 9px;
+}

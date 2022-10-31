@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { getAllBusinesses } from '../../store/business'
 import { deleteAReview, getAllReviews } from '../../store/review'
-import { getAllUsers } from '../../store/user'
+// import { getAllUsers } from '../../store/user'
 import AverageStarRating from '../AverageStarRating'
 import EditReviewModal from './EditReviewModal'
 import './ReviewofUsers.css'
@@ -22,7 +22,7 @@ export default function ReviewsForOneBus() {
         dispatch(getAllReviews())
             // .then(() => dispatch(getAllUsers()))
             .then(() => setLoaded(true))
-    }, [])
+    }, [dispatch])
     const toDelete = async (id) => {
         await dispatch(deleteAReview(id))
         await dispatch(getAllBusinesses())
@@ -39,6 +39,7 @@ export default function ReviewsForOneBus() {
                         <div className='review-top-container'>
                             <div className='review-pic-name-container'>
                                 <img
+                                    alt='review-profile-pic'
                                     className='review-profile-pic'
                                     src={review.user.profilePic}
                                     onError={e => { e.currentTarget.src = '/static/images/icons/defaultProfile.png' }}
@@ -78,4 +79,3 @@ export default function ReviewsForOneBus() {
         </>
     ) : <h1>LOADING....</h1>
 }
-{/* <NavLink to={`/reviews/${review.id}`}>{review.rating}  |  {review.review}</NavLink> */ }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, NavLink } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import DemoUser from '../DemoUser';
 import './SignUpForm.css'
 
 const SignUpForm = () => {
@@ -14,7 +15,7 @@ const SignUpForm = () => {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [profilePic, setProfilePic] = useState('')
-  const [hasSumbitted, setHasSubmitted] = useState(false)
+  // const [hasSumbitted, setHasSubmitted] = useState(false)
 
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const SignUpForm = () => {
   useEffect(() => {
     let error = []
     if (password !== repeatPassword) { error.push('error: Passwords do not match') }
-    if (password.length && password.length < 6 || password.length > 20) { error.push('error:Password must be between 6-20 characters') }
+    if ((password.length && password.length < 6) || password.length > 20) { error.push('error:Password must be between 6-20 characters') }
     if (username.length > 40) { error.push('error: Username must be less than 40 characters') }
     if (firstName.length > 25) { error.push('error: First Name must be less than 25 characters') }
     if (lastName.length > 25) { error.push('error: Last Name must be less than 25 characters') }
@@ -35,7 +36,7 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    setHasSubmitted(true)
+    // setHasSubmitted(true)
     if (password === repeatPassword) {
       const data = await dispatch(signUp(firstName, lastName, profilePic, username, email, password));
       if (data) {
@@ -72,7 +73,7 @@ const SignUpForm = () => {
             Help!
           </NavLink>
           <NavLink className="title-splash" to='/'>
-            <img className="burger-splash" src="/static/images/logos/icons8-hamburger-48.png"></img>
+            <img className="burger-splash" src="/static/images/logos/icons8-hamburger-48.png" alt='burger-logo'></img>
           </NavLink>
         </div>
       </div>
@@ -183,6 +184,12 @@ const SignUpForm = () => {
                 Already on Help!?
                 <NavLink className='sign-up-login-form' to='/login'>Log in</NavLink>
               </div>
+              <div className='OR-container'>
+                <fieldset className='OR-separator'>
+                  <legend className='OR'>OR</legend>
+                </fieldset>
+              </div>
+              <DemoUser />
             </div>
           </form>
         </div>

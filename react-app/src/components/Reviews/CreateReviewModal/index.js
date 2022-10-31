@@ -3,7 +3,7 @@ import { Modal } from '../../../context/Modal';
 import CreateReview from './CreateReview';
 import './index.css'
 
-function CreateReviewModal({ }) {
+function CreateReviewModal() {
     const [showModal, setShowModal] = useState(false);
 
     return (
