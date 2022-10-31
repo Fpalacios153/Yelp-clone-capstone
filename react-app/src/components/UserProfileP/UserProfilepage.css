@@ -1,4 +1,25 @@
 .profile-pic-top-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.user-profile-info {
+    padding-left: 150px;
+    padding-top: 100px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    /* position: relative;
+    left: 400px;
+    top: 70px; */
+
+}
+
+
+
+.profile-pic-top-container {
     height: 12.2em;
     background-color: #f5f5f5;
     border-bottom: 2px solid #ebebeb;
@@ -6,45 +27,47 @@
     align-items: flex-start;
 }
 
-
-
 .image-profile-pic {
     border-radius: 5px;
     width: 225px;
     height: 13.5em;
     background-color: blue;
-    position: absolute;
-    top: 120px;
+    /* position: absolute;
+    top: 120px; */
 
     /* position: relative; */
-    /* top: 10px; */
+    /* top: -160px; */
 }
 
 .profile-middle-container {
     display: flex;
     flex-direction: row;
-    margin: auto;
+    /* margin: auto; */
     justify-content: center;
-    padding-left: 20px;
+    padding-left: 26px;
     /* width: 75em; */
+
 }
 
 .side-nav-bar-container {
     display: flex;
     flex-direction: column;
     width: 225px;
+    /* padding-bottom: 100px; */
+    position: relative;
+    top: -170px;
 }
 
 /* add media screen to that this part shrinks */
 .center-profile-container {
-    width: 78%;
-    background-color: aqua;
-    height: 75vh;
+    width: 70%;
+    /* background-color: aqua; */
+    height: 100%
 }
 
-.side-bar-word-container {
+/* .side-bar-word-container {
     padding-top: 40px;
-}
+} */
 
 .profile-page-name {
     font-weight: bold;
@@ -54,12 +77,11 @@
 .profile-page-list {
     padding: 0;
     list-style: none;
+
 }
 
 .profile-page-list-item {
     border-top: #ebebeb 1px solid;
-
-
 }
 
 .profile-navlink {
@@ -68,19 +90,15 @@
     text-decoration-line: none;
     color: #333;
     border-left: transparent 3px solid;
-
 }
 
 .profile-navlink:focus {
     border-left: #d32323 3px solid;
     background-color: #f5f5f5;
-
 }
 
 .profile-page-list-item:hover {
     background-color: #f5f5f5;
-
-
 }
 
 .profile-li-text-container {

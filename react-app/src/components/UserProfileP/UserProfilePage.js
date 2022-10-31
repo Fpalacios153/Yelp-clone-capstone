@@ -4,7 +4,9 @@ import { NavLink, Route, Switch } from 'react-router-dom';
 import { getAllBusinesses } from "../../store/business";
 import { getAllReviews } from "../../store/review";
 import Footer from "../Footer"
+import UsersBusinesses from "./UserBusinesses";
 import './UserProfilepage.css'
+import UsersReview from "./UsersReview";
 
 export default function ProfileView() {
     const dispatch = useDispatch()
@@ -15,49 +17,29 @@ export default function ProfileView() {
     const businessArray = Object.values(allBusinesses)
     const reviewArr = Object.values(allReviews)
 
+
     let usersBusinesses = businessArray.filter(bus =>
         bus.ownerId === currentUser.id
     )
     let usersReview = reviewArr.filter(review =>
         review.userId === currentUser.id
     )
-
     useEffect(() => {
         dispatch(getAllBusinesses())
         dispatch(getAllReviews())
     }, [dispatch])
 
 
-    let businesses = usersBusinesses ? (
+    let businesses = usersBusinesses.length > 0 ? (
         <>
-
-            <div>Users Businesses go hereß</div>
-            {usersBusinesses.map(bus => (
-                <div key={bus.id}>
-                    <NavLink to={`/businesses/${bus.id}`}>
-
-                        <div>{bus.name}</div>
-                        <img style={{ width: '100px', height: '100px' }} src={bus.image}></img>
-                        {/* <div>{bus.image}</div> */}
-                    </NavLink>
-                </div>
-            ))}
+            <UsersBusinesses usersBusinesses={usersBusinesses} usersName={currentUser.firstName} />
         </>
     ) : (<div>Loading...</div>)
 
 
-    let reviews = usersReview ? (
+    let reviews = usersReview.length > 0 ? (
         <>
-            <div>Users Reviewsß go hereß</div>
-            {usersReview.map(review => (
-                <div key={review.id}>
-                    <NavLink to={`/businesses/${review.businessId}`}>
-                        <div>{review.businessId}</div>
-                        <div>{review.review}</div>
-                        <div>{review.rating}</div>
-                    </NavLink>
-                </div>
-            ))}
+            <UsersReview usersReview={usersReview} usersName={currentUser.firstName} />
         </>
     ) : (<div>Loading...</div>)
 
@@ -65,6 +47,17 @@ export default function ProfileView() {
         <>
             <div>
                 <div className="profile-pic-top-container">
+                    <div className="user-profile-info">
+                        <h1 style={{ margin: '0' }}>{`${currentUser.firstName} ${currentUser.lastName[0]}.`}</h1>
+                        <span>
+                            <div>
+                                <i class="fa-regular fa-star" style={{ color: 'red' }}></i>
+
+                                {' ' + usersReview.length + ' '}Reviews
+                            </div>
+                        </span>
+                    </div>
+                    <div>Edit</div>
 
                 </div>
                 <div className="profile-middle-container">
@@ -74,7 +67,7 @@ export default function ProfileView() {
                             <h3 className="profile-page-name">{currentUser.firstName}'s Profile</h3>
                             <ul className="profile-page-list">
                                 <li className="profile-page-list-item">
-                                    <NavLink className='profile-navlink' to='/user/overview'>
+                                    <NavLink className='profile-navlink' to='/profilepage'>
                                         <div className="profile-li-text-container">
                                             <div className="icon-container" >
                                                 <i className="fa-solid fa-user"></i>
@@ -131,7 +124,7 @@ export default function ProfileView() {
                         {/* <h1>Hello</h1> */}
                         <div className="user-route-container">
                             <Switch>
-                                <Route exact path='/user/overview'>
+                                <Route exact path='/profilepage'>
                                     <h1>Overview</h1>
                                 </Route>
                                 <Route exact path='/user/businesses'>
