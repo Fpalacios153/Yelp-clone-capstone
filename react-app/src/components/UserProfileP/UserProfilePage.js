@@ -28,19 +28,32 @@ export default function ProfileView() {
         dispatch(getAllBusinesses()).then(() => dispatch(getAllReviews()))
     }, [dispatch])
 
-
+    let overview = (
+        <div>
+            <h4 className='user-review-top-title' style={{ paddingLeft: '15px' }}>
+                Overview
+            </h4>
+        </div>
+    )
     let businesses = usersBusinesses.length > 0 ? (
-        <>
-            <UsersBusinesses usersBusinesses={usersBusinesses} usersName={currentUser.firstName} />
-        </>
+
+        <UsersBusinesses usersBusinesses={usersBusinesses} usersName={currentUser.firstName} />
+
     ) : (<div>Loading...</div>)
 
 
     let reviews = usersReview.length > 0 ? (
-        <>
-            <UsersReview usersReview={usersReview} usersName={currentUser.firstName} business={businessArray} />
-        </>
+
+        <UsersReview usersReview={usersReview} usersName={currentUser.firstName} business={businessArray} />
+
     ) : (<div>Loading...</div>)
+    let favorites = (
+        <div>
+            <h4 className='user-review-top-title' style={{ paddingLeft: '15px' }}>
+                {currentUser.firstName}'s Favorites
+            </h4>
+        </div>
+    )
 
     return (
         <>
@@ -124,13 +137,16 @@ export default function ProfileView() {
                         <div className="user-route-container">
                             <Switch>
                                 <Route exact path='/profilepage'>
-                                    <h1>Overview</h1>
+                                    <h1>{overview}</h1>
                                 </Route>
                                 <Route exact path='/user/businesses'>
-                                    <h1>{businesses}</h1>
+                                    <h2>{businesses}</h2>
                                 </Route>
                                 <Route exact path='/user/reviews'>
-                                    <h1>{reviews}</h1>
+                                    <h2>{reviews}</h2>
+                                </Route>
+                                <Route exact path='/user/favorites'>
+                                    <h2>{favorites}</h2>
                                 </Route>
                             </Switch>
                         </div>
