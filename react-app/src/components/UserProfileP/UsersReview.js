@@ -5,11 +5,18 @@ import { useDispatch } from 'react-redux'
 import { deleteAReview } from '../../store/review'
 import { getAllBusinesses } from '../../store/business'
 import AverageStarRating from '../AverageStarRating'
-export default function UsersReview({ usersReview, usersName }) {
+export default function UsersReview({ usersReview, usersName, business }) {
     const dispatch = useDispatch()
 
 
-
+    let findReviewName = (businessId) => {
+        let found = business.find(bus => {
+            return bus.id === businessId
+        })
+        console.log(found.name)
+        return found.name
+    }
+    let found;
     const toDelete = async (id) => {
         await dispatch(deleteAReview(id))
         await dispatch(getAllBusinesses())
@@ -26,6 +33,12 @@ export default function UsersReview({ usersReview, usersName }) {
                 {usersReview.map(review => (
                     <div key={review.id} className="user-review-container">
                         <div className='user-review-top-container'>
+                            <div className='review-business-name'>Review for {' '}
+                                <NavLink className='user-review-return-to-bus' to={`/businesses/${review.businessId}`}>
+                                    {findReviewName(review.businessId)}
+                                </NavLink>
+                            </div>
+
                             <div>
                                 <div className='review-button-container'>
                                     <EditReviewModal reviewId={review.id} />

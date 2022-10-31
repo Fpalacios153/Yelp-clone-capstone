@@ -39,7 +39,7 @@ export default function ProfileView() {
 
     let reviews = usersReview.length > 0 ? (
         <>
-            <UsersReview usersReview={usersReview} usersName={currentUser.firstName} />
+            <UsersReview usersReview={usersReview} usersName={currentUser.firstName} business={businessArray} />
         </>
     ) : (<div>Loading...</div>)
 

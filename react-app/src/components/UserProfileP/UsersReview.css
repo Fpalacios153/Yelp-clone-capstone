@@ -22,7 +22,17 @@
 
 .user-review-top-container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+}
+
+.review-business-name {
+    font-size: 25px;
+    padding-top: 10px;
+}
+
+.user-review-return-to-bus {
+    text-decoration: none;
+    color: #0073bb;
 }
 
 .review-button-container {
@@ -49,7 +59,8 @@
 .user-review-rating-review {
     /* border-bottom: #ebebeb 1px solid; */
     font-size: 17px;
-    padding-bottom: 2em;
+    padding-top: 15px;
+    padding-bottom: 1.6em;
     margin-bottom: 1em;
     padding-left: 5px;
     word-break: break-all;
