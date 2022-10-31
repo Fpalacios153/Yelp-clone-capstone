@@ -73,18 +73,67 @@ export default function ProfileView() {
                         <div className="side-bar-word-container">
                             <h3 className="profile-page-name">{currentUser.firstName}'s Profile</h3>
                             <ul className="profile-page-list">
-                                <li className="profile-page-list-item"><NavLink className="profile-page-list-item" to='/user/businesses'><i className="fa-solid fa-shop"></i>Businesses</NavLink></li>
-                                <li className="profile-page-list-item"><NavLink className="profile-page-list-item" to='/user/reviews'> <i class="fa-regular fa-star"></i>Reviews</NavLink></li>
-                                <li className="profile-page-list-item"><NavLink className="profile-page-list-item" to='/user/favorites'><i class="fa-regular fa-heart"></i>Favorites</NavLink></li>
+                                <li className="profile-page-list-item">
+                                    <NavLink className='profile-navlink' to='/user/overview'>
+                                        <div className="profile-li-text-container">
+                                            <div className="icon-container" >
+                                                <i className="fa-solid fa-user"></i>
+                                            </div>
+                                            <span>
+                                                Overview
+                                            </span>
+                                        </div>
+                                    </NavLink>
+                                </li>
+                                <li className="profile-page-list-item">
+                                    <NavLink className='profile-navlink' to='/user/businesses'>
+                                        <div className="profile-li-text-container">
+                                            <div className=" icon-container">
+                                                <i className=" fa-solid fa-shop"></i>
+                                            </div>
+                                            <span>
+                                                Businesses
+                                            </span>
+                                        </div>
+                                    </NavLink>
+                                </li>
+                                <li className="profile-page-list-item">
+                                    <NavLink className='profile-navlink' to='/user/reviews'>
+                                        <div className="profile-li-text-container">
+                                            <div className=" icon-container">
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                            <span>
+                                                Reviews
+                                            </span>
+                                        </div>
+                                    </NavLink>
+                                </li>
+                                <li className="profile-page-list-item">
+                                    <NavLink className='profile-navlink' to='/user/favorites'>
+                                        <div className="profile-li-text-container">
+                                            <div className=" icon-container">
+                                                <i class="fa-regular fa-heart"></i>
+                                            </div>
+                                            <span>
+                                                Favorites
+                                            </span>
+                                        </div>
+                                    </NavLink>
+                                </li>
+                                <li className="profile-page-list-item"></li>
                             </ul>
                         </div>
                         {/* <i class="fa fa-user-circle-o"></i> */}
 
                     </div>
                     <div className="center-profile-container">
-                        <h1>Hello</h1>
+                        {/* <h1>Hello</h1> */}
                         <div className="user-route-container">
                             <Switch>
+                                <Route exact path='/user/overview'>
+                                    <h1>Overview</h1>
+                                </Route>
                                 <Route exact path='/user/businesses'>
                                     <h1>{businesses}</h1>
                                 </Route>

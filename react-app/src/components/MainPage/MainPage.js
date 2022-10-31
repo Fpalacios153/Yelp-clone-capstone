@@ -68,6 +68,9 @@ export default function MainPage() {
                         <Route path='/profilepage'>
                             <ProfileView />
                         </Route>
+                        <Route exact path='/user/overview'>
+                            <ProfileView />
+                        </Route>
                         <Route exact path='/user/businesses'>
                             <ProfileView />
                         </Route>
