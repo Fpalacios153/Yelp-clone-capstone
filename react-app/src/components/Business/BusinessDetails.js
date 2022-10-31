@@ -9,6 +9,7 @@ import UpdateBusinessModal from "./EditBusinessModal";
 import './BusinessDetails.css'
 import Footer from "../Footer";
 import AverageStarRating from "../AverageStarRating";
+import FavoritesButton from "../Favorites/FavoritesButton";
 
 export default function BusinessDetails() {
     const dispatch = useDispatch()
@@ -101,8 +102,9 @@ export default function BusinessDetails() {
                         </span>
                     </div>
                 ) :
-                    <div className="business-detail-review-container">
+                    <div className="business-review-favorites-container">
                         <CreateReviewModal />
+                        <FavoritesButton />
                     </div>}
                 <div className="business-detail-info-container">
                     <div className="business-detail-left-side">

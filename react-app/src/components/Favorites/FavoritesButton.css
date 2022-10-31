@@ -1,0 +1,52 @@
+.favorite-button {
+    width: 12em;
+    height: 2.6em;
+    background-color: transparent;
+    border: #ebebeb 1px solid;
+    border-radius: 5px;
+    font-weight: 550;
+    font-size: 17px;
+    cursor: pointer;
+    /* padding-left: 10px; */
+}
+
+.favorite-button-selected {
+    width: 15em;
+    height: 2.6em;
+    background-color: transparent;
+    border: #d32323 1px solid;
+    border-radius: 5px;
+    font-weight: 550;
+    font-size: 17px;
+    cursor: pointer;
+    /* padding-left: 10px; */
+}
+
+.favorite-button:hover {
+    background-color: #dbd8d8;
+}
+
+.favorite-button-selected:hover {
+    background-color: #dbd8d8;
+}
+
+.change-heart-clear {
+    /* color: red; */
+    padding-left: 10px;
+}
+
+.change-heart-red {
+    padding-left: 10px;
+    color: rgb(250, 2, 2);
+}
+
+.business-review-favorites-container {
+    /* background-color: aqua; */
+    height: 3em;
+    border-bottom: #ebebeb solid 1px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: 89%;
+    display: flex;
+    justify-content: space-between;
+}
