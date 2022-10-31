@@ -25,8 +25,7 @@ export default function ProfileView() {
         review.userId === currentUser.id
     )
     useEffect(() => {
-        dispatch(getAllBusinesses())
-        dispatch(getAllReviews())
+        dispatch(getAllBusinesses()).then(() => dispatch(getAllReviews()))
     }, [dispatch])
 
 

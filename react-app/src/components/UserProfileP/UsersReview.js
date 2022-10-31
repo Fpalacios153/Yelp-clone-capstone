@@ -10,7 +10,7 @@ export default function UsersReview({ usersReview, usersName, business }) {
 
 
     let findReviewName = (businessId) => {
-        let found = business.find(bus => {
+        let found = business?.find(bus => {
             return bus.id === businessId
         })
         return found.name
