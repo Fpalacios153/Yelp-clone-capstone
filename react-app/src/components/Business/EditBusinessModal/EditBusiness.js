@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { getAllBusinesses, updateABusiness } from "../../../store/business";
 
 export default function UpdateBusiness({ setShowModal }) {
     const dispatch = useDispatch()
-    const history = useHistory()
+    // const history = useHistory()
     const { businessId } = useParams()
 
     const business = useSelector(state => state.businesses[businessId])
@@ -39,20 +39,20 @@ export default function UpdateBusiness({ setShowModal }) {
         if (country.length > 30) error.push('error:Country must be less than 30 characters')
         if (isNaN(zipcode) || zipcode.length > 5) error.push('error:Zipcode must be a 5 digit number')
         if (image.length && !image.includes('.png') && !image.includes('.jpeg') && !image.includes('.jpg')) error.push('error: Image must be in jpeg, jpg or png format')
-        businessArr.map(business => {
+        businessArr.forEach(business => {
             if (name.toLowerCase() === business.name.toLowerCase() && name.toLowerCase() && name !== originalName) {
 
                 error.push('error:Business with that name already exists')
             }
         })
-        businessArr.map(business => {
+        businessArr.forEach(business => {
             if (email.toLowerCase() === business.email.toLowerCase() && email.toLowerCase() && email !== originalEmail) {
 
                 error.push('error:Business with that name already exists')
             }
         })
         setErrors(error)
-    }, [name, address, city, zipcode, country, image, name, description])
+    }, [name, address, city, zipcode, country, image, description, email, originalEmail, originalName])
 
 
     const handleSubmit = async (e) => {

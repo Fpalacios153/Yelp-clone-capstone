@@ -15,7 +15,7 @@ function Splashpage() {
         }, 5000);
 
         return () => clearInterval(imageInterval);
-    }, []);
+    }, [imageArray.length]);
 
     return (
         <div className="splash-container">
@@ -29,7 +29,7 @@ function Splashpage() {
                     <div className="logo-container">
                         <NavLink className="title-splash" to='/'>Help<span style={{ color: 'red' }}>!</span></NavLink>
                         <NavLink to='/'>
-                            <img className="burger-splash" src="/static/images/logos/icons8-hamburger-48.png"></img>
+                            <img className="burger-splash" src="/static/images/logos/icons8-hamburger-48.png" alt="burger-logo"></img>
                         </NavLink>
                     </div>
                 </div>
