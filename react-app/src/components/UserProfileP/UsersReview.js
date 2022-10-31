@@ -13,10 +13,8 @@ export default function UsersReview({ usersReview, usersName, business }) {
         let found = business.find(bus => {
             return bus.id === businessId
         })
-        console.log(found.name)
         return found.name
     }
-    let found;
     const toDelete = async (id) => {
         await dispatch(deleteAReview(id))
         await dispatch(getAllBusinesses())

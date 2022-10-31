@@ -51,7 +51,7 @@ export default function ProfileView() {
                         <h1 style={{ margin: '0' }}>{`${currentUser.firstName} ${currentUser.lastName[0]}.`}</h1>
                         <span>
                             <div>
-                                <i class="fa-regular fa-star" style={{ color: 'red' }}></i>
+                                <i className="fa-regular fa-star" style={{ color: 'red' }}></i>
 
                                 {' ' + usersReview.length + ' '}Reviews
                             </div>
@@ -94,7 +94,7 @@ export default function ProfileView() {
                                     <NavLink className='profile-navlink' to='/user/reviews'>
                                         <div className="profile-li-text-container">
                                             <div className=" icon-container">
-                                                <i class="fa-regular fa-star"></i>
+                                                <i className="fa-regular fa-star"></i>
                                             </div>
                                             <span>
                                                 Reviews
@@ -106,7 +106,7 @@ export default function ProfileView() {
                                     <NavLink className='profile-navlink' to='/user/favorites'>
                                         <div className="profile-li-text-container">
                                             <div className=" icon-container">
-                                                <i class="fa-regular fa-heart"></i>
+                                                <i className="fa-regular fa-heart"></i>
                                             </div>
                                             <span>
                                                 Favorites
