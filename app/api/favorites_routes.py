@@ -1,6 +1,5 @@
-from crypt import methods
-from flask import Blueprint, request
-from app.models import business, db, Business, User
+from flask import Blueprint
+from app.models import db, Business
 from flask_login import login_required, current_user
 
 
@@ -23,7 +22,7 @@ def add_favorite(id):
 
     db.session.commit()
 
-    return business_to_add.to_dict()
+    return {'favorites': [fav.to_dict()for fav in users_favs]}
 
 @favorite_routes.route('/<int:id>', methods=["DELETE"])
 @login_required
