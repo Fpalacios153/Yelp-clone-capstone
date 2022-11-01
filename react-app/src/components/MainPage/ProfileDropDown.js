@@ -48,11 +48,11 @@ export default function ProfileDropDown() {
                         <NavLink className='logout-button profileLi' style={{ paddingLeft: '5px' }} to='/profilepage'>
                             <li>About Me</li>
                         </NavLink>
-                        <li className='profileLi'><LogoutButton /></li>
                         <NavLink className='logout-button profileLi' style={{ paddingLeft: '5px' }} to='/user/favorites'>
                             <li>Favorites</li>
                             {/* add count here */}
                         </NavLink>
+                        <li className='profileLi'><LogoutButton /></li>
                     </ul>
 
                 </div>

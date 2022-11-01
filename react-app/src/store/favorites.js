@@ -4,7 +4,7 @@ const GET_ALL_FAVS = 'user/GET_ALL_FAVS'
 
 const getFavs = (favs) => ({
     type: GET_ALL_FAVS,
-    user
+    favs
 })
 
 
