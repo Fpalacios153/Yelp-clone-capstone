@@ -104,7 +104,7 @@ export default function BusinessDetails() {
                 ) :
                     <div className="business-review-favorites-container">
                         <CreateReviewModal />
-                        <FavoritesButton />
+                        <FavoritesButton businessId={businessId} />
                     </div>}
                 <div className="business-detail-info-container">
                     <div className="business-detail-left-side">

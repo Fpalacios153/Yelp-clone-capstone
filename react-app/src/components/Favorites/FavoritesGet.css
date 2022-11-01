@@ -1,0 +1,8 @@
+.favorites-container-item {
+    width: 85%;
+    background-color: aqua;
+    padding: 10px;
+    margin: 10px;
+
+    display: flex;
+}

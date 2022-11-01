@@ -12,8 +12,8 @@ export default function FavoritesOnBus() {
 
     return (
         <>
-            <button className={classChange ? 'favorite-button-selected' : 'favorite-button'} onClick={() => onFavorite()}>
-                <i className={classChange ? 'fa-solid fa-heart change-heart-red' : 'fa-regular fa-heart change-heart-clear'}>
+            <button className={classChange ? 'favorite-button-heart-selected' : 'favorite-button-heart'} onClick={() => onFavorite()}>
+                <i className={classChange ? 'fa-solid fa-heart change-heart-red-fav' : 'fa-solid fa-heart change-heart-clear-fav'}>
                 </i>
             </button>
         </>

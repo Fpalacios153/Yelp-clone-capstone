@@ -22,7 +22,7 @@ def add_favorite(id):
 
     db.session.commit()
 
-    return {'favorites': [fav.to_dict()for fav in users_favs]}
+    return business_to_add.to_dict()
 
 @favorite_routes.route('/<int:id>', methods=["DELETE"])
 @login_required

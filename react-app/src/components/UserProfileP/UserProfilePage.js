@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { NavLink, Route, Switch } from 'react-router-dom';
 import { getAllBusinesses } from "../../store/business";
 import { getAllReviews } from "../../store/review";
+import FavoritesGet from "../Favorites/FavoritesGet";
 import Footer from "../Footer"
 import UsersBusinesses from "./UserBusinesses";
 import './UserProfilepage.css'
@@ -52,6 +53,7 @@ export default function ProfileView() {
             <h4 className='user-review-top-title' style={{ paddingLeft: '15px' }}>
                 {currentUser.firstName}'s Favorites
             </h4>
+            <FavoritesGet />
         </div>
     )
 
