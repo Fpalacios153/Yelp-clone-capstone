@@ -13,9 +13,10 @@ const addFavs = (favorite) => ({
     favorite
 
 })
-const removeFavs = (favorite) => ({
+const removeFavs = (data, id) => ({
     type: REMOVE_FAVS,
-    favorite
+    data,
+    id
 
 })
 
@@ -53,7 +54,7 @@ export const removeOneFavs = (id) => async (dispatch) => {
     });
     if (response.ok) {
         const data = await response.json()
-        dispatch(removeFavs(data))
+        dispatch(removeFavs(data, id))
         return data
     }
 }
@@ -72,7 +73,7 @@ export default function favReducer(state = initialState, action) {
             newState[action.favorite.id] = action.favorite
         case REMOVE_FAVS:
             newState = { ...state }
-            delete newState[action.favorite.id]
+            delete newState[action.id]
             return newState
         default:
             return state;

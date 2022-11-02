@@ -3,18 +3,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { deleteABusiness, getAllBusinesses } from "../../store/business";
 import CreateReviewModal from "../Reviews/CreateReviewModal";
-// import CreateReview from "../Reviews/CreateReview";
 import ReviewsForOneBus from "../Reviews/ReviewsForBus";
 import UpdateBusinessModal from "./EditBusinessModal";
 import './BusinessDetails.css'
 import Footer from "../Footer";
 import AverageStarRating from "../AverageStarRating";
 import FavoritesButton from "../Favorites/FavoritesButton";
+import { getAllFavs } from "../../store/favorites";
 
 export default function BusinessDetails() {
     const dispatch = useDispatch()
     const history = useHistory()
     const [isLoaded, setIsLoaded] = useState(false)
+
     const { businessId } = useParams()
 
     const businesses = useSelector(state => state.businesses)
@@ -22,19 +23,10 @@ export default function BusinessDetails() {
     const business = businesses[businessId]
 
     const currentUser = useSelector(state => state.session.user)
-    //
-    // const reviews = useSelector(state => state.reviews)
-    // const reviewArr = Object.values(reviews)
 
-    // let numReview = reviewArr.length
-    // let sumOfratings = 0
-    // reviewArr.forEach(review => {
-    //     sumOfratings += review.rating
-    // })
-    // let reviewAverage = sumOfratings / numReview
     //fix this!!!!!!!å
     useEffect(() => {
-        dispatch(getAllBusinesses()).then(() => setIsLoaded(true))
+        dispatch(getAllBusinesses()).then(() => dispatch(getAllFavs())).then(() => setIsLoaded(true))
 
 
     }, [dispatch, businessId])
