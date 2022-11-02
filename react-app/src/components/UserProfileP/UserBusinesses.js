@@ -10,9 +10,7 @@ export default function UsersBusinesses({ usersBusinesses, usersName }) {
         <>
 
             <div className="entire-user-business-container">
-                <h4 className="user-business-top-title">
-                    {usersName}'s Businesses
-                </h4>
+
 
                 {usersBusinesses.map((bus, idx) => (
                     <div key={bus.id} className='user-business-container'>

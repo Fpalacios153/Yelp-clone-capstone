@@ -46,7 +46,11 @@ export default function ProfileDropDown() {
                     <ul className="profile-dropdown">
                         <li className='li-profile'>{user.email}</li>
                         <NavLink className='logout-button profileLi' style={{ paddingLeft: '5px' }} to='/profilepage'>
-                            <li>{user.firstName} {user.lastName}</li>
+                            <li>About Me</li>
+                        </NavLink>
+                        <NavLink className='logout-button profileLi' style={{ paddingLeft: '5px' }} to='/user/favorites'>
+                            <li>Favorites</li>
+                            {/* add count here */}
                         </NavLink>
                         <li className='profileLi'><LogoutButton /></li>
                     </ul>

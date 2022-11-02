@@ -17,7 +17,6 @@ def get_all_businesses():
     businesses = Business.query.all()
     for business in businesses:
         business_dict = business.to_dict()
-        print(1)
         if business.review:
             business_dict['reviews'] = [review.to_dict() for review in business.review]
             business_dict['reviewCount'] = len(business.review)

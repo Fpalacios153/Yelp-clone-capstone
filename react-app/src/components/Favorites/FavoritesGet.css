@@ -1,0 +1,32 @@
+.favorites-container {
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.favorites-container-item {
+    width: 90%;
+    /* background-color: aqua; */
+    padding: 10px;
+    border-top: 1px solid #ebebeb;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+
+}
+
+.favorites-container-item:hover {
+    background-color: #f5f5f5;
+
+}
+
+.favorites-navlink {
+    padding-left: 10px;
+    text-decoration: none;
+    width: 100%;
+    color: #0073bb;
+    display: block;
+}
