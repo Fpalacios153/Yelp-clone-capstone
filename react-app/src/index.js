@@ -5,19 +5,16 @@ import './index.css';
 import App from './App';
 import configureStore from './store';
 import { ModalProvider } from './context/Modal';
-import FavoritesProvider from './context/SetFavoritesContext';
 
 const store = configureStore();
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <FavoritesProvider>
-        <ModalProvider>
+      <ModalProvider>
 
-          <App />
-        </ModalProvider>
-      </FavoritesProvider>
+        <App />
+      </ModalProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

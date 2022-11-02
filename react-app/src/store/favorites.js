@@ -31,15 +31,12 @@ export const getAllFavs = () => async (dispatch) => {
 }
 
 
-
-
 export const addOneFavs = (id) => async (dispatch) => {
     const response = await fetch(`/api/favorites/${id}`, {
         method: 'POST',
         headers: {
             "Content-Type": 'application/json'
         },
-        // body:JSON.stringify()
     });
     if (response.ok) {
         const data = await response.json()
@@ -71,6 +68,7 @@ export default function favReducer(state = initialState, action) {
         case ADD_FAVS:
             newState = { ...state }
             newState[action.favorite.id] = action.favorite
+            return newState
         case REMOVE_FAVS:
             newState = { ...state }
             delete newState[action.id]

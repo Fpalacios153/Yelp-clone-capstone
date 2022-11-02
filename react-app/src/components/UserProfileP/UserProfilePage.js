@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, Route, Switch } from 'react-router-dom';
 import { getAllBusinesses } from "../../store/business";
+import { getAllFavs } from "../../store/favorites";
 import { getAllReviews } from "../../store/review";
 import FavoritesGet from "../Favorites/FavoritesGet";
 import Footer from "../Footer"
@@ -26,7 +27,7 @@ export default function ProfileView() {
         review.userId === currentUser.id
     )
     useEffect(() => {
-        dispatch(getAllBusinesses()).then(() => dispatch(getAllReviews()))
+        dispatch(getAllBusinesses()).then(() => dispatch(getAllReviews())).then(() => dispatch(getAllFavs()))
     }, [dispatch])
 
     let overview = (
@@ -48,6 +49,7 @@ export default function ProfileView() {
         <UsersReview usersReview={usersReview} usersName={currentUser.firstName} business={businessArray} />
 
     ) : (<div>Loading...</div>)
+
     let favorites = (
         <div>
             <h4 className='user-review-top-title' style={{ paddingLeft: '15px' }}>

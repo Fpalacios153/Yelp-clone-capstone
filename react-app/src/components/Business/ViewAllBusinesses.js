@@ -5,7 +5,6 @@ import { getAllBusinesses } from "../../store/business"
 // import { deleteABusiness } from "../../store/business"
 // import { getAllReviews } from "../../store/review"
 import AverageStarRating from "../AverageStarRating"
-import FavoritesOnBus from "../Favorites/FavoritesOnBus"
 import Footer from "../Footer"
 import './ViewAll.css'
 // import { useHistory } from "react-router-dom"

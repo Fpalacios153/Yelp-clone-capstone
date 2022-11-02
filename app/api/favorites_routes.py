@@ -11,6 +11,7 @@ favorite_routes =Blueprint('favorite',__name__)
 def users_favorites():
     users_favs = current_user.favorite
     fav_list = [fav.to_dict() for fav in users_favs]
+    print(fav_list)
     return {'favorites': fav_list}
 
 @favorite_routes.route('/<int:id>', methods=["POST"])
@@ -30,7 +31,7 @@ def remove_favorite(id):
     users_favs = current_user.favorite
     # business_to_add = Business.query.get(id)
     find_favorite_to_not_delete = [x for x in users_favs if x.id != id]
-    if len(find_favorite_to_not_delete)>0:
+    if len(find_favorite_to_not_delete)>=0:
         current_user.favorite = find_favorite_to_not_delete
         db.session.commit()
         return {'message': 'Favorite was successfully removed'}
