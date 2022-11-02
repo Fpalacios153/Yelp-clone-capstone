@@ -17,7 +17,9 @@
 
 }
 
-
+.profile-count-container {
+    display: flex;
+}
 
 .profile-pic-top-container {
     height: 12.2em;
@@ -111,4 +113,30 @@
     justify-content: center;
     align-items: center;
     width: 19%;
+}
+
+.no-result-entire-container {
+    padding-left: 15px;
+
+}
+
+.title-container-BRF {
+    border-top: 1px solid #ebebeb;
+    padding-left: 15px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    /* height: 10em; */
+}
+
+
+.no-BRF-title {
+    /* padding-left: 10px; */
+    padding-top: 10px;
+    color: #333;
+
+
 }

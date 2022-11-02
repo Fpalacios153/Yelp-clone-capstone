@@ -31,7 +31,7 @@ export default function MainPage() {
                     </div>
                     <div className="right-main-nav-container">
                         <div>
-                            <CreateBuisnessModal />
+                            <CreateBuisnessModal homePage={true} />
                         </div>
                         <div>
                             <ProfileDropDown />

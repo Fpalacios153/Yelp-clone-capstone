@@ -11,7 +11,7 @@ favorite_routes =Blueprint('favorite',__name__)
 def users_favorites():
     users_favs = current_user.favorite
     fav_list = [fav.to_dict() for fav in users_favs]
-    print(fav_list)
+    fav_list.append(len(users_favs))
     return {'favorites': fav_list}
 
 @favorite_routes.route('/<int:id>', methods=["POST"])

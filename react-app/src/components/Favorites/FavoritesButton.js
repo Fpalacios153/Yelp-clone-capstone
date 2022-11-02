@@ -45,10 +45,11 @@ export default function FavoritesButton({ businessId, businessDetails }) {
     ) : (
         //Returns just the Heart as a button on the favorites page on the userProfile
         <>
-            <button className={classChange ? 'favorite-button-heart-selected' : 'favorite-button-heart'} onClick={() => onFavorite()}>
-                <i className={classChange ? 'fa-solid fa-heart change-heart-red-fav' : 'fa-solid fa-heart change-heart-clear-fav'}>
-                </i>
-            </button>
+            {/* <button className={classChange ? 'favorite-button-heart-selected' : 'favorite-button-heart'} onClick={() => onFavorite()}> */}
+            <i onClick={() => onFavorite()} className={classChange ? 'fa-solid fa-heart change-heart-red-fav' : 'fa-solid fa-heart change-heart-clear-fav'}>
+
+            </i>
+            {/* </button> */}
         </>
 
     )

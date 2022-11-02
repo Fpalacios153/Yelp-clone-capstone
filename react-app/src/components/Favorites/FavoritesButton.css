@@ -68,12 +68,17 @@
 .favorite-button-heart-selected {
     width: 2em;
     height: 2em;
-    background-color: lightgray;
-    border: 0;
+    background-color: transparent;
+    border: #dbd8d8 1px solid;
     border-radius: 5px;
     font-weight: 550;
     font-size: 17px;
     cursor: pointer;
+}
+
+.favorite-button-heart-selected:hover {
+    background-color: #dbd8d8;
+
 }
 
 .favorite-button:hover {
@@ -88,8 +93,15 @@
     color: white;
 }
 
+
 .change-heart-red-fav {
+    color: rgba(224, 7, 7, 1);
+    cursor: pointer;
+}
+
+.change-heart-red-fav:hover {
     color: rgb(250, 2, 2);
+    cursor: pointer;
 }
 
 .business-review-favorites-container {

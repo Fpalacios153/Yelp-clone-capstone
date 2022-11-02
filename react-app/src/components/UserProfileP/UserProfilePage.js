@@ -4,6 +4,7 @@ import { NavLink, Route, Switch } from 'react-router-dom';
 import { getAllBusinesses } from "../../store/business";
 import { getAllFavs } from "../../store/favorites";
 import { getAllReviews } from "../../store/review";
+import CreateBusinessModal from "../Business/CreateBuisnessModal";
 import FavoritesGet from "../Favorites/FavoritesGet";
 import Footer from "../Footer"
 import UsersBusinesses from "./UserBusinesses";
@@ -15,10 +16,15 @@ export default function ProfileView() {
     const currentUser = useSelector(state => state.session.user)
     const allBusinesses = useSelector(state => state.businesses)
     const allReviews = useSelector(state => state.reviews)
+    const getFavs = useSelector(state => state.favorites)
 
     const businessArray = Object.values(allBusinesses)
     const reviewArr = Object.values(allReviews)
+    const favortiesArr = Object.values(getFavs)
 
+
+
+    let numberOfFavorites = favortiesArr.length - 1
 
     let usersBusinesses = businessArray.filter(bus =>
         bus.ownerId === currentUser.id
@@ -37,41 +43,99 @@ export default function ProfileView() {
             </h4>
         </div>
     )
-    let businesses = usersBusinesses.length > 0 ? (
-
-        <UsersBusinesses usersBusinesses={usersBusinesses} usersName={currentUser.firstName} />
-
-    ) : (<div>Loading...</div>)
-
-
-    let reviews = usersReview.length > 0 ? (
-
-        <UsersReview usersReview={usersReview} usersName={currentUser.firstName} business={businessArray} />
-
-    ) : (<div>Loading...</div>)
-
-    let favorites = (
-        <div>
-            <h4 className='user-review-top-title' style={{ paddingLeft: '15px' }}>
-                {currentUser.firstName}'s Favorites
+    let businesses = (
+        <div className='entire-user-review-container'>
+            <h4 className='user-review-top-title'>
+                {currentUser.firstName}'s Businesses
             </h4>
-            <FavoritesGet />
+            {usersBusinesses.length > 0 ? (
+
+                <UsersBusinesses usersBusinesses={usersBusinesses} usersName={currentUser.firstName} />
+
+            ) : (
+                <div className="no-result-entire-container">
+                    <div className="title-container-BRF">
+                        <div className="no-BRF-title">No Businesses Yet</div>
+                        <div className="no-BRF-title" >
+                            <h4>
+                                Create your first business here!
+
+                            </h4>
+                        </div>
+                        <CreateBusinessModal homePage={false} />
+                    </div>
+                </div>
+            )}
         </div>
     )
 
-    return (
+
+    let reviews = (
+        <div className='entire-user-review-container'>
+            <h4 className='user-review-top-title'>
+                {currentUser.firstName}'s Reviews
+            </h4>
+            {usersReview.length > 0 ? (
+                <UsersReview usersReview={usersReview} usersName={currentUser.firstName} business={businessArray} />
+
+            ) : (
+                <div className="no-result-entire-container">
+                    <div className="title-container-BRF">
+                        <div className="no-BRF-title">No Reviews Yet</div>
+                        <div className="no-BRF-title" >Visit A <NavLink className='user-review-return-to-bus' to='/'>
+                            Business's Page
+                        </NavLink>
+                            {' '}to add a Review</div>
+                    </div>
+                </div>
+            )}
+        </div>
+
+    )
+
+    let favorites =
+
+        (
+            <div>
+                <h4 className='user-review-top-title' style={{ paddingLeft: '15px' }}>
+                    {currentUser.firstName}'s Favorites
+                </h4>
+                {numberOfFavorites > 0 ? (
+                    <FavoritesGet />
+                ) : (
+                    <div className="no-result-entire-container">
+                        <div className="title-container-BRF">
+                            <div className="no-BRF-title">No Favorites Yet</div>
+                            <div className="no-BRF-title" >Visit A <NavLink className='user-review-return-to-bus' to='/'>
+                                Business's Page
+                            </NavLink>
+                                {' '}to add to Favorites</div>
+                        </div>
+                    </div>
+                )}
+
+            </div>
+        )
+
+
+    return reviewArr.length > 0 && numberOfFavorites >= 0 && (
         <>
             <div>
                 <div className="profile-pic-top-container">
                     <div className="user-profile-info">
                         <h1 style={{ margin: '0' }}>{`${currentUser.firstName} ${currentUser.lastName[0]}.`}</h1>
-                        <span>
-                            <div>
+                        <div className="profile-count-container">
+                            <div style={{ paddingRight: '10px' }}>
                                 <i className="fa-regular fa-star" style={{ color: 'red' }}></i>
 
                                 {' ' + usersReview.length + ' '}Reviews
                             </div>
-                        </span>
+                            <div>
+                                <i className="fa-regular fa-heart" style={{ color: 'red' }}></i>
+
+                                {' ' + numberOfFavorites + ' '}Favorites
+                            </div>
+                        </div>
                     </div>
                     <div>Edit</div>
 
