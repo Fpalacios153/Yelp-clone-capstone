@@ -13,3 +13,22 @@
 .create-business-button:hover {
     background-color: #dbd8d8;
 }
+
+.create-business-button-favs {
+    font-weight: 550;
+    font-size: 18px;
+    color: #2d2e2f;
+    background-color: rgba(224, 7, 7, 1);
+    color: white;
+    padding: 10px;
+    border: 0;
+    cursor: pointer;
+    width: 12em;
+    height: 2.5em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.create-business-button-favs:hover {
+    background-color: rgb(250, 2, 2);
+}

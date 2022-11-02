@@ -1,5 +1,16 @@
 from .db import db
 
+
+# Join table
+
+user_favorites = db.Table(
+    'user_favorites',
+    db.Model.metadata,
+    db.Column('users', db.Integer,db.ForeignKey('users.id', primary_key=True)),
+    db.Column('businesstable', db.Integer,db.ForeignKey('businesstable.id', primary_key=True)),
+    # db.Column('favorites', db.Interger,db.ForeignKey('favorites.id', primary_key=True))
+)
+
 class Business(db.Model):
     __tablename__ = 'businesstable'
 
@@ -21,6 +32,13 @@ class Business(db.Model):
     owners = db.relationship('User', back_populates='owners_business')
     review = db.relationship('Review', back_populates='business', cascade='all, delete-orphan')
 
+
+ # relationships
+    user_favs = db.relationship(
+        "User",
+        secondary= user_favorites,
+        back_populates='favorite'
+    )
     def to_dict(self):
         return {
             "id":self.id,

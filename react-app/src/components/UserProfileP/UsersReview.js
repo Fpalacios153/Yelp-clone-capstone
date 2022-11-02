@@ -25,9 +25,7 @@ export default function UsersReview({ usersReview, usersName, business }) {
         <>
             {/* <div>Users Reviewsß go here</div> */}
             <div className='entire-user-review-container'>
-                <h4 className='user-review-top-title'>
-                    {usersName}'s Reviews
-                </h4>
+
                 {usersReview.map(review => (
                     <div key={review.id} className="user-review-container">
                         <div className='user-review-top-container'>

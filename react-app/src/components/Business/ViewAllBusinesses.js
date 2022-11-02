@@ -52,6 +52,8 @@ export default function Businesses() {
                                             {bus.name}
                                         </div>
                                     </div>
+                                    {/* <FavoritesOnBus /> */}
+
                                     <div className="business-average">
                                         <AverageStarRating reviewAverage={bus.reviewAverage} />
                                         <span style={{ fontWeight: '500', paddingLeft: '10px', paddingRight: '5px' }}>{bus.reviewAverage > 0 ? bus.reviewAverage.toFixed(1) : 0}</span>
@@ -70,6 +72,7 @@ export default function Businesses() {
                                 </div>
                             </div>
                         </NavLink>
+
                     </div>
                 ))
                 }
