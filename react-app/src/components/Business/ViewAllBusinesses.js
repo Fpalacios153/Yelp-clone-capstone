@@ -5,6 +5,7 @@ import { getAllBusinesses } from "../../store/business"
 // import { deleteABusiness } from "../../store/business"
 // import { getAllReviews } from "../../store/review"
 import AverageStarRating from "../AverageStarRating"
+import Categories from "../Categories/Categories"
 import Footer from "../Footer"
 import './ViewAll.css'
 // import { useHistory } from "react-router-dom"
@@ -31,6 +32,9 @@ export default function Businesses() {
     return isLoaded ? (
         <>
             <div className="entire-business-container">
+                <div>
+                    <Categories />
+                </div>
                 <div className="business-title">
                     Businesses
                 </div>
