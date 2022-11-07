@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.forms.review_form import ReviewForm
-from app.models import db, Business
+from app.models import db, Business, Category
 from app.forms.business_form import BusinessForm
 from app.api.auth_routes import validation_errors_to_error_messages
 from app.models.reviews import Review
@@ -153,3 +153,45 @@ def create_review(id):
         return new_review.to_dict()
 
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
+
+
+
+# CATEGORY ROUTES
+# get categories for one businesses
+@business_routes.route('/<int:id>/categories')
+def get_one_businesses_categories(id):
+    one_business = Business.query.get(id)
+    category_lst = [x.to_dict() for x in one_business.cate_business]
+
+    return {'categories':category_lst}
+
+@business_routes.route('/<int:id>/categories', methods=["POST"])
+def add_category(id):
+    #query business with id then query all categories
+    business_to_add = Business.query.get(id)
+    all_categories = Category.query.all()
+
+    bus_cate = business_to_add.cate_business
+
+    data = request.get_json()
+    cate_selected_names = data.values()
+
+    for category in all_categories:
+        for name in cate_selected_names:
+            if name.upper() == category.name.upper():
+                bus_cate.append(Category.query.get(category.id))
+                db.session.commit()
+    return business_to_add.to_dict()
+
+
+@business_routes.route('/<int:id>/categories/<int:cateId>', methods=["DELETE"])
+def remove_category(id,cateId):
+    business_to_add = Business.query.get(id)
+    find_category_to_not_delete = [x for x in business_to_add.cate_business if x.id !=cateId]
+
+    if len(find_category_to_not_delete)>=0:
+        business_to_add.cate_business = find_category_to_not_delete
+        db.session.commit()
+        return {"message": "Category was successfully removed"}
+    else:
+        return {'Error':'Category not found'}

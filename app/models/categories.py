@@ -24,7 +24,7 @@ class Category(db.Model):
         back_populates="cate_business"
 )
 
-def to_dict(self):
+    def to_dict(self):
         return {
             "id": self.id,
             "name": self.name,
