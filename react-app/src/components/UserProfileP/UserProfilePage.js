@@ -137,7 +137,7 @@ export default function ProfileView() {
                             </div>
                         </div>
                     </div>
-                    <div>Edit</div>
+                    {/* <div>Edit</div> */}
 
                 </div>
                 <div className="profile-middle-container">
@@ -146,7 +146,7 @@ export default function ProfileView() {
                         <div className="side-bar-word-container">
                             <h3 className="profile-page-name">{currentUser.firstName}'s Profile</h3>
                             <ul className="profile-page-list">
-                                <li className="profile-page-list-item">
+                                {/* <li className="profile-page-list-item">
                                     <NavLink className='profile-navlink' to='/profilepage'>
                                         <div className="profile-li-text-container">
                                             <div className="icon-container" >
@@ -157,7 +157,7 @@ export default function ProfileView() {
                                             </span>
                                         </div>
                                     </NavLink>
-                                </li>
+                                </li> */}
                                 <li className="profile-page-list-item">
                                     <NavLink className='profile-navlink' to='/user/businesses'>
                                         <div className="profile-li-text-container">

@@ -1,6 +1,7 @@
 .profile-pic-top-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
+    padding-left: 220px;
     align-items: center;
 }
 
