@@ -11,6 +11,7 @@ import AverageStarRating from "../AverageStarRating";
 import FavoritesButton from "../Favorites/FavoritesButton";
 import { getAllFavs } from "../../store/favorites";
 import AddCategories from "../Categories/AddCategories";
+import BusinessesCategories from './BusinessesCategories'
 
 export default function BusinessDetails() {
     const dispatch = useDispatch()
@@ -112,7 +113,8 @@ export default function BusinessDetails() {
                         <div className="business-detail-info-bottom">Phone {business.phone}</div>
                         <div className="business-detail-info-bottom">Email {business.email}</div>
                     </div>
-                    <AddCategories />
+                    {/* <AddCategories /> */}
+                    <BusinessesCategories />
 
                 </div>
                 <div>
