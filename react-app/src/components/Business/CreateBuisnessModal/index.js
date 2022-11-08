@@ -19,19 +19,6 @@ function CreateBusinessModal({ homePage }) {
             )}
         </>
     )
-    // : (
-    //     <>
-    //         <button className='' onClick={() => setShowModal(true)}>
-    //             Create New Business
-    //         </button>
-    //         {showModal && (
-    //             <Modal onClose={() => setShowModal(false)}>
-    //                 <CreateNewBusiness setShowModal={setShowModal} />
-    //             </Modal>
-    //         )}
-    //     </>
-
-    // )
 }
 
 export default CreateBusinessModal;

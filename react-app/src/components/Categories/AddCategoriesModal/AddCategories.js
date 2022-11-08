@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
-import { getAllCategories, toAddCategories } from "../../store/categories"
+import { getAllCategories, getOneCategories, toAddCategories } from "../../../store/categories"
+// import { getAllCategories, toAddCategories } from "../../../store/categories"
 
-export default function AddCategories() {
+export default function AddCategories({ setShowModal }) {
     const dispatch = useDispatch()
     const { businessId } = useParams()
     const [selectedCate, setSelectedCate] = useState([])
@@ -19,17 +20,14 @@ export default function AddCategories() {
         e.preventDefault()
         let categoriesToAdd = {}
         selectedCate.forEach(catey => {
-            console.log(catey)
             categoriesToAdd[catey.id] = catey.name
         })
-        console.log(categoriesToAdd)
 
-        dispatch(toAddCategories(businessId, categoriesToAdd))
-
+        dispatch(toAddCategories(businessId, categoriesToAdd)).then(() => dispatch(getOneCategories(businessId)))
+        setShowModal(false)
     }
     const toPush = (name) => {
         selectedCate.push(name)
-        console.log(selectedCate)
     }
     return (
         <div className="add-category-container">

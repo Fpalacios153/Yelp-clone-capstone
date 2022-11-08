@@ -61,7 +61,7 @@ export const toRemoveCategories = (id, cateId) => async (dispatch) => {
         headers: { 'Content-Type': 'application/json' }
     })
     if (response.ok) {
-        dispatch(removeCategories(id))
+        dispatch(removeCategories(cateId))
     }
     return response
 

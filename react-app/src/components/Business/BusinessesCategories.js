@@ -13,17 +13,20 @@ export default function GetCategoriesOfBusiness() {
         dispatch(getOneCategories(businessId))
     }, [])
 
-    const toDelete = (id) => {
-        dispatch(toRemoveCategories(businessId, id))
-            .then(() => dispatch(getOneCategories(businessId)))
+    const toDelete = (cateId) => {
+        dispatch(toRemoveCategories(businessId, cateId))
+        // .then(() => dispatch(getOneCategories(businessId)))
     }
     return (
         <>
             <div>
                 {businessCategoriesArr.map(cate => (
                     <>
-                        <div>{cate.name}</div>
-                        <button onClick={() => toDelete(cate.id)}></button>
+                        <div key={cate.id}>
+
+                            <div>{cate.name}</div>
+                            <button onClick={() => toDelete(cate.id)}></button>
+                        </div>
                     </>
 
                 ))}
