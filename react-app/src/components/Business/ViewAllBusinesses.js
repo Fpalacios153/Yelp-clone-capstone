@@ -5,6 +5,7 @@ import { getAllBusinesses } from "../../store/business"
 // import { deleteABusiness } from "../../store/business"
 // import { getAllReviews } from "../../store/review"
 import AverageStarRating from "../AverageStarRating"
+import AddCategories from "../Categories/AddCategories"
 import Categories from "../Categories/Categories"
 import Footer from "../Footer"
 import './ViewAll.css'
@@ -34,6 +35,7 @@ export default function Businesses() {
             <div className="entire-business-container">
                 <div>
                     <Categories />
+                    {/* <AddCategories /> */}
                 </div>
                 <div className="business-title">
                     Businesses

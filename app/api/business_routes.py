@@ -9,6 +9,7 @@ from app.models.reviews import Review
 
 business_routes = Blueprint('business',__name__)
 
+
 # Get ALL BUSINESS
 @login_required
 @business_routes.route('')
@@ -154,35 +155,34 @@ def create_review(id):
 
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
 
-
-
 # CATEGORY ROUTES
 # get categories for one businesses
+
+
+# @business_routes.route('/<int:id>/categories', methods=["POST"])
+# def add_category(id):
+#     #query business with id then query all categories
+#     business_to_add = Business.query.get(id)
+#     all_categories = Category.query.all()
+
+#     bus_cate = business_to_add.cate_business
+
+#     data = request.get_json()
+#     cate_selected_names = data.values()
+
+#     for category in all_categories:
+#         for name in cate_selected_names:
+#             if name.upper() == category.name.upper():
+#                 bus_cate.append(Category.query.get(category.id))
+#                 db.session.commit()
+#     return business_to_add.to_dict()
+
 @business_routes.route('/<int:id>/categories')
 def get_one_businesses_categories(id):
     one_business = Business.query.get(id)
     category_lst = [x.to_dict() for x in one_business.cate_business]
 
     return {'categories':category_lst}
-
-@business_routes.route('/<int:id>/categories', methods=["POST"])
-def add_category(id):
-    #query business with id then query all categories
-    business_to_add = Business.query.get(id)
-    all_categories = Category.query.all()
-
-    bus_cate = business_to_add.cate_business
-
-    data = request.get_json()
-    cate_selected_names = data.values()
-
-    for category in all_categories:
-        for name in cate_selected_names:
-            if name.upper() == category.name.upper():
-                bus_cate.append(Category.query.get(category.id))
-                db.session.commit()
-    return business_to_add.to_dict()
-
 
 @business_routes.route('/<int:id>/categories/<int:cateId>', methods=["DELETE"])
 def remove_category(id,cateId):

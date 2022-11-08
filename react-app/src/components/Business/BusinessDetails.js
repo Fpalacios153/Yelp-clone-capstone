@@ -10,6 +10,7 @@ import Footer from "../Footer";
 import AverageStarRating from "../AverageStarRating";
 import FavoritesButton from "../Favorites/FavoritesButton";
 import { getAllFavs } from "../../store/favorites";
+import AddCategories from "../Categories/AddCategories";
 
 export default function BusinessDetails() {
     const dispatch = useDispatch()
@@ -92,6 +93,7 @@ export default function BusinessDetails() {
                         <span style={{ paddingLeft: '10px' }}>
                             <button className="business-detail-UD-button" onClick={toDelete}>Delete Business</button>
                         </span>
+                        {/* <AddCategories /> */}
                     </div>
                 ) :
                     <div className="business-review-favorites-container">
@@ -110,6 +112,8 @@ export default function BusinessDetails() {
                         <div className="business-detail-info-bottom">Phone {business.phone}</div>
                         <div className="business-detail-info-bottom">Email {business.email}</div>
                     </div>
+                    <AddCategories />
+
                 </div>
                 <div>
                     <ReviewsForOneBus />
