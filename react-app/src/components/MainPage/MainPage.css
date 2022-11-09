@@ -2,8 +2,10 @@
     display: flex;
     justify-content: space-between;
     height: 6em;
+    /* height: 10vh; */
     border-bottom: 2px solid #ebebeb;
     width: 100%;
+
 }
 
 .left-main-nav-container {
