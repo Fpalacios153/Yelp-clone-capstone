@@ -3,8 +3,7 @@
     display: flex;
     /* justify-content: center; */
     width: 100%;
-    height: 14em;
-    /* come back to this */
+    height: 20vh;
     background-color: #ebebeb;
 }
 
@@ -39,6 +38,7 @@
     align-items: center;
     width: 50%;
     color: black;
+    height: 15vh;
 
 }
 
@@ -47,4 +47,5 @@
     flex-direction: column;
     align-items: center;
     width: 50%;
+    height: 10vh;
 }

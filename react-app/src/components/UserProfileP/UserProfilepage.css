@@ -2,6 +2,11 @@
     width: 15%;
 }
 
+.height-adjustment {
+    width: 100%;
+    height: 80vh;
+}
+
 .user-profile-info {
     display: flex;
     flex-direction: column;
@@ -9,10 +14,6 @@
     justify-content: center;
 
 
-}
-
-.profile-count-container {
-    display: flex;
 }
 
 .profile-pic-top-container {

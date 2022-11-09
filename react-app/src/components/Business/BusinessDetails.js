@@ -67,62 +67,66 @@ export default function BusinessDetails() {
     }
     return isLoaded && business ? (
         <>
-            <div className="business-detail-container">
-                <img className='business-detail-image' src={business.image} alt={business.name}
-                    onError={e => { e.currentTarget.src = '/static/images/restpic/pexels-aleksandar-pasaric-3342739.jpg' }}
-                />
-                <div className="business-detail-words-in-image">
-                    <div>{business.name}</div>
-                    <div className="business-detail-review">
-                        {/* Average Rating: {reviewAverage} {numReview} reviews */}
-                        <div style={{ color: 'gold' }}>
-                            <AverageStarRating reviewAverage={business.reviewAverage} />
+            <div className="cover-whole-webpage-details">
 
+                <div className="business-detail-container">
+                    <img className='business-detail-image' src={business.image} alt={business.name}
+                        onError={e => { e.currentTarget.src = '/static/images/restpic/pexels-aleksandar-pasaric-3342739.jpg' }}
+                    />
+                    <div className="business-detail-words-in-image">
+                        <div>{business.name}</div>
+                        <div className="business-detail-review">
+                            {/* Average Rating: {reviewAverage} {numReview} reviews */}
+                            <div style={{ color: 'gold' }}>
+                                <AverageStarRating reviewAverage={business.reviewAverage} />
+
+                            </div>
+                            <div style={{ paddingLeft: '10px' }}>
+                                {business.reviewAverage > 0 ? business.reviewAverage.toFixed(1) : 0} - {business.reviewCount > 0 ? business.reviewCount : 0} reviews
+                            </div>
                         </div>
-                        <div style={{ paddingLeft: '10px' }}>
-                            {business.reviewAverage > 0 ? business.reviewAverage.toFixed(1) : 0} - {business.reviewCount > 0 ? business.reviewCount : 0} reviews
+
+                    </div>
+                </div >
+                <div className="buisness-details-about-business">
+                    {currentUser.id === business.ownerId ? (
+                        <div className="business-detail-review-container">
+                            <UpdateBusinessModal />
+                            <span style={{ paddingLeft: '10px' }}>
+                                <button className="business-detail-UD-button" onClick={toDelete}>Delete Business</button>
+                            </span>
+                            <span style={{ paddingLeft: '10px' }}>
+                                <AddCategoriesModal />
+                            </span>
                         </div>
-                    </div>
+                    ) :
+                        <div className="business-review-favorites-container">
+                            <CreateReviewModal />
+                            <FavoritesButton businessId={businessId} businessDetails={true} />
+                        </div>}
+                    <div className="business-detail-info-container">
+                        <div className="business-detail-left-side">
+                            <div className="business-detail-title">Location</div>
+                            <div className="business-detail-info-bottom">{business.address} {business.city} {business.state} {business.zipcode} {business.country}</div>
+                            <div className="business-detail-title">About Business</div>
+                            <div className="business-detail-info-bottom">{business.description}</div>
+                        </div>
+                        <div className="business-detail-right-side">
+                            <div className="business-detail-title">Contact Business</div>
+                            <div className="business-detail-info-bottom">Phone {business.phone}</div>
+                            <div className="business-detail-info-bottom">Email {business.email}</div>
+                        </div>
 
+                    </div>
+                    <BusinessesCategories business={business} currentUser={currentUser} />
+                    <div>
+                        <ReviewsForOneBus />
+                    </div>
                 </div>
-            </div >
-            <div className="buisness-details-about-business">
-                {currentUser.id === business.ownerId ? (
-                    <div className="business-detail-review-container">
-                        <UpdateBusinessModal />
-                        <span style={{ paddingLeft: '10px' }}>
-                            <button className="business-detail-UD-button" onClick={toDelete}>Delete Business</button>
-                        </span>
-                        <span style={{ paddingLeft: '10px' }}>
-                            <AddCategoriesModal />
-                        </span>
-                    </div>
-                ) :
-                    <div className="business-review-favorites-container">
-                        <CreateReviewModal />
-                        <FavoritesButton businessId={businessId} businessDetails={true} />
-                    </div>}
-                <div className="business-detail-info-container">
-                    <div className="business-detail-left-side">
-                        <div className="business-detail-title">Location</div>
-                        <div className="business-detail-info-bottom">{business.address} {business.city} {business.state} {business.zipcode} {business.country}</div>
-                        <div className="business-detail-title">About Business</div>
-                        <div className="business-detail-info-bottom">{business.description}</div>
-                    </div>
-                    <div className="business-detail-right-side">
-                        <div className="business-detail-title">Contact Business</div>
-                        <div className="business-detail-info-bottom">Phone {business.phone}</div>
-                        <div className="business-detail-info-bottom">Email {business.email}</div>
-                    </div>
-
-                </div>
-                <BusinessesCategories business={business} currentUser={currentUser} />
-                <div>
-                    <ReviewsForOneBus />
+                <div className="footer-test">
+                    <Footer />
                 </div>
             </div>
-            <Footer />
-
         </>
     ) : null
 }
