@@ -1,6 +1,7 @@
 .splash-container {
     display: flex;
     flex-direction: column;
+    height: auto;
 }
 
 .navbar-container {
@@ -10,7 +11,7 @@
     /* background-image: url('https://images.pexels.com/photos/1126728/pexels-photo-1126728.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); */
     /* background-size: 100% 40em; */
     background-size: cover;
-    height: 42em;
+    height: 45em;
     object-fit: cover;
 
 }

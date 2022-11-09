@@ -1,5 +1,5 @@
 from .db import db
-
+# from .categories import business_categories
 
 # Join table
 
@@ -9,6 +9,12 @@ user_favorites = db.Table(
     db.Column('users', db.Integer,db.ForeignKey('users.id', primary_key=True)),
     db.Column('businesstable', db.Integer,db.ForeignKey('businesstable.id', primary_key=True)),
     # db.Column('favorites', db.Interger,db.ForeignKey('favorites.id', primary_key=True))
+)
+business_categories = db.Table(
+    'business_categories',
+    db.Model.metadata,
+    db.Column('businesstable', db.Integer,db.ForeignKey('businesstable.id', primary_key=True)),
+    db.Column('categories', db.Integer,db.ForeignKey('categories.id', primary_key=True)),
 )
 
 class Business(db.Model):
@@ -39,6 +45,12 @@ class Business(db.Model):
         secondary= user_favorites,
         back_populates='favorite'
     )
+
+    cate_business = db.relationship(
+        "Category",
+        secondary =business_categories,
+        back_populates="business_cate"
+)
     def to_dict(self):
         return {
             "id":self.id,

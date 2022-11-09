@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import businessReducer from './business';
+import categoryReducer from './categories';
 import favReducer from './favorites';
 import reviewReducer from './review';
 import session from './session'
@@ -10,7 +11,8 @@ const rootReducer = combineReducers({
   session,
   businesses: businessReducer,
   reviews: reviewReducer,
-  favorites: favReducer
+  favorites: favReducer,
+  categories: categoryReducer
 });
 
 

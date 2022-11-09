@@ -1,6 +1,7 @@
 from flask.cli import AppGroup
 
 from app.seeds.business import seed_businesses, undo_businesses
+from app.seeds.category import seed_category, undo_category
 from app.seeds.favJoinTable import seed_join_tables, undo_join_tables
 from app.seeds.review import seed_reviews, undo_reviews
 from .users import seed_users, undo_users
@@ -17,6 +18,7 @@ def seed():
     seed_businesses()
     seed_reviews()
     seed_join_tables()
+    seed_category()
     # Add other seed functions here
 
 
@@ -27,4 +29,5 @@ def undo():
     undo_businesses()
     undo_reviews()
     undo_join_tables()
+    undo_category()
     # Add other undo functions here
