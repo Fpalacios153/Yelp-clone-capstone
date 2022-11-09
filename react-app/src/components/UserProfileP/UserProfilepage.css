@@ -1,5 +1,5 @@
 .divider-container {
-    width: 15%;
+    width: 15%
 }
 
 .height-adjustment {
@@ -10,19 +10,24 @@
 .user-profile-info {
     display: flex;
     flex-direction: column;
-    width: 65%;
+    width: 70%;
     justify-content: center;
 
 
 }
 
 .profile-pic-top-container {
-    padding-left: 175px;
+    padding-left: 215px;
     height: 12.2em;
     background-color: #f5f5f5;
     border-bottom: 2px solid #ebebeb;
     display: flex;
+    /* flex-direction: column; */
 
+}
+
+.profile-count-container {
+    display: flex;
 }
 
 .image-profile-pic {
