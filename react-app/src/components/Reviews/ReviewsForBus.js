@@ -32,7 +32,7 @@ export default function ReviewsForOneBus() {
     return loaded ? (
         <>
             <div>
-                <div className='business-detail-title'>Reviews</div>
+                <div className='business-detail-title reviews-business-title'>Reviews</div>
 
                 {reviewArr.length ? reviewArr.map(review => (
                     <div key={review.id} className="review-container">

@@ -20,7 +20,7 @@ export default function Categories() {
     // console.log(cateArr)
     useEffect(() => {
         dispatch(getAllCategories())
-    }, [])
+    }, [dispatch])
     return (
         <div className='entire-categories-container' >
             {cateArr.map(category => (

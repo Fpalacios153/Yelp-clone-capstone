@@ -1,0 +1,47 @@
+.entire-category-container {
+    display: flex;
+    padding-left: 10px;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+}
+
+.business-category-item {
+    display: flex;
+    background-color: #e2e2e2;
+    padding: 4px 7px;
+    /* border: black 1px solid; */
+    border-radius: 4px;
+    color: #6E7072;
+    font-weight: 550;
+    margin-right: 5px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    margin: 3px;
+}
+
+.category-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-delete-button {
+    background-color: transparent;
+    color: #6E7072;
+    font-weight: 550;
+    width: min-content;
+    height: fit-content;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.category-delete-button:hover {
+    border: 1.5px solid #6E7072;
+}

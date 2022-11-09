@@ -122,6 +122,9 @@ export default function ProfileView() {
         <>
             <div>
                 <div className="profile-pic-top-container">
+                    <div className="divider-container">
+
+                    </div>
                     <div className="user-profile-info">
                         <h1 style={{ margin: '0' }}>{`${currentUser.firstName} ${currentUser.lastName[0]}.`}</h1>
                         <div className="profile-count-container">
@@ -205,7 +208,8 @@ export default function ProfileView() {
                         <div className="user-route-container">
                             <Switch>
                                 <Route exact path='/profilepage'>
-                                    <h1>{overview}</h1>
+                                    <h2>{businesses}</h2>
+                                    {/* <h1>{overview}</h1> */}
                                 </Route>
                                 <Route exact path='/user/businesses'>
                                     <h2>{businesses}</h2>

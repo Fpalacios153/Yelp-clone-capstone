@@ -1,19 +1,34 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
-import { getAllCategories, getOneCategories, toAddCategories } from "../../../store/categories"
+import { getOneCategories, toAddCategories } from "../../../store/categories"
+import AddCategoriesButton from "./AddCategoriesButton"
+import './AddCategoriesModal.css'
 // import { getAllCategories, toAddCategories } from "../../../store/categories"
 
 export default function AddCategories({ setShowModal }) {
     const dispatch = useDispatch()
     const { businessId } = useParams()
     const [selectedCate, setSelectedCate] = useState([])
+    const [categories, setCategories] = useState([])
     const Cate = useSelector(state => state.categories)
     const cateArr = Object.values(Cate)
-    console.log(selectedCate)
 
     useEffect(() => {
-        dispatch(getAllCategories())
+        async function fetchData() {
+            const response = await fetch('/api/categories')
+
+            if (response.ok) {
+                const data = await response.json()
+                setCategories(data.categories)
+            }
+        }
+        fetchData()
+        // setSelectedCate(cateArr)
+
+        // const data = await dispatch(getAllCategories())
+
+
     }, [])
 
     const handleSubmit = async (e) => {
@@ -26,26 +41,26 @@ export default function AddCategories({ setShowModal }) {
         dispatch(toAddCategories(businessId, categoriesToAdd)).then(() => dispatch(getOneCategories(businessId)))
         setShowModal(false)
     }
-    const toPush = (name) => {
-        selectedCate.push(name)
-    }
-    return (
+    return categories.length > 0 ? (
         <div className="add-category-container">
             <h2 className="add-category-title">
                 Add Categories to Business
 
             </h2>
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        {cateArr.map(cate => (
-                            <button type='button' key={cate.id} onClick={() => toPush(cate)}>{cate.name}</button>
+            <div >
+                <form className="category-list-container" onSubmit={handleSubmit}>
+                    <div className="entire-category-container-form">
+                        {categories.map(cate => (
+                            <AddCategoriesButton key={cate.id} cate={cate} selectedCate={selectedCate} />
                         ))}
 
                     </div>
-                    <button type="submit"> Submit</button>
+                    <div className="category-button-container-add">
+                        <button className="category-form-cancel" type="button" onClick={() => setShowModal(false)}> Cancel</button>
+                        <button className="category-form-cancel" type="submit"> Submit</button>
+                    </div>
                 </form>
             </div>
         </div>
-    )
+    ) : null
 }

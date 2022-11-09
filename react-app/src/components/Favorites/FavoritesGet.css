@@ -30,3 +30,11 @@
     color: #0073bb;
     display: block;
 }
+
+.favorites-navlink:hover {
+    padding-left: 10px;
+    text-decoration: none;
+    width: 100%;
+    color: #029eff;
+    display: block;
+}

@@ -2,13 +2,13 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import { getAllBusinesses } from "../../store/business"
-// import { deleteABusiness } from "../../store/business"
-// import { getAllReviews } from "../../store/review"
+import { getOneCategories } from "../../store/categories"
+
 import AverageStarRating from "../AverageStarRating"
-import Categories from "../Categories/Categories"
+// import Categories from "../Categories/Categories"s
 import Footer from "../Footer"
+import GetCategoriesOfBusiness from "./BusinessesCategories"
 import './ViewAll.css'
-// import { useHistory } from "react-router-dom"
 
 export default function Businesses() {
     const dispatch = useDispatch()
@@ -17,7 +17,15 @@ export default function Businesses() {
 
     const businessesList = useSelector(state => state.businesses)
     const businesses = Object.values(businessesList)
+    console.log(businesses)
 
+
+    // // useEffect(() => {
+    // const getId = (businessId) => {
+    //     dispatch(getOneCategories(businessId))
+
+    // }
+    // // }, [])
 
 
 
@@ -32,13 +40,16 @@ export default function Businesses() {
     return isLoaded ? (
         <>
             <div className="entire-business-container">
-                <div>
+                {/* <div>
                     <Categories />
-                    {/* <AddCategories /> */}
-                </div>
+
+                </div> */}
                 <div className="business-title">
-                    Businesses
+                    <span>
+                        Businesses
+                    </span>
                 </div>
+
                 {businesses.map((bus, idx) => (
                     <div key={bus.id} className='business-container'>
                         <NavLink className='navlink-business-list' to={`/businesses/${bus.id}`}>
@@ -63,6 +74,16 @@ export default function Businesses() {
                                         <AverageStarRating reviewAverage={bus.reviewAverage} />
                                         <span style={{ fontWeight: '500', paddingLeft: '10px', paddingRight: '5px' }}>{bus.reviewAverage > 0 ? bus.reviewAverage.toFixed(1) : 0}</span>
                                         {' '}({bus.reviewCount > 0 ? bus.reviewCount : 0} reviews)
+                                    </div>
+                                    {/* {getId(bus.id)} */}
+                                    {/* <GetCategoriesOfBusiness business={bus} /> */}
+                                    <div className="entire-category-container-view-all">
+
+                                        {bus.categories.map(cate => (
+                                            <div className='business-category-item-view-all' key={cate.id}>
+                                                <div className="category-button-container-view-all">{cate.name}</div>
+                                            </div>
+                                        ))}
                                     </div>
                                     <div className="business-review-container">
                                         <i className="fa-regular fa-comment"></i>

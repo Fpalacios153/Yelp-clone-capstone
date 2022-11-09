@@ -19,6 +19,7 @@ def get_all_businesses():
     for business in businesses:
         business_dict = business.to_dict()
         if business.review:
+            business_dict['categories']= [cate.to_dict() for cate in business.cate_business]
             business_dict['reviews'] = [review.to_dict() for review in business.review]
             business_dict['reviewCount'] = len(business.review)
             # add round

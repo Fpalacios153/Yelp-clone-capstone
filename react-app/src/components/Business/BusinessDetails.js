@@ -95,7 +95,6 @@ export default function BusinessDetails() {
                         </span>
                         <span style={{ paddingLeft: '10px' }}>
                             <AddCategoriesModal />
-
                         </span>
                     </div>
                 ) :
@@ -115,9 +114,9 @@ export default function BusinessDetails() {
                         <div className="business-detail-info-bottom">Phone {business.phone}</div>
                         <div className="business-detail-info-bottom">Email {business.email}</div>
                     </div>
-                    <BusinessesCategories />
 
                 </div>
+                <BusinessesCategories business={business} currentUser={currentUser} />
                 <div>
                     <ReviewsForOneBus />
                 </div>
