@@ -2,8 +2,8 @@ from ..models import db, Business
 
 
 def seed_businesses():
-    apples = Business.query.get(1)
-    print(apples)
+    # apples = Business.query.get(1)
+    # print(apples)
     business1 = Business(
         ownerId=1,
         name= "Bottega Louie",

@@ -53,3 +53,11 @@
     word-break: break-all;
     white-space: normal;
 }
+
+.reviews-business-title {
+    width: 50%;
+    border-bottom: #ebebeb 1px solid;
+    padding-bottom: 10px;
+    padding-top: 20px;
+
+}

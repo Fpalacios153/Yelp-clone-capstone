@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField
 from wtforms.validators import DataRequired, Email, ValidationError, Length
 
-from app.models import Business
+# from app.models import Business
 
 def is_email_unique():
     pass
