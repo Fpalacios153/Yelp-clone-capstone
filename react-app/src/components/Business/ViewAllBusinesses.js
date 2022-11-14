@@ -79,7 +79,7 @@ export default function Businesses() {
                                     {/* <GetCategoriesOfBusiness business={bus} /> */}
                                     <div className="entire-category-container-view-all">
 
-                                        {bus.categories.map(cate => (
+                                        {bus.categories && bus.categories.map(cate => (
                                             <div className='business-category-item-view-all' key={cate.id}>
                                                 <div className="category-button-container-view-all">{cate.name}</div>
                                             </div>

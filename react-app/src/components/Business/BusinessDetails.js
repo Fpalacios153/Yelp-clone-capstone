@@ -32,7 +32,7 @@ export default function BusinessDetails() {
 
     }, [dispatch, businessId])
 
-
+    // console.log(business.categories)
     function redirect() {
         setTimeout(() => { history.push(`/`) }, 1000)
     }

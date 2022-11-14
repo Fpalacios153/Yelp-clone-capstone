@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
+import { getAllBusinesses } from "../../../store/business"
 import { getOneCategories, toAddCategories } from "../../../store/categories"
 import AddCategoriesButton from "./AddCategoriesButton"
 import './AddCategoriesModal.css'
@@ -38,8 +39,10 @@ export default function AddCategories({ setShowModal }) {
             categoriesToAdd[catey.id] = catey.name
         })
 
-        dispatch(toAddCategories(businessId, categoriesToAdd)).then(() => dispatch(getOneCategories(businessId)))
-        setShowModal(false)
+        await dispatch(toAddCategories(businessId, categoriesToAdd))
+        await dispatch(getOneCategories(businessId))
+        await dispatch(getAllBusinesses())
+        await setShowModal(false)
     }
     return categories.length > 0 ? (
         <div className="add-category-container">
