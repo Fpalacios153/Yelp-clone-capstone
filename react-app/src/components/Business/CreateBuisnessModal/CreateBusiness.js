@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom"
-import { createABusiness } from "../../../store/business";
+import { createABusiness, getAllBusinesses } from "../../../store/business";
 import './CreateBusiness.css'
 
 export default function CreateNewBusiness({ setShowModal }) {
@@ -76,6 +76,7 @@ export default function CreateNewBusiness({ setShowModal }) {
             } else {
                 await history.push(`/businesses/${data.id}`)
                 await setShowModal(false)
+                // await dispatch(getAllBusinesses())
             }
         }
 

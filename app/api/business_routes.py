@@ -19,11 +19,13 @@ def get_all_businesses():
     for business in businesses:
         business_dict = business.to_dict()
         if business.review:
-            business_dict['categories']= [cate.to_dict() for cate in business.cate_business]
             business_dict['reviews'] = [review.to_dict() for review in business.review]
             business_dict['reviewCount'] = len(business.review)
             # add round
             business_dict['reviewAverage'] =sum([review.rating for review in business.review])/ len(business.review)
+        if business.cate_business:
+            business_dict['categories']= [cate.to_dict() for cate in business.cate_business]
+
         business_with_review_stats.append(business_dict)
 
     # all_businesses = [business.to_dict() for business in Business.query.all()]
@@ -76,6 +78,11 @@ def create_a_business():
         new_business = Business()
 
         form.populate_obj(new_business)
+        # new_business['categories']= [cate.to_dict() for cate in new_business.cate_business]
+        # new_business['reviews'] = [review.to_dict() for review in new_business.review]
+        # new_business['reviewCount'] = len(new_business.review)
+        #     # add round
+        # new_business['reviewAverage'] =sum([review.rating for review in new_business.review])/ len(new_business.review)
 
         db.session.add(new_business)
         db.session.commit()
