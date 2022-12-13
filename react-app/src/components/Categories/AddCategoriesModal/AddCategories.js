@@ -28,8 +28,6 @@ export default function AddCategories({ setShowModal }) {
         // setSelectedCate(cateArr)
 
         // const data = await dispatch(getAllCategories())
-
-
     }, [])
 
     const handleSubmit = async (e) => {

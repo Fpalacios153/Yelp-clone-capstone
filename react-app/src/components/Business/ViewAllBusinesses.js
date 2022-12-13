@@ -5,6 +5,9 @@ import { getAllBusinesses } from "../../store/business"
 import { getOneCategories } from "../../store/categories"
 
 import AverageStarRating from "../AverageStarRating"
+import AddCategories from "../Categories/AddCategoriesModal/AddCategories"
+import AddCategoriesButton from "../Categories/AddCategoriesModal/AddCategoriesButton"
+import SearchCategories from "../Categories/SearchCategory"
 // import Categories from "../Categories/Categories"s
 import Footer from "../Footer"
 import GetCategoriesOfBusiness from "./BusinessesCategories"
@@ -16,27 +19,34 @@ export default function Businesses() {
     // const history = useHistory()
 
     const businessesList = useSelector(state => state.businesses)
+    const [categories, setCategories] = useState([])
+    const [selectedCate, setSelectedCate] = useState([])
+    // const [chosen, setChosen] = useState(false)
+
+
     const businesses = Object.values(businessesList)
     console.log(businesses)
-
-
-    // // useEffect(() => {
-    // const getId = (businessId) => {
-    //     dispatch(getOneCategories(businessId))
-
-    // }
-    // // }, [])
+    console.log(selectedCate)
 
 
 
     useEffect(() => {
         dispatch(getAllBusinesses()).then(() => setIsLoaded(true))
     }, [dispatch])
-    // const toDelete = async (id) => {
-    //     // e.preventDefault()
-    //     await dispatch(deleteABusiness(id))
-    //     // await history.push('/')
-    // }
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch('/api/categories')
+
+            if (response.ok) {
+                const data = await response.json()
+                setCategories(data.categories)
+            }
+        }
+        fetchData()
+    }, [])
+
+
+
     return isLoaded ? (
         <>
             <div className="entire-business-container">
@@ -49,7 +59,11 @@ export default function Businesses() {
                         Businesses
                     </span>
                 </div>
-
+                <div className="search-by-category-container">
+                    {categories.map(cate => (
+                        <SearchCategories cate={cate} />
+                    ))}
+                </div>
                 {businesses.map((bus, idx) => (
                     <div key={bus.id} className='business-container'>
                         <NavLink className='navlink-business-list' to={`/businesses/${bus.id}`}>

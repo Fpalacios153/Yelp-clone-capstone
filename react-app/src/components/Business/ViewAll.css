@@ -133,3 +133,9 @@
     justify-content: center;
     align-items: center;
 }
+
+.search-by-category-container {
+    /* background-color: aqua; */
+    display: flex;
+
+}
