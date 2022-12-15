@@ -137,5 +137,6 @@
 .search-by-category-container {
     /* background-color: aqua; */
     display: flex;
+    padding: 15px;
 
 }
