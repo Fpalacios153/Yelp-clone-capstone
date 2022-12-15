@@ -25,11 +25,8 @@ export default function Businesses() {
 
 
     const businesses = Object.values(businessesList)
-    console.log(businesses)
-    const [selection, setSelection] = useState([...businesses])
-    console.log(selectedCate)
+    const [selection, setSelection] = useState([])
 
-    console.log(selection, 'select')
 
 
     useEffect(() => {
@@ -88,6 +85,10 @@ export default function Businesses() {
                     </span>
                 </div>
                 <div className="search-by-category-container">
+                    <button className={'business-category-item-not-picked'}
+                        onClick={() => { setSelectedCate([]) }}
+                        type='button'> All Businesses
+                    </button>
                     {categories.map(cate => (
                         <SearchCategories cate={cate} businesses={businesses} selectedCate={selectedCate} setSelectedCate={setSelectedCate} setSelection={setSelection} />
                     ))}
