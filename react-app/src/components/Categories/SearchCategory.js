@@ -25,7 +25,7 @@ export default function SearchCategories({ cate, businesses, setSelectedCate, se
     return (
         <div>
 
-            <button className={chosen ? "business-category-item-picked" : 'business-category-item-not-picked'}
+            <button className={'business-category-item-not-picked'}
                 type='button' key={cate.id} onClick={() => afterPush(cate.name)} >{cate.name}
             </button>
 
