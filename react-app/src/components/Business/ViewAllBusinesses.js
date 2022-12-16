@@ -52,7 +52,7 @@ export default function Businesses() {
             if (bus.categories) {
                 bus.categories.filter(cat => {
                     if (cat.name === selectedCate) {
-                        console.log(bus)
+                        // console.log(bus)
                         picked.push(bus)
                     }
                 })
@@ -62,7 +62,7 @@ export default function Businesses() {
 
     }, [selectedCate])
 
-
+    console.log(selection)
     return isLoaded ? (
         <>
             <div className="entire-business-container">
@@ -175,8 +175,10 @@ export default function Businesses() {
                                         <div className="business-review-container">
                                             <i className="fa-regular fa-comment"></i>
                                             {bus.reviews ? (
-                                                <span style={{ paddingLeft: '5px', color: '#6E7072' }}>"{bus.reviews[0].review.length < 150 ? bus.reviews[0].review :
-                                                    `${bus.reviews[0].review.slice(0, 150)}...see more`}</span>
+                                                <span style={{ paddingLeft: '5px', color: '#6E7072' }}>
+                                                    "{bus.reviews[0].review.length < 150 ? bus.reviews[0].review :
+                                                        `${bus.reviews[0].review.slice(0, 150)}...see more`}
+                                                </span>
 
                                             ) :
                                                 <span style={{ paddingLeft: '5px', color: '#6E7072' }}>"No Reviews yet"</span>
