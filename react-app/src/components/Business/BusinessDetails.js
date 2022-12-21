@@ -123,9 +123,9 @@ export default function BusinessDetails() {
                         <ReviewsForOneBus />
                     </div>
                 </div>
-                <div className="footer-test">
+                {/* <div className="footer-test">
                     <Footer />
-                </div>
+                </div> */}
             </div>
         </>
     ) : null

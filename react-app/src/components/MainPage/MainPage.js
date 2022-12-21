@@ -12,6 +12,7 @@ import './MainPage.css'
 // import { useSelector } from "react-redux";
 import ProfileDropDown from "./ProfileDropDown";
 import ProfileView from "../UserProfileP/UserProfilePage";
+import Footer from "../Footer";
 
 
 export default function MainPage() {
@@ -89,6 +90,7 @@ export default function MainPage() {
                         </Route>
                     </Switch>
                 </div>
+                <Footer />
             </div>
         </>
     )

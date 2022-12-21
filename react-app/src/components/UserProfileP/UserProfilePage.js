@@ -44,7 +44,7 @@ export default function ProfileView() {
         </div>
     )
     let businesses = (
-        <div className='entire-user-review-container height-adjustment'>
+        <div className='entire-user-review-container '>
             <h4 className='user-review-top-title'>
                 {currentUser.firstName}'s Businesses
             </h4>
@@ -71,7 +71,7 @@ export default function ProfileView() {
 
 
     let reviews = (
-        <div className='entire-user-review-container height-adjustment'>
+        <div className='entire-user-review-container'>
             <h4 className='user-review-top-title'>
                 {currentUser.firstName}'s Reviews
             </h4>
@@ -96,7 +96,7 @@ export default function ProfileView() {
     let favorites =
 
         (
-            <div className="height-adjustment">
+            <div >
                 <h4 className='user-review-top-title' style={{ paddingLeft: '15px' }}>
                     {currentUser.firstName}'s Favorites
                 </h4>
@@ -224,7 +224,7 @@ export default function ProfileView() {
                         </div>
                     </div>
                 </div>
-                <Footer />
+                {/* <Footer /> */}
 
             </div>
         </>

@@ -190,11 +190,11 @@ export default function Businesses() {
                         </div>
                     ))}
                 </div>
-                {selection.length === 0 ?
+                {selection.length === 0 && selectedCate.length > 0 ?
                     <div>Nothing to see here</div> : null
                 }
             </div >
-            <Footer />
+            {/* <Footer /> */}
         </>
     ) : null
 }
