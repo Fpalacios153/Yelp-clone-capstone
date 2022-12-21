@@ -62,7 +62,7 @@ export default function Businesses() {
 
     }, [selectedCate])
 
-    console.log(selection)
+    console.log(selection, 'selection')
     return isLoaded ? (
         <>
             <div className="entire-business-container">
@@ -86,8 +86,8 @@ export default function Businesses() {
                             <SearchCategories cate={cate} businesses={businesses} selectedCate={selectedCate} setSelectedCate={setSelectedCate} setSelection={setSelection} />
                         ))}
                     </div>
-                    {selectedCate.length > 0 ? selection?.map((bus, idx) => (
-                        <div key={bus.id} className='business-container'>
+                    {selectedCate.length > 0 ? selection.map((bus, idx) => (
+                        (<div key={bus.id} className='business-container'>
                             <NavLink className='navlink-business-list' to={`/businesses/${bus.id}`}>
                                 <div className="business-list">
                                     <img
@@ -135,9 +135,8 @@ export default function Businesses() {
                                 </div>
                             </NavLink>
 
-                        </div>
-
-                    )) : businesses.map((bus, idx) => (
+                        </div>))
+                    ) : businesses.map((bus, idx) => (
                         <div key={bus.id} className='business-container'>
                             <NavLink className='navlink-business-list' to={`/businesses/${bus.id}`}>
                                 <div className="business-list">
@@ -189,10 +188,11 @@ export default function Businesses() {
                             </NavLink>
 
                         </div>
-                    ))
-                    }
+                    ))}
                 </div>
-
+                {selection.length === 0 ?
+                    <div>Nothing to see here</div> : null
+                }
             </div >
             <Footer />
         </>
