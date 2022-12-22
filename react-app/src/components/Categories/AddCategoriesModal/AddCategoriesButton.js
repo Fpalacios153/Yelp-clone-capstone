@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react"
-// import { useSelector } from 'react-redux'
+import { useState } from "react"
 
 export default function AddCategoriesButton({ cate, selectedCate }) {
     const [chosen, setChosen] = useState(false)

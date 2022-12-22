@@ -6,7 +6,6 @@ import { getAllFavs } from "../../store/favorites";
 import { getAllReviews } from "../../store/review";
 import CreateBusinessModal from "../Business/CreateBuisnessModal";
 import FavoritesGet from "../Favorites/FavoritesGet";
-import Footer from "../Footer"
 import UsersBusinesses from "./UserBusinesses";
 import './UserProfilepage.css'
 import UsersReview from "./UsersReview";
@@ -36,13 +35,13 @@ export default function ProfileView() {
         dispatch(getAllBusinesses()).then(() => dispatch(getAllReviews())).then(() => dispatch(getAllFavs()))
     }, [dispatch])
 
-    let overview = (
-        <div>
-            <h4 className='user-review-top-title' style={{ paddingLeft: '15px' }}>
-                Overview
-            </h4>
-        </div>
-    )
+    // let overview = (
+    //     <div>
+    //         <h4 className='user-review-top-title' style={{ paddingLeft: '15px' }}>
+    //             Overview
+    //         </h4>
+    //     </div>
+    // )
     let businesses = (
         <div className='entire-user-review-container '>
             <h4 className='user-review-top-title'>

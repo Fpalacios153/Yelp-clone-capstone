@@ -16,7 +16,6 @@ export default function GetCategoriesOfBusiness({ business, currentUser }) {
 
     const toDelete = (cateId) => {
         dispatch(toRemoveCategories(business.id, cateId))
-        // .then(() => dispatch(getOneCategories(businessId)))
     }
     return currentUser ? (
         <>

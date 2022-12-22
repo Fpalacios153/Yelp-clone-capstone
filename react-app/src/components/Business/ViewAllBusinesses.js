@@ -2,14 +2,9 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import { getAllBusinesses } from "../../store/business"
-import { getOneCategories } from "../../store/categories"
 
 import AverageStarRating from "../AverageStarRating"
-import AddCategories from "../Categories/AddCategoriesModal/AddCategories"
-import AddCategoriesButton from "../Categories/AddCategoriesModal/AddCategoriesButton"
 import SearchCategories from "../Categories/SearchCategory"
-import Footer from "../Footer"
-import GetCategoriesOfBusiness from "./BusinessesCategories"
 import './ViewAll.css'
 
 export default function Businesses() {
@@ -48,9 +43,9 @@ export default function Businesses() {
 
     useEffect(() => {
         let picked = []
-        businesses.filter(bus => {
+        businesses.forEach(bus => {
             if (bus.categories) {
-                bus.categories.filter(cat => {
+                bus.categories.forEach(cat => {
                     if (cat.name === selectedCate) {
                         picked.push(bus)
                     }
@@ -98,15 +93,11 @@ export default function Businesses() {
                                                 {bus.name}
                                             </div>
                                         </div>
-                                        {/* <FavoritesOnBus /> */}
-
                                         <div className="business-average">
                                             <AverageStarRating reviewAverage={bus.reviewAverage} />
                                             <span style={{ fontWeight: '500', paddingLeft: '10px', paddingRight: '5px' }}>{bus.reviewAverage > 0 ? bus.reviewAverage.toFixed(1) : 0}</span>
                                             {' '}({bus.reviewCount > 0 ? bus.reviewCount : 0} reviews)
                                         </div>
-                                        {/* {getId(bus.id)} */}
-                                        {/* <GetCategoriesOfBusiness business={bus} /> */}
                                         <div className="entire-category-container-view-all">
 
                                             {bus.categories && bus.categories.map(cate => (
@@ -148,15 +139,13 @@ export default function Businesses() {
                                                 {bus.name}
                                             </div>
                                         </div>
-                                        {/* <FavoritesOnBus /> */}
 
                                         <div className="business-average">
                                             <AverageStarRating reviewAverage={bus.reviewAverage} />
                                             <span style={{ fontWeight: '500', paddingLeft: '10px', paddingRight: '5px' }}>{bus.reviewAverage > 0 ? bus.reviewAverage.toFixed(1) : 0}</span>
                                             {' '}({bus.reviewCount > 0 ? bus.reviewCount : 0} reviews)
                                         </div>
-                                        {/* {getId(bus.id)} */}
-                                        {/* <GetCategoriesOfBusiness business={bus} /> */}
+
                                         <div className="entire-category-container-view-all">
 
                                             {bus.categories && bus.categories.map(cate => (
@@ -188,7 +177,7 @@ export default function Businesses() {
                     <div className="no-business-in-category">
                         <h1>Nothing to see here!</h1>
                         <h2>No businesses in {selectedCate} category</h2>
-                        <img></img>
+                        {/* <img></img> */}
                         <button className={'business-category-item-not-picked apples'}
                             onClick={() => { setSelectedCate([]) }}
                             type='button'>Back to All Businesses

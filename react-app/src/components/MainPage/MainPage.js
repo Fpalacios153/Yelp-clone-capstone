@@ -2,14 +2,12 @@ import { Route, Switch, NavLink } from "react-router-dom";
 import BusinessDetails from "../Business/BusinessDetails";
 import CreateBuisnessModal from '../Business/CreateBuisnessModal'
 import Businesses from "../Business/ViewAllBusinesses";
-// import NavBar from "../NavBar";
 import UsersList from "../UsersList";
 import User from "../User";
 import ReviewDetails from "../Reviews/ReviewDetails";
 import CreateReview from "../Reviews/CreateReviewModal/CreateReview";
 import './MainPage.css'
-// import LogoutButton from "../auth/LogoutButton";
-// import { useSelector } from "react-redux";
+
 import ProfileDropDown from "./ProfileDropDown";
 import ProfileView from "../UserProfileP/UserProfilePage";
 import Footer from "../Footer";
@@ -84,7 +82,6 @@ export default function MainPage() {
                                 <div className="not-found-redirect">
                                     <div className="not-found-number">404</div>
                                     <h1 className="not-found-word">Page Not Found </h1>
-                                    {/* <h2 className="not-found-word">Redirecting...</h2> */}
                                 </div>
                             </div>
                         </Route>
