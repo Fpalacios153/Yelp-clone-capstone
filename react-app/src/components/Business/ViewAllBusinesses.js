@@ -52,7 +52,6 @@ export default function Businesses() {
             if (bus.categories) {
                 bus.categories.filter(cat => {
                     if (cat.name === selectedCate) {
-                        // console.log(bus)
                         picked.push(bus)
                     }
                 })
@@ -62,14 +61,9 @@ export default function Businesses() {
 
     }, [selectedCate])
 
-    console.log(selection, 'selection')
     return isLoaded ? (
         <>
             <div className="entire-business-container">
-                {/* <div>
-                    <Categories />
-
-                </div> */}
                 <div className="business-title">
                     <span>
                         Businesses
