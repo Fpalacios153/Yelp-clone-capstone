@@ -30,7 +30,8 @@
     border-radius: 5px;
     width: 225px;
     height: 13.5em;
-    background-color: blue;
+    border: 1px solid rgba(224, 7, 7, 1);
+    background-color: rgba(224, 7, 7, 0.498);
     z-index: 1;
     /* position: absolute;
     top: 120px; */
