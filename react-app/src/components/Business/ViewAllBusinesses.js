@@ -191,10 +191,18 @@ export default function Businesses() {
                     ))}
                 </div>
                 {selection.length === 0 && selectedCate.length > 0 ?
-                    <div>Nothing to see here</div> : null
+                    <div className="no-business-in-category">
+                        <h1>Nothing to see here!</h1>
+                        <h2>No businesses in {selectedCate} category</h2>
+                        <img></img>
+                        <button className={'business-category-item-not-picked apples'}
+                            onClick={() => { setSelectedCate([]) }}
+                            type='button'>Back to All Businesses
+                        </button>
+                    </div>
+                    : null
                 }
             </div >
-            {/* <Footer /> */}
         </>
     ) : null
 }
