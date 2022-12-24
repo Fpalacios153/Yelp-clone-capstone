@@ -123,5 +123,9 @@ export default function BusinessDetails() {
                 </div>
             </div>
         </>
-    ) : null
+    ) :
+        <div className="loading-screen">
+            <h1>Loading...</h1>
+            <img src="/static/images/logos/icons8-hamburger-48.png"></img>
+        </div>
 }
