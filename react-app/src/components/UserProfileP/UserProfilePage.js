@@ -6,7 +6,6 @@ import { getAllFavs } from "../../store/favorites";
 import { getAllReviews } from "../../store/review";
 import CreateBusinessModal from "../Business/CreateBuisnessModal";
 import FavoritesGet from "../Favorites/FavoritesGet";
-import Footer from "../Footer"
 import UsersBusinesses from "./UserBusinesses";
 import './UserProfilepage.css'
 import UsersReview from "./UsersReview";
@@ -36,15 +35,15 @@ export default function ProfileView() {
         dispatch(getAllBusinesses()).then(() => dispatch(getAllReviews())).then(() => dispatch(getAllFavs()))
     }, [dispatch])
 
-    let overview = (
-        <div>
-            <h4 className='user-review-top-title' style={{ paddingLeft: '15px' }}>
-                Overview
-            </h4>
-        </div>
-    )
+    // let overview = (
+    //     <div>
+    //         <h4 className='user-review-top-title' style={{ paddingLeft: '15px' }}>
+    //             Overview
+    //         </h4>
+    //     </div>
+    // )
     let businesses = (
-        <div className='entire-user-review-container height-adjustment'>
+        <div className='entire-user-review-container '>
             <h4 className='user-review-top-title'>
                 {currentUser.firstName}'s Businesses
             </h4>
@@ -71,7 +70,7 @@ export default function ProfileView() {
 
 
     let reviews = (
-        <div className='entire-user-review-container height-adjustment'>
+        <div className='entire-user-review-container'>
             <h4 className='user-review-top-title'>
                 {currentUser.firstName}'s Reviews
             </h4>
@@ -96,7 +95,7 @@ export default function ProfileView() {
     let favorites =
 
         (
-            <div className="height-adjustment">
+            <div >
                 <h4 className='user-review-top-title' style={{ paddingLeft: '15px' }}>
                     {currentUser.firstName}'s Favorites
                 </h4>
@@ -224,7 +223,7 @@ export default function ProfileView() {
                         </div>
                     </div>
                 </div>
-                <Footer />
+                {/* <Footer /> */}
 
             </div>
         </>

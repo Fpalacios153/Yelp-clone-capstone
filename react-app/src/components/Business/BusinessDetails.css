@@ -45,10 +45,11 @@
 .buisness-details-about-business {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    min-height: 65vh;
+    padding-left: 8em;
     /* background-color: blue; */
     /* margin: auto; */
-    padding-left: 8em;
+    /* width: 90%; */
     /* padding-right: 8em; */
 }
 
@@ -152,4 +153,32 @@
     font-size: 40px;
     font-weight: 500;
     margin: 5px;
+}
+
+.loading-screen {
+    background-color: rgba(224, 8, 8, 0.795);
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.burger-spin {
+    animation-name: spin;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }

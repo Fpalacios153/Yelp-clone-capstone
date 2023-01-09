@@ -2,14 +2,12 @@
     display: flex;
     padding-left: 10px;
     flex-wrap: wrap;
-    /* justify-content: center; */
 }
 
 .business-category-item {
     display: flex;
     background-color: #e2e2e2;
     padding: 4px 7px;
-    /* border: black 1px solid; */
     border-radius: 4px;
     color: #6E7072;
     font-weight: 550;

@@ -43,7 +43,7 @@
     font-size: large;
 }
 
-.business-category-item-picked {
+.business-category-item-not-picked:focus {
     font-size: large;
     display: flex;
     background-color: #e2e2e2;
