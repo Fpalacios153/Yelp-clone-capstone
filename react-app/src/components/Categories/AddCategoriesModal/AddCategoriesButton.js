@@ -1,19 +1,7 @@
-import { useEffect, useState } from "react"
-// import { useSelector } from 'react-redux'
+import { useState } from "react"
 
 export default function AddCategoriesButton({ cate, selectedCate }) {
     const [chosen, setChosen] = useState(false)
-    // const businessCate = useSelector(state => state.categories)
-    // const businessCateArray = Object.values(businessCate)
-    // console.log(businessCateArray)
-    // console.log(selectedCate)
-    // console.log(cate)
-    // console.log(selectedCate.includes(cate))
-    // useEffect(() => {
-    //     if (selectedCate.includes(cate)) {
-    //         setChosen(!chosen)
-    //     }
-    // }, [selectedCate, cate, setChosen])
 
     const toPush = (name) => {
         if (!selectedCate.includes(name)) {

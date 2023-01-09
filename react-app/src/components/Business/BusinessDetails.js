@@ -6,7 +6,6 @@ import CreateReviewModal from "../Reviews/CreateReviewModal";
 import ReviewsForOneBus from "../Reviews/ReviewsForBus";
 import UpdateBusinessModal from "./EditBusinessModal";
 import './BusinessDetails.css'
-import Footer from "../Footer";
 import AverageStarRating from "../AverageStarRating";
 import FavoritesButton from "../Favorites/FavoritesButton";
 import { getAllFavs } from "../../store/favorites";
@@ -32,7 +31,6 @@ export default function BusinessDetails() {
 
     }, [dispatch, businessId])
 
-    // console.log(business.categories)
     function redirect() {
         setTimeout(() => { history.push(`/`) }, 1000)
     }
@@ -123,10 +121,12 @@ export default function BusinessDetails() {
                         <ReviewsForOneBus />
                     </div>
                 </div>
-                <div className="footer-test">
-                    <Footer />
-                </div>
             </div>
+
         </>
-    ) : null
+    ) :
+        <div className="loading-screen">
+            <h1>Loading...</h1>
+            <img src="/static/images/logos/icons8-hamburger-48.png" alt="burger-loading" className="burger-spin"></img>
+        </div>
 }

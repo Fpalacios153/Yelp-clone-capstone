@@ -1,19 +1,17 @@
 import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { useParams } from "react-router-dom"
 import { getAllBusinesses } from "../../../store/business"
 import { getOneCategories, toAddCategories } from "../../../store/categories"
 import AddCategoriesButton from "./AddCategoriesButton"
 import './AddCategoriesModal.css'
-// import { getAllCategories, toAddCategories } from "../../../store/categories"
 
 export default function AddCategories({ setShowModal }) {
     const dispatch = useDispatch()
     const { businessId } = useParams()
-    const [selectedCate, setSelectedCate] = useState([])
+    const [selectedCate] = useState([])
     const [categories, setCategories] = useState([])
-    const Cate = useSelector(state => state.categories)
-    const cateArr = Object.values(Cate)
+    // const Cate = useSelector(state => state.categories)
 
     useEffect(() => {
         async function fetchData() {
@@ -25,9 +23,7 @@ export default function AddCategories({ setShowModal }) {
             }
         }
         fetchData()
-        // setSelectedCate(cateArr)
 
-        // const data = await dispatch(getAllCategories())
     }, [])
 
     const handleSubmit = async (e) => {
