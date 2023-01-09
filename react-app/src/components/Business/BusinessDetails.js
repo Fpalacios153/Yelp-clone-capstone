@@ -11,6 +11,7 @@ import FavoritesButton from "../Favorites/FavoritesButton";
 import { getAllFavs } from "../../store/favorites";
 import BusinessesCategories from './BusinessesCategories'
 import AddCategoriesModal from "../Categories/AddCategoriesModal";
+import Footer from "../Footer";
 export default function BusinessDetails() {
     const dispatch = useDispatch()
     const history = useHistory()
@@ -121,12 +122,15 @@ export default function BusinessDetails() {
                         <ReviewsForOneBus />
                     </div>
                 </div>
+                <Footer />
             </div>
-
         </>
     ) :
-        <div className="loading-screen">
-            <h1>Loading...</h1>
-            <img src="/static/images/logos/icons8-hamburger-48.png" alt="burger-loading" className="burger-spin"></img>
-        </div>
+        <>
+            <div className="loading-screen">
+                <h1>Loading...</h1>
+                <img src="/static/images/logos/icons8-hamburger-48.png" alt="burger-loading" className="burger-spin"></img>
+            </div>
+            {/* <Footer /> */}
+        </>
 }

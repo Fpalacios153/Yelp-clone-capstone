@@ -87,7 +87,7 @@ export default function MainPage() {
                         </Route>
                     </Switch>
                 </div>
-                <Footer />
+                {/* <Footer /> */}
             </div>
         </>
     )
