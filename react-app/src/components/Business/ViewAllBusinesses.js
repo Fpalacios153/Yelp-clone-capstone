@@ -5,6 +5,7 @@ import { getAllBusinesses } from "../../store/business"
 
 import AverageStarRating from "../AverageStarRating"
 import SearchCategories from "../Categories/SearchCategory"
+import Footer from "../Footer"
 import './ViewAll.css'
 
 export default function Businesses() {
@@ -169,7 +170,6 @@ export default function Businesses() {
                                     </div>
                                 </div>
                             </NavLink>
-
                         </div>
                     ))}
                 </div>
@@ -186,10 +186,14 @@ export default function Businesses() {
                     : null
                 }
             </div >
+            <Footer />
         </>
     ) :
-        <div className="loading-screen">
-            <h1>Loading...</h1>
-            <img src="/static/images/logos/icons8-hamburger-48.png" alt="burger-loading" className="burger-spin"></img>
-        </div>
+        <>
+            <div className="loading-screen">
+                <h1>Loading...</h1>
+                <img src="/static/images/logos/icons8-hamburger-48.png" alt="burger-loading" className="burger-spin"></img>
+            </div>
+            {/* <Footer /> */}
+        </>
 }

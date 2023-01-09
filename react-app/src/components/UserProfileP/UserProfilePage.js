@@ -6,6 +6,7 @@ import { getAllFavs } from "../../store/favorites";
 import { getAllReviews } from "../../store/review";
 import CreateBusinessModal from "../Business/CreateBuisnessModal";
 import FavoritesGet from "../Favorites/FavoritesGet";
+import Footer from "../Footer";
 import UsersBusinesses from "./UserBusinesses";
 import './UserProfilepage.css'
 import UsersReview from "./UsersReview";
@@ -223,8 +224,7 @@ export default function ProfileView() {
                         </div>
                     </div>
                 </div>
-                {/* <Footer /> */}
-
+                <Footer />
             </div>
         </>
     )

@@ -157,7 +157,7 @@
 
 .loading-screen {
     background-color: rgba(224, 8, 8, 0.795);
-    height: 75vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     text-align: center;
