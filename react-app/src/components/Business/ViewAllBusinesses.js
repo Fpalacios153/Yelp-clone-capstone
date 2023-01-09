@@ -187,5 +187,9 @@ export default function Businesses() {
                 }
             </div >
         </>
-    ) : null
+    ) :
+        <div className="loading-screen">
+            <h1>Loading...</h1>
+            <img src="/static/images/logos/icons8-hamburger-48.png" alt="burger-loading" className="burger-spin"></img>
+        </div>
 }

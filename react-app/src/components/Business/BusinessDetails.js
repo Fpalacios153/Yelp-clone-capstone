@@ -122,10 +122,11 @@ export default function BusinessDetails() {
                     </div>
                 </div>
             </div>
+
         </>
     ) :
         <div className="loading-screen">
             <h1>Loading...</h1>
-            <img src="/static/images/logos/icons8-hamburger-48.png"></img>
+            <img src="/static/images/logos/icons8-hamburger-48.png" alt="burger-loading" className="burger-spin"></img>
         </div>
 }
