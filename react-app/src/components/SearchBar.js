@@ -4,13 +4,14 @@ export default function SearchBar() {
     return (
         <>
             <label>
+                Search
                 <input
                     type='text'
                     placeholder='Enter Search Word'
                     value={word}
                     onChange={(e) => SetWord(e.target.value)}
-                >
-                </input>
+
+                />
             </label>
         </>
     )
