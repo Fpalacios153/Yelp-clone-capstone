@@ -55,7 +55,8 @@
 ### Business Details Page
 - After clicking on a business, the user is directed to the the business details page. They can see a more indepth look at the business, its location, contact information and its description. 
 - User can also see all the reviews left for that business on this page.
-- If they are not the owner of the business, they can leave a write by clicking the "Write a review" button. 
+- If they are not the owner of the business, they can leave a write by clicking the "Write a review" button.
+
 ![Screen Shot 2022-10-07 at 1 58 47 PM](https://user-images.githubusercontent.com/101391912/194651489-16e1ef0d-aed2-4d17-a8ef-c230abccbade.png)
 
 ![Screen Shot 2022-10-07 at 1 00 09 PM](https://user-images.githubusercontent.com/101391912/194643683-039c7a1a-7dcc-41c6-a12c-d916c2ee2187.png)
