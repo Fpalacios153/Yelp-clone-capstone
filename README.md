@@ -29,6 +29,7 @@
 ### Splash Page
 - From the splash page a user can either login or sign up by clicking on the buttons in the right corner of the navigation bar 
 - The footer contains infomation about Help! as well as about links.
+
 ![Screen Shot 2022-10-07 at 12 43 05 PM](https://user-images.githubusercontent.com/101391912/194641319-af2949ee-ed14-4f88-a35d-5aa2313cd726.png)
 
 ## Login Page
