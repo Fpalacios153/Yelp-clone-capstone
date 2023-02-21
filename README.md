@@ -38,7 +38,7 @@
 
 ![Screen Shot 2022-10-07 at 12 44 26 PM](https://user-images.githubusercontent.com/101391912/194641501-1c5baf02-bc10-431f-a7f0-b727d5d30baa.png)
 ## Sign Up Page
-- To become a user, you can simply fill out the sign up form with valid inputs and clicking "Sign Up" button. 
+- To become a user, you can simply fill out the sign up form with valid inputs and click the "Sign Up" button. 
 
 ![Screen Shot 2022-10-07 at 12 51 43 PM](https://user-images.githubusercontent.com/101391912/194642531-6e9a13f4-0e43-493b-9c2a-64a9b4127e6b.png)
 
