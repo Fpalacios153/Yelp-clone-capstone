@@ -1,4 +1,4 @@
-from .db import db
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 # from .categories import business_categories
 
 # Join table
@@ -6,19 +6,26 @@ from .db import db
 user_favorites = db.Table(
     'user_favorites',
     db.Model.metadata,
-    db.Column('users', db.Integer,db.ForeignKey('users.id', primary_key=True)),
-    db.Column('businesstable', db.Integer,db.ForeignKey('businesstable.id', primary_key=True)),
+    db.Column('users', db.Integer,db.ForeignKey(add_prefix_for_prod('users.id'), primary_key=True)),
+    db.Column('businesstable', db.Integer,db.ForeignKey(add_prefix_for_prod('businesstable.id'), primary_key=True)),
     # db.Column('favorites', db.Interger,db.ForeignKey('favorites.id', primary_key=True))
 )
+if environment == "production":
+    user_favorites.schema = SCHEMA
+
 business_categories = db.Table(
     'business_categories',
     db.Model.metadata,
-    db.Column('businesstable', db.Integer,db.ForeignKey('businesstable.id', primary_key=True)),
-    db.Column('categories', db.Integer,db.ForeignKey('categories.id', primary_key=True)),
+    db.Column('businesstable', db.Integer,db.ForeignKey(add_prefix_for_prod('businesstable.id'), primary_key=True)),
+    db.Column('categories', db.Integer,db.ForeignKey(add_prefix_for_prod('categories.id'), primary_key=True)),
 )
+if environment == "production":
+    business_categories.schema = SCHEMA
 
 class Business(db.Model):
     __tablename__ = 'businesstable'
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
     name =db.Column(db.String(50))
@@ -31,7 +38,7 @@ class Business(db.Model):
     zipcode = db.Column(db.String(7), nullable=False)
     country = db.Column(db.String(75), nullable=False)
     image = db.Column(db.String(), nullable=False)
-    ownerId = db.Column(db.Integer,db.ForeignKey('users.id'), nullable=False)
+    ownerId = db.Column(db.Integer,db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
 
 
     #relationships
