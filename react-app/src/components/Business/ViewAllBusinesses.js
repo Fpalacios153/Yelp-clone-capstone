@@ -39,7 +39,7 @@ export default function Businesses() {
     useEffect(() => {
         dispatch(getAllBusinesses()).then(() => setIsLoaded(true))
 
-    }, [dispatch])
+    }, [])
 
 
     useEffect(() => {
@@ -129,7 +129,7 @@ export default function Businesses() {
                                     <img
                                         className="business-image"
                                         src={bus.image}
-                                        alt={bus.name}
+                                        alt={bus.name} react-app
                                         onError={e => { e.currentTarget.src = '/static/images/restpic/pexels-aleksandar-pasaric-3342739.jpg' }}
 
                                     />
