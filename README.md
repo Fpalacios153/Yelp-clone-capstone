@@ -27,8 +27,9 @@
 ## Website Walkthrough
 
 ### Splash Page
-- From the splash page a user can either login or sign up by clicking on the buttons in the left navigation bar 
+- From the splash page a user can either login or sign up by clicking on the buttons in the right corner of the navigation bar 
 - The footer contains infomation about Help! as well as about links.
+
 ![Screen Shot 2022-10-07 at 12 43 05 PM](https://user-images.githubusercontent.com/101391912/194641319-af2949ee-ed14-4f88-a35d-5aa2313cd726.png)
 
 ## Login Page
@@ -37,7 +38,7 @@
 
 ![Screen Shot 2022-10-07 at 12 44 26 PM](https://user-images.githubusercontent.com/101391912/194641501-1c5baf02-bc10-431f-a7f0-b727d5d30baa.png)
 ## Sign Up Page
-- To become a user, you can simply fill out the sign up form with valid inputs and clicking "Sign Up" button. 
+- To become a user, you can simply fill out the sign up form with valid inputs and click the "Sign Up" button. 
 
 ![Screen Shot 2022-10-07 at 12 51 43 PM](https://user-images.githubusercontent.com/101391912/194642531-6e9a13f4-0e43-493b-9c2a-64a9b4127e6b.png)
 
@@ -55,7 +56,8 @@
 ### Business Details Page
 - After clicking on a business, the user is directed to the the business details page. They can see a more indepth look at the business, its location, contact information and its description. 
 - User can also see all the reviews left for that business on this page.
-- If they are not the owner of the business, they can leave a write by clicking the "Write a review" button. 
+- If they are not the owner of the business, they can leave a write by clicking the "Write a review" button.
+
 ![Screen Shot 2022-10-07 at 1 58 47 PM](https://user-images.githubusercontent.com/101391912/194651489-16e1ef0d-aed2-4d17-a8ef-c230abccbade.png)
 
 ![Screen Shot 2022-10-07 at 1 00 09 PM](https://user-images.githubusercontent.com/101391912/194643683-039c7a1a-7dcc-41c6-a12c-d916c2ee2187.png)
