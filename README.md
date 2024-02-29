@@ -1,6 +1,6 @@
 # Help! 
 
-[Help!](https://help-y.herokuapp.com/) is a clone inspired by Yelp, focusing on viewing and creating restaurants and leaving reviews and ratings. 
+[Help!](https://help-zz9q.onrender.com/) is a clone inspired by Yelp, focusing on viewing and creating restaurants and leaving reviews and ratings. 
 
 ## Wiki Links
 - [Database Schema](https://github.com/Fpalacios153/Yelp-clone-capstone/wiki/Database-Schema)
