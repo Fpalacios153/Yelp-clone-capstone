@@ -10,7 +10,7 @@ import './MainPage.css'
 
 import ProfileDropDown from "./ProfileDropDown";
 import ProfileView from "../UserProfileP/UserProfilePage";
-import Footer from "../Footer";
+// import Footer from "../Footer";
 
 
 export default function MainPage() {
