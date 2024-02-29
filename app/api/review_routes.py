@@ -18,7 +18,6 @@ def get_all_reviews():
         review_dict = review.to_dict()
         review_dict['user']= review.user.to_dict()
         review_with_users.append(review_dict)
-        print(review_with_users,'???????????')
 
     return {"reviews": [review for review in review_with_users]}
 
@@ -82,5 +81,4 @@ def delete_review(id):
 @review_routes.route('/user')
 def get_users_reviews():
     userId = current_user
-    print(current_user.id)
     return 'aooles'

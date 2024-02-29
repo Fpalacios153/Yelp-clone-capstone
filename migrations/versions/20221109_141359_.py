@@ -1,13 +1,16 @@
 """empty message
 
 Revision ID: 1bb65b5a9601
-Revises: 
+Revises:
 Create Date: 2022-11-09 14:13:59.897712
 
 """
 from alembic import op
 import sqlalchemy as sa
 
+import os
+environment = os.getenv("FLASK_ENV")
+SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
 revision = '1bb65b5a9601'
@@ -74,6 +77,13 @@ def upgrade():
     sa.ForeignKeyConstraint(['businesstable'], ['businesstable.id'], ),
     sa.ForeignKeyConstraint(['users'], ['users.id'], )
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE 'categories' SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE 'users' SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE 'businesstable' SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE 'business_categories' SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE 'reviews' SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE 'user_favorites' SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
 
