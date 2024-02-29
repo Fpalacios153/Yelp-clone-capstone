@@ -78,12 +78,12 @@ def upgrade():
     sa.ForeignKeyConstraint(['users'], ['users.id'], )
     )
     if environment == "production":
-        op.execute(f"ALTER TABLE 'categories' SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE 'users' SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE 'businesstable' SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE 'business_categories' SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE 'reviews' SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE 'user_favorites' SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE categories SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE businesstable SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE business_categories SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE user_favorites SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
 
