@@ -10,7 +10,7 @@ import './ViewAll.css'
 
 export default function Businesses() {
     const dispatch = useDispatch()
-    const [isLoaded, setIsLoaded] = useState(false)
+    const [isLoaded, setIsLoaded] = useState(true)
 
     const businessesList = useSelector(state => state.businesses)
     const [categories, setCategories] = useState([])
@@ -22,6 +22,10 @@ export default function Businesses() {
     const businesses = Object.values(businessesList)
 
 
+    useEffect(() => {
+        dispatch(getAllBusinesses()).then(() => setIsLoaded(true))
+
+    }, [])
 
     useEffect(() => {
         async function fetchData() {
@@ -36,12 +40,8 @@ export default function Businesses() {
     }, [])
 
 
-    useEffect(() => {
-        dispatch(getAllBusinesses()).then(() => setIsLoaded(true))
 
-    }, [])
-
-
+    // Category Filter
     useEffect(() => {
         let picked = []
         businesses.forEach(bus => {
@@ -57,6 +57,7 @@ export default function Businesses() {
 
     }, [selectedCate])
 
+
     return isLoaded ? (
         <>
             <div className="entire-business-container">
@@ -65,8 +66,8 @@ export default function Businesses() {
                         Businesses
                     </span>
                 </div>
-                <div className="business-container-with-search">
 
+                <div className="business-container-with-search">
                     <div className="search-by-category-container">
                         <button className={'business-category-item-not-picked'}
                             onClick={() => { setSelectedCate([]) }}
@@ -76,6 +77,7 @@ export default function Businesses() {
                             <SearchCategories cate={cate} businesses={businesses} selectedCate={selectedCate} setSelectedCate={setSelectedCate} setSelection={setSelection} />
                         ))}
                     </div>
+
                     {selectedCate.length > 0 ? selection.map((bus, idx) => (
                         (<div key={bus.id} className='business-container'>
                             <NavLink className='navlink-business-list' to={`/businesses/${bus.id}`}>

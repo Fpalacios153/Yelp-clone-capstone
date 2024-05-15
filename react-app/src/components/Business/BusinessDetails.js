@@ -2,17 +2,19 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { deleteABusiness, getAllBusinesses } from "../../store/business";
+import { getAllFavs } from "../../store/favorites";
 import CreateReviewModal from "../Reviews/CreateReviewModal";
 import ReviewsForOneBus from "../Reviews/ReviewsForBus";
 import UpdateBusinessModal from "./EditBusinessModal";
-import './BusinessDetails.css'
 import AverageStarRating from "../AverageStarRating";
 import FavoritesButton from "../Favorites/FavoritesButton";
-import { getAllFavs } from "../../store/favorites";
 import BusinessesCategories from './BusinessesCategories'
 import AddCategoriesModal from "../Categories/AddCategoriesModal";
 import Footer from "../Footer";
+import './BusinessDetails.css'
+
 export default function BusinessDetails() {
+
     const dispatch = useDispatch()
     const history = useHistory()
     const [isLoaded, setIsLoaded] = useState(false)
