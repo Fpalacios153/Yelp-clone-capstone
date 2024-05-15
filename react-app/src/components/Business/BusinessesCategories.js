@@ -17,7 +17,7 @@ export default function GetCategoriesOfBusiness({ business, currentUser }) {
     const toDelete = (cateId) => {
         dispatch(toRemoveCategories(business.id, cateId))
     }
-    return currentUser ? (
+    return (
         <>
             <div className="entire-category-container">
                 {businessCategoriesArr.map(cate => (
@@ -35,28 +35,7 @@ export default function GetCategoriesOfBusiness({ business, currentUser }) {
 
 
                 ))}
-
-
             </div>
         </>
-    ) :
-        <div className="entire-category-container">
-            {businessCategoriesArr.map(cate => (
-
-                <div className='business-category-item' key={cate.id}>
-                    <div className="category-button-container">{cate.name}</div>
-                    {/* {currentUser.id === business.ownerId ? (
-
-                        <button className="category-delete-button" onClick={() => toDelete(cate.id)}>
-                            <i className="fa-solid fa-xmark"></i>
-                        </button>
-                    ) : null
-                    } */}
-                </div>
-
-
-            ))}
-
-
-        </div>
+    )
 }

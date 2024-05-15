@@ -61,11 +61,13 @@ export default function BusinessDetails() {
             )
         }
     }
+
     const toDelete = async (e) => {
         e.preventDefault()
         dispatch(deleteABusiness(businessId))
         history.push('/')
     }
+
     return isLoaded && business ? (
         <>
             <div className="cover-whole-webpage-details">
