@@ -41,21 +41,21 @@ export default function Businesses() {
 
 
 
-    // Category Filter
-    useEffect(() => {
-        let picked = []
-        businesses.forEach(bus => {
-            if (bus.categories) {
-                bus.categories.forEach(cat => {
-                    if (cat.name === selectedCate) {
-                        picked.push(bus)
-                    }
-                })
-            }
-            setSelection(picked)
-        })
+    // // Category Filter
+    // useEffect(() => {
+    //     let picked = []
+    //     businesses.forEach(bus => {
+    //         if (bus.categories) {
+    //             bus.categories.forEach(cat => {
+    //                 if (cat.name === selectedCate) {
+    //                     picked.push(bus)
+    //                 }
+    //             })
+    //         }
+    //         setSelection(picked)
+    //     })
 
-    }, [selectedCate])
+    // }, [selectedCate])
 
 
     return isLoaded ? (
@@ -68,7 +68,7 @@ export default function Businesses() {
                 </div>
 
                 <div className="business-container-with-search">
-                    <div className="search-by-category-container">
+                    {/* <div className="search-by-category-container">
                         <button className={'business-category-item-not-picked'}
                             onClick={() => { setSelectedCate([]) }}
                             type='button'> All Businesses
@@ -76,7 +76,7 @@ export default function Businesses() {
                         {categories.map(cate => (
                             <SearchCategories cate={cate} businesses={businesses} selectedCate={selectedCate} setSelectedCate={setSelectedCate} setSelection={setSelection} />
                         ))}
-                    </div>
+                    </div> */}
 
                     {selectedCate.length > 0 ? selection.map((bus, idx) => (
                         (<div key={bus.id} className='business-container'>
