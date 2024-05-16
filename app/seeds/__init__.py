@@ -24,8 +24,8 @@ def seed():
     seed_users()
     seed_businesses()
     seed_reviews()
-    seed_join_tables()
     seed_category()
+    seed_join_tables()
 
 
 # Creates the `flask seed undo` command
@@ -33,7 +33,7 @@ def seed():
 def undo():
     undo_users()
     undo_businesses()
+    undo_category()
     undo_reviews()
     undo_join_tables()
-    undo_category()
     # Add other undo functions here
