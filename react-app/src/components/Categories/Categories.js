@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from 'react'
 import { getAllCategories } from '../../store/categories'
 
-
+//NOT USED
 export default function Categories() {
     const dispatch = useDispatch()
     const Cate = useSelector(state => state.categories)

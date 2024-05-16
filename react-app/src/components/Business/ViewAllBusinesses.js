@@ -14,33 +14,35 @@ export default function Businesses() {
     const [isLoaded, setIsLoaded] = useState(true)
 
     const businessesList = useSelector(state => state.businesses)
+    const categoriesList = useSelector(state => state.categories)
 
-    const [categories, setCategories] = useState([])
+    // const [categories, setCategories] = useState([])
 
     const [selectedCate, setSelectedCate] = useState([])
     const [selection, setSelection] = useState([])
 
 
     const businesses = Object.values(businessesList)
+    const categories = Object.values(categoriesList)
 
 
     useEffect(() => {
-        dispatch(getAllBusinesses()).then(() => setIsLoaded(true))
+        dispatch(getAllBusinesses()).then(() => dispatch(getAllCategories())).then(() => setIsLoaded(true))
 
     }, [])
 
     // fetching the categories directly
-    useEffect(() => {
-        async function fetchData() {
-            const response = await fetch('/api/categories')
+    // useEffect(() => {
+    //     async function fetchData() {
+    //         const response = await fetch('/api/categories')
 
-            if (response.ok) {
-                const data = await response.json()
-                setCategories(data.categories)
-            }
-        }
-        fetchData()
-    }, [])
+    //         if (response.ok) {
+    //             const data = await response.json()
+    //             setCategories(data.categories)
+    //         }
+    //     }
+    //     fetchData()
+    // }, [])
 
 
 
@@ -139,7 +141,7 @@ export default function Businesses() {
                                         <img
                                             className="business-image"
                                             src={bus.image}
-                                            alt={bus.name} react-app
+                                            alt={bus.name}
                                             onError={e => { e.currentTarget.src = '/static/images/restpic/pexels-aleksandar-pasaric-3342739.jpg' }}
 
                                         />
