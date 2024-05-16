@@ -14,34 +14,33 @@ export default function Businesses() {
     const [isLoaded, setIsLoaded] = useState(true)
 
     const businessesList = useSelector(state => state.businesses)
-    const cateList = useSelector(state => state.categories)
-    // const [categories, setCategories] = useState([])
+
+    const [categories, setCategories] = useState([])
 
     const [selectedCate, setSelectedCate] = useState([])
     const [selection, setSelection] = useState([])
 
 
     const businesses = Object.values(businessesList)
-    const categories = Object.values(cateList)
 
 
     useEffect(() => {
-        dispatch(getAllBusinesses()).then(() => dispatch(getAllCategories())).then(() => setIsLoaded(true))
+        dispatch(getAllBusinesses()).then(() => setIsLoaded(true))
 
     }, [])
 
+    // fetching the categories directly
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch('/api/categories')
 
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         const response = await fetch('/api/categories')
-
-    //         if (response.ok) {
-    //             const data = await response.json()
-    //             setCategories(data.categories)
-    //         }
-    //     }
-    //     fetchData()
-    // }, [])
+            if (response.ok) {
+                const data = await response.json()
+                setCategories(data.categories)
+            }
+        }
+        fetchData()
+    }, [])
 
 
 
@@ -60,7 +59,6 @@ export default function Businesses() {
         })
 
     }, [selectedCate])
-    console.log(categories, "TESTTESTTETS")
 
 
     return isLoaded ? (

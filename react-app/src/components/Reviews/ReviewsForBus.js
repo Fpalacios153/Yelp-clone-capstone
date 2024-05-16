@@ -11,21 +11,23 @@ import './ReviewofUsers.css'
 export default function ReviewsForOneBus() {
     const dispatch = useDispatch()
     const { businessId } = useParams()
+
     const [loaded, setLoaded] = useState(false)
+
     const reviews = useSelector(state => state.reviews)
     const reviewArr = Object.values(reviews).filter(review => +review.businessId === +businessId)
+
     const currentUser = useSelector(state => state.session.user)
-    // const users = useSelector(state => state.user)
 
 
     useEffect(() => {
         dispatch(getAllReviews())
-            // .then(() => dispatch(getAllUsers()))
             .then(() => setLoaded(true))
     }, [dispatch])
+
     const toDelete = async (id) => {
-        await dispatch(deleteAReview(id))
-        await dispatch(getAllBusinesses())
+        dispatch(deleteAReview(id))
+        dispatch(getAllBusinesses())
 
 
     }

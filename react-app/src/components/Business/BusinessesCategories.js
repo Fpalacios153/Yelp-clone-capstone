@@ -1,14 +1,17 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { getOneCategories, toRemoveCategories } from "../../store/categories"
 import './BusinesseCategories.css'
 
 export default function GetCategoriesOfBusiness({ business, currentUser }) {
+
     const dispatch = useDispatch()
     const { businessId } = useParams()
+
     const businessCategories = useSelector(state => state.categories)
     const businessCategoriesArr = Object.values(businessCategories)
+
 
     useEffect(() => {
         dispatch(getOneCategories(businessId))
@@ -32,8 +35,6 @@ export default function GetCategoriesOfBusiness({ business, currentUser }) {
                         ) : null
                         }
                     </div>
-
-
                 ))}
             </div>
         </>

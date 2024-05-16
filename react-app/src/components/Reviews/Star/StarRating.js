@@ -3,24 +3,6 @@ import './StarRating.css'
 
 export default function StarRating({ rating, setRating, setHover, hover }) {
     const ratings = ['1', '2', "3", "4", "5"]
-    // const [edit, setEdit] = useState(0)
-
-    // const diffSayings = () => {
-    //     if (hover === 5) {
-    //         <div>Great</div>
-    //     } else if (hover === 4) {
-    //         <div>Good</div>
-    //     } else if (hover === 3) {
-    //         <div>Good</div>
-    //     } else if (hover === 2) {
-    //         <div>Good</div>
-    //     } else if (hover === 1) {
-    //         <div>Good</div>
-    //     } else {
-    //         <div>Select your rating</div>
-    //     }
-    // }
-
 
     return (
         <>

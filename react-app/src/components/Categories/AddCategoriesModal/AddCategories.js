@@ -34,8 +34,7 @@ export default function AddCategories({ setShowModal }) {
         })
 
         await dispatch(toAddCategories(businessId, categoriesToAdd))
-        await dispatch(getOneCategories(businessId))
-        await dispatch(getAllBusinesses())
+
         await setShowModal(false)
     }
     return categories.length > 0 ? (

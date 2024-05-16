@@ -31,6 +31,13 @@ def get_one_review(id):
 @review_routes.route("/business/<int:id>")
 def get_all_from_specifiy_buisness(id):
     theBusiness= Business.query.get(id)
+    # come back to this to add user info
+    # review =[]
+    # for review in theBusiness:
+    #     review_dict = review.to_dict()
+    #     review_dict['user']= review.user.to_dict()
+    #     review.append(review_dict)
+
     review = [review.to_dict() for review in theBusiness.review]
     return {"review": review}
 

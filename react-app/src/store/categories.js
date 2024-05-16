@@ -86,7 +86,9 @@ export default function categoryReducer(state = initialState, action) {
             return { ...OneCate }
         case ADD_CATEGORIES:
             newState = { ...state }
-            newState[action.categories.id] = { ...action.categories }
+            action.categories.category.forEach((cat) => {
+                newState[cat.id] = { ...cat }
+            })
             return newState
         case REMOVE_CATEGORIES:
             newState = { ...state }

@@ -123,7 +123,7 @@ export default function BusinessDetails() {
                     </div>
                     <BusinessesCategories business={business} currentUser={currentUser} />
                     <div>
-                        <ReviewsForOneBus />
+                        <ReviewsForOneBus business={business} />
                     </div>
                 </div>
                 <Footer />
