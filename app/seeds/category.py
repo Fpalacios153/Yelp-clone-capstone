@@ -2,7 +2,7 @@ from ..models import db, Category
 
 def seed_category():
 
-    categories = ['Burgers', 'Pizza', 'Italian']
+    categories = ['Burgers', 'Pizza', 'Italian', 'Chinese', 'Japanese', 'Mexican', 'Thai', "Takeout", "Delivery"]
 
     category_inputs = [Category(name=cate) for cate in categories]
 

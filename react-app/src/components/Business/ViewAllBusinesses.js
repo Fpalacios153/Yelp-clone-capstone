@@ -60,6 +60,7 @@ export default function Businesses() {
         })
 
     }, [selectedCate])
+    console.log(categories, "TESTTESTTETS")
 
 
     return isLoaded ? (
@@ -79,7 +80,8 @@ export default function Businesses() {
                         </button>
                         {categories.map(cate => (
                             <SearchCategories cate={cate} businesses={businesses} selectedCate={selectedCate} setSelectedCate={setSelectedCate} setSelection={setSelection} />
-                        ))}
+                        ))
+                        }
                     </div>
 
                     {selectedCate.length > 0 ? selection.map((bus, idx) => (
@@ -107,11 +109,14 @@ export default function Businesses() {
                                         </div>
                                         <div className="entire-category-container-view-all">
 
-                                            {bus.categories && bus.categories.map(cate => (
-                                                <div className='business-category-item-view-all' key={cate.id}>
-                                                    <div className="category-button-container-view-all">{cate.name}</div>
-                                                </div>
-                                            ))}
+                                            {bus.categories ?
+                                                bus.categories.map(cate => (
+                                                    <div className='business-category-item-view-all' key={cate.id}>
+                                                        <div className="category-button-container-view-all">{cate.name}</div>
+                                                    </div>
+                                                )) :
+                                                null
+                                            }
                                         </div>
                                         <div className="business-review-container">
                                             <i className="fa-regular fa-comment"></i>
@@ -128,56 +133,57 @@ export default function Businesses() {
                             </NavLink>
 
                         </div>))
-                    ) : businesses.map((bus, idx) => (
-                        <div key={bus.id} className='business-container'>
-                            <NavLink className='navlink-business-list' to={`/businesses/${bus.id}`}>
-                                <div className="business-list">
-                                    <img
-                                        className="business-image"
-                                        src={bus.image}
-                                        alt={bus.name} react-app
-                                        onError={e => { e.currentTarget.src = '/static/images/restpic/pexels-aleksandar-pasaric-3342739.jpg' }}
+                    ) :
+                        businesses.map((bus, idx) => (
+                            <div key={bus.id} className='business-container'>
+                                <NavLink className='navlink-business-list' to={`/businesses/${bus.id}`}>
+                                    <div className="business-list">
+                                        <img
+                                            className="business-image"
+                                            src={bus.image}
+                                            alt={bus.name} react-app
+                                            onError={e => { e.currentTarget.src = '/static/images/restpic/pexels-aleksandar-pasaric-3342739.jpg' }}
 
-                                    />
-                                    <div className="business-text-container">
-                                        <div className="business-name">
-                                            {idx + 1}.
-                                            <div style={{ paddingLeft: '5px' }}>
-                                                {bus.name}
+                                        />
+                                        <div className="business-text-container">
+                                            <div className="business-name">
+                                                {idx + 1}.
+                                                <div style={{ paddingLeft: '5px' }}>
+                                                    {bus.name}
+                                                </div>
+                                            </div>
+
+                                            <div className="business-average">
+                                                <AverageStarRating reviewAverage={bus.reviewAverage} />
+                                                <span style={{ fontWeight: '500', paddingLeft: '10px', paddingRight: '5px' }}>{bus.reviewAverage > 0 ? bus.reviewAverage.toFixed(1) : 0}</span>
+                                                {' '}({bus.reviewCount > 0 ? bus.reviewCount : 0} reviews)
+                                            </div>
+
+                                            <div className="entire-category-container-view-all">
+                                                {bus.categories ? bus.categories.map(cate => (
+                                                    <div className='business-category-item-view-all' key={cate.id}>
+                                                        <div className="category-button-container-view-all">{cate.name}</div>
+                                                    </div>
+                                                )) : null
+                                                }
+                                            </div>
+                                            <div className="business-review-container">
+                                                <i className="fa-regular fa-comment"></i>
+                                                {bus.reviews ? (
+                                                    <span style={{ paddingLeft: '5px', color: '#6E7072' }}>
+                                                        "{bus.reviews[0].review.length < 150 ? bus.reviews[0].review :
+                                                            `${bus.reviews[0].review.slice(0, 150)}...see more`}
+                                                    </span>
+
+                                                ) :
+                                                    <span style={{ paddingLeft: '5px', color: '#6E7072' }}>"No Reviews yet"</span>
+                                                }
                                             </div>
                                         </div>
-
-                                        <div className="business-average">
-                                            <AverageStarRating reviewAverage={bus.reviewAverage} />
-                                            <span style={{ fontWeight: '500', paddingLeft: '10px', paddingRight: '5px' }}>{bus.reviewAverage > 0 ? bus.reviewAverage.toFixed(1) : 0}</span>
-                                            {' '}({bus.reviewCount > 0 ? bus.reviewCount : 0} reviews)
-                                        </div>
-
-                                        <div className="entire-category-container-view-all">
-
-                                            {bus.categories && bus.categories.map(cate => (
-                                                <div className='business-category-item-view-all' key={cate.id}>
-                                                    <div className="category-button-container-view-all">{cate.name}</div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                        <div className="business-review-container">
-                                            <i className="fa-regular fa-comment"></i>
-                                            {bus.reviews ? (
-                                                <span style={{ paddingLeft: '5px', color: '#6E7072' }}>
-                                                    "{bus.reviews[0].review.length < 150 ? bus.reviews[0].review :
-                                                        `${bus.reviews[0].review.slice(0, 150)}...see more`}
-                                                </span>
-
-                                            ) :
-                                                <span style={{ paddingLeft: '5px', color: '#6E7072' }}>"No Reviews yet"</span>
-                                            }
-                                        </div>
                                     </div>
-                                </div>
-                            </NavLink>
-                        </div>
-                    ))}
+                                </NavLink>
+                            </div>
+                        ))}
                 </div>
 
                 {selection.length === 0 && selectedCate.length > 0 ?
@@ -190,7 +196,8 @@ export default function Businesses() {
                             type='button'>Back to All Businesses
                         </button>
                     </div>
-                    : null
+                    :
+                    null
                 }
             </div >
             <Footer />
