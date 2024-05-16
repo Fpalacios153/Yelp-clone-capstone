@@ -54,10 +54,11 @@
 }
 
 .business-image {
-    width: 13.5em;
+    width: 27%;
     height: 13.5em;
     border-radius: 11%;
     padding: 1.5em;
+    /* margin: 10px; */
 
 }
 

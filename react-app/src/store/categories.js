@@ -77,27 +77,27 @@ export default function categoryReducer(state = initialState, action) {
             action.categories.categories.forEach(category => {
                 allCate[category.id] = category
             })
-            console.log(action.categories.categories, "ACTION")
-            console.log(allCate, "ALLLCATE")
             return { ...allCate }
+
         case GET_ONE_BUSI_CATEGORIES:
             const OneCate = {}
             action.categories.categories.forEach(category => {
                 OneCate[category.id] = category
             })
-            console.log(action.categories.categories, "ACTIONONE")
-            console.log(OneCate, "oneCate")
             return { ...OneCate }
+
         case ADD_CATEGORIES:
             newState = { ...state }
             action.categories.category.forEach((cat) => {
                 newState[cat.id] = cat
             })
             return newState
+
         case REMOVE_CATEGORIES:
             newState = { ...state }
             delete newState[action.id]
             return newState
+
         default:
             return state
     }
