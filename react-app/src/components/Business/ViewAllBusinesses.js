@@ -7,37 +7,41 @@ import AverageStarRating from "../AverageStarRating"
 import SearchCategories from "../Categories/SearchCategory"
 import Footer from "../Footer"
 import './ViewAll.css'
+import { getAllCategories } from "../../store/categories"
 
 export default function Businesses() {
     const dispatch = useDispatch()
     const [isLoaded, setIsLoaded] = useState(true)
 
     const businessesList = useSelector(state => state.businesses)
-    const [categories, setCategories] = useState([])
+    const cateList = useSelector(state => state.categories)
+    // const [categories, setCategories] = useState([])
 
     const [selectedCate, setSelectedCate] = useState([])
     const [selection, setSelection] = useState([])
 
 
     const businesses = Object.values(businessesList)
+    const categories = Object.values(cateList)
 
 
     useEffect(() => {
-        dispatch(getAllBusinesses()).then(() => setIsLoaded(true))
+        dispatch(getAllBusinesses()).then(() => dispatch(getAllCategories())).then(() => setIsLoaded(true))
 
     }, [])
 
-    useEffect(() => {
-        async function fetchData() {
-            const response = await fetch('/api/categories')
 
-            if (response.ok) {
-                const data = await response.json()
-                setCategories(data.categories)
-            }
-        }
-        fetchData()
-    }, [])
+    // useEffect(() => {
+    //     async function fetchData() {
+    //         const response = await fetch('/api/categories')
+
+    //         if (response.ok) {
+    //             const data = await response.json()
+    //             setCategories(data.categories)
+    //         }
+    //     }
+    //     fetchData()
+    // }, [])
 
 
 

@@ -8,6 +8,7 @@ export default function Categories() {
     const dispatch = useDispatch()
     const Cate = useSelector(state => state.categories)
     const cateArr = Object.values(Cate)
+
     useEffect(() => {
         dispatch(getAllCategories())
     }, [dispatch])
