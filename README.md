@@ -106,7 +106,7 @@
 - If the user wants to delete a review they previously posted, they can click on the "trash can" button 
 ![Screen Shot 2022-10-07 at 2 44 52 PM](https://user-images.githubusercontent.com/101391912/194664533-3543cbb3-279d-4305-a97f-8324c351113c.png)
 
-## Futuure Implementaion Goals
+## Future Implementaion Goals
 - I plan to add a favorites feature that will let you favorite businesses, and have them show on  users profile page in a favorites tab.
 - I also plan to add a friends feature that will allow you to add friends and have their recent activitites on the website appear on the users friends tab.
 - I aslo plan to add a search feature to search througth the businesses by name. This feature will also let you write a review by searching for the business. 
